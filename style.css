@@ -1,5 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
-p {
+.p {
   font-size: 24px;
+}
+.grandiflora-one-regular {
+  font-family: "Grandiflora One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
