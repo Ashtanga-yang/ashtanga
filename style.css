@@ -1,10 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
-.p {
-  font-size: 24px;
+p {
+  font-size: 16px;
+	 font-family: "Song Myung", serif;
 }
-.name-k {
-  font-family: "Grandiflora One", cursive;
+.song-myung-regular {
+  font-family: "Song Myung", serif;
   font-weight: 400;
   font-style: normal;
 }
