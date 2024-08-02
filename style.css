@@ -1,8 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 .container {
-  column-count: auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
 }
+@media (max-width: 600px) {
+  .container { display: block; }
 p {
 	margin: 15px 0 0 15px;
 	padding: 0 0 10px 0;
