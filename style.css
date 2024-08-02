@@ -1,11 +1,3 @@
-@charset "utf-8";
-/* CSS Document */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-}
-@media (max-width: 600px) {
-  .container { display: block; }
 p {
 	margin: 15px 0 0 15px;
 	padding: 0 0 10px 0;
@@ -22,3 +14,11 @@ p {
 }
 .sub1 {line-height: 1.3rem;}
 .sub2 {line-height: 1.3rem;}
+/* 본문 색상밑줄 */
+u{
+text-decoration:none;
+display:inline;
+box-shadow:inset 0 -10px #FFEB3B;
+color: #000000;
+}
+/* 본문 색상밑줄 끝 */
