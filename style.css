@@ -14,11 +14,8 @@ p {
 }
 .sub1 {line-height: 1.3rem;}
 .sub2 {line-height: 1.3rem;}
-/* 본문 색상밑줄 */
-u{
-text-decoration:none;
-display:inline;
-box-shadow:inset 0 -10px #FFEB3B;
-color: #000000;
+u {
+    text-decoration: none;
+    display: inline;
+    box-shadow: inset 0 -10px 0 hsla(53, 90%, 83%, 0.93); 
 }
-/* 본문 색상밑줄 끝 */
