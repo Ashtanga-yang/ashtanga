@@ -36,6 +36,7 @@ html{
 	width: 10px;
 	height: 10px;
 	color: #000;
+	text-align: center;
 }
 #sun *, #sun *:before, #sun *:after{
 	position: absolute;
