@@ -44,8 +44,8 @@ html{
 
 /* code for the rings */
 #rings{
-	top: 200px;
-	left: 200px;
+	top: 100px;
+	left: 100px;
 	z-index: 1;
 }
 #rings div:before, #rings div:after{
