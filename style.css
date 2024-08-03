@@ -27,7 +27,6 @@ u {
 html{
   scroll-behavior: smooth;}
 #circle { width : 100px; height : 100px; border-radius: 50%; 
-	 background-color: tomato;
-	  background-color: orange;
+	 background-color: yellow;
   box-shadow: 0 0 15px 5px yellow,0 0 15px 10px yellow;
 	position: absolute; top: 250px; left:250px;}
