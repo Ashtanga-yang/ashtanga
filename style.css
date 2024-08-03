@@ -47,6 +47,7 @@ html{
 	top: 100px;
 	left: 100px;
 	z-index: 1;
+	color: #fff;
 }
 #rings div:before, #rings div:after{
 	content: "";
