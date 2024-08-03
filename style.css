@@ -1,4 +1,6 @@
-body {background-image:url('circle.png');
+body {colof:#fff; 
+      background-image:url('circle.png');
+      background-repeat:no-repeat;
 }
 
 a:link { color: blue; text-decoration: none;}
