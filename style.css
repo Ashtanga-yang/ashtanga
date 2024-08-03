@@ -28,3 +28,6 @@ u {
 }
 html{
   scroll-behavior: smooth;}
+#circle { width : 100px; height : 100px; border-radius: 50%; 
+	 background-color: tomato;
+	position: absolute; top: 50%; left: 50%;}
