@@ -1,240 +1,257 @@
 body {
 }
-
-a:link { color: blue; text-decoration: none;}
-a:visited { color: blue; text-decoration: none;}
+a:link {
+	color:blue;
+	text-decoration:none;
+}
+a:visited {
+	color:blue;
+	text-decoration:none;
+}
 p {
-	margin: 15px 0 0 15px;
-	padding: 0 0 10px 0;
-	font-size: 1rem;
-	font-family: "Song Myung", serif;
-	line-height: 1.3rem;
-	color: black;
-
+	margin:15px 0 0 15px;
+	padding:0 0 10px 0;
+	font-size:1rem;
+	font-family:"Song Myung",serif;
+	line-height:1.3rem;
+	color:black;
 }
 .song-myung-regular {
-  font-family: "Song Myung", serif;
-  font-weight: 400;
-  font-style: normal;
+	font-family:"Song Myung",serif;
+	font-weight:400;
+	font-style:normal;
 }
-.sub1 {line-height: 1.3rem;}
-.sub2 {line-height: 1.3rem;}
+.sub1 {
+	line-height:1.3rem;
+}
+.sub2 {
+	line-height:1.3rem;
+}
 u {
-    text-decoration: none;
-    display: inline;
-    box-shadow: inset 0 -6px 0 black; 
+	text-decoration:none;
+	display:inline;
+	box-shadow:inset 0 -6px 0 black;
 }
-html{
-  scroll-behavior: smooth;}
-
-/* code for the sun  */
-#sun{
+html {
+	scroll-behavior: smooth;
+}
+/* code for the sun */
+#sun {
+	position:absolute;
+	top:230px;
+	left:240px;
+	margin:0;
+	width:10px;
+	height:10px;
+}
+#sun *,#sun *:before,#sun *:after {
 	position: absolute;
-	top: 230px;
-	left: 240px;
-	margin: 0;
-	width: 10px;
-	height: 10px;
 }
-#sun *, #sun *:before, #sun *:after{
-	position: absolute;
-}
-
 /* code for the rings */
-#rings{
-	top: 100px;
-	left: 100px;
-	z-index: 1;
+#rings {
+	top:100px;
+	left:100px;
+	z-index:1;
 }
-#rings div:before, #rings div:after{
-	content: "";
-	z-index: 2;
-	top: 0;
-	left: 0;
-	height: inherit;
-	width: inherit;
-	background: inherit;
+#rings div:before,#rings div:after {
+	content:"";
+	z-index:2;
+	top:0;
+	left:0;
+	height:inherit;
+	width:inherit;
+	background:inherit;
 }
-#rings div:before{
-	transform: rotate(60deg);
+#rings div:before {
+	transform:rotate(60deg);
 }
-#rings div:after{
-	transform: rotate(-60deg);
+#rings div:after {
+	transform:rotate(-60deg);
 }
-#rings div:nth-child(even){
-	animation: rotateR 12s infinite linear;
+#rings div:nth-child(even) {
+	animation:rotateR 12s infinite linear;
 }
-#rings div:nth-child(odd){
-	animation: rotateL 12s infinite linear;
-	transform: rotate(15deg);
+#rings div:nth-child(odd) {
+	animation:rotateL 12s infinite linear;
+	transform:rotate(15deg);
 }
-#rings div:nth-child(1){
-	animation-duration: 45s;
-	backgrond: rgba(255, 230, 84, 0.5);
-	width: 120px;
-	height: 120px;
-	margin: -100px 0 0 -100px;
+#rings div:nth-child(1) {
+	animation-duration:45s;
+	backgrond:rgba(255,230,84,0.5);
+	width:120px;
+	height:120px;
+	margin:-100px 0 0 -100px;
 }
-#rings div:nth-child(2){
-	animation-duration: 49s;
-	background: rgba(255, 185, 6, 0.5);
-	width: 110px;
-	height: 110px;
-	margin: -95px 0 0 -95px;
+#rings div:nth-child(2) {
+	animation-duration:49s;
+	background:rgba(255,185,6,0.5);
+	width:110px;
+	height:110px;
+	margin:-95px 0 0 -95px;
 }
-#rings div:nth-child(3){
-	animation-duration: 56s;
-	background: rgba(255, 130, 5, 0.5);
-	width: 100px;
-	height: 100px;
-	margin: -90px 0 0 -90px;
+#rings div:nth-child(3) {
+	animation-duration:56s;
+	background:rgba(255,130,5,0.5);
+	width:100px;
+	height:100px;
+	margin:-90px 0 0 -90px;
 }
-#ringsv idiv:nth-child(4){
-	animation-duration: 93s;
-	background: rgba(255, 90, 0, 0.5);
-	width: 90px;
-	height: 90px;
+#ringsv idiv:nth-child(4) {
+	animation-duration:93s;
+	background:rgba(255,90,0,0.5);
+	width:90px;
+	height:90px;
 	margin: -85px 0 0 -85px;
 }
-
 /* animations */
-@-webkit-keyframes rotateR{
-	from{
-		-webkit-transform: rotate(0deg);
+@-webkit-keyframes rotateR {
+	from {
+			-webkit-transform:rotate(0deg);
 	}
-	to{
-		-webkit-transform: rotate(360deg);
-	}
-}
-@-moz-keyframes rotateR{
-	from{
-		-moz-transform: rotate(0deg);
-	}
-	to{
-		-moz-transform: rotate(360deg);
+	to {
+			-webkit-transform:rotate(360deg);
 	}
 }
-@-ms-keyframes rotateR{
-	from{
-		-ms-transform: rotate(0deg);
+@-moz-keyframes rotateR {
+	from {
+			-moz-transform:rotate(0deg);
 	}
-	to{
-		-ms-transform: rotate(360deg);
-	}
-}
-@-o-keygrames rotateR{
-	from{
-		-o-transform: rotate(0deg);
-	}
-	to{
-		-o-transform: rotate(360deg);
+	to {
+			-moz-transform:rotate(360deg);
 	}
 }
-@keyframes rotateR{
-	from{
-		transform: rotate(0deg);
+@-ms-keyframes rotateR {
+	from {
+			-ms-transform:rotate(0deg);
 	}
-	to{
-		transform: rotate(360deg);
-	}
-}
-@-webkit-keyframes rotateL{
-	from{
-		-webkit-transform: rotate(360deg);
-	}
-	to{
-		-webkit-transform: rotate(0deg);
+	to {
+			-ms-transform:rotate(360deg);
 	}
 }
-@-moz-keyframes rotateL{
-	from{
-		-moz-transform: rotate(360deg);
+@-o-keygrames rotateR {
+	from {
+			-o-transform:rotate(0deg);
 	}
-	to{
-		-webkit-transform: rotate(0deg);
-	}
-}
-@-ms-keyframes rotateL{
-	from{
-		-ms-transform: rotate(360deg);
-	}
-	to{
-		-ms-transform: rotate(0deg);
+	to {
+			-o-transform:rotate(360deg);
 	}
 }
-@-o-keyframes rotateL{
-	from{
-		-o-transform: rotate(360deg);
+@keyframes rotateR {
+	from {
+			transform:rotate(0deg);
 	}
-	to{
-		-o-transform: rotate(0deg)
-	}
-}
-@keyframes rotateL{
-	from{
-		transform: rotate(360deg);
-	}
-	to{
-		transform: rotate(0deg);
+	to {
+			transform:rotate(360deg);
 	}
 }
-
+@-webkit-keyframes rotateL {
+	from {
+			-webkit-transform:rotate(360deg);
+	}
+	to {
+			-webkit-transform:rotate(0deg);
+	}
+}
+@-moz-keyframes rotateL {
+	from {
+			-moz-transform:rotate(360deg);
+	}
+	to {
+			-webkit-transform:rotate(0deg);
+	}
+}
+@-ms-keyframes rotateL {
+	from {
+			-ms-transform:rotate(360deg);
+	}
+	to {
+			-ms-transform:rotate(0deg);
+	}
+}
+@-o-keyframes rotateL {
+	from {
+			-o-transform:rotate(360deg);
+	}
+	to {
+			-o-transform:rotate(0deg)
+	}
+}
+@keyframes rotateL {
+	from {
+			transform:rotate(360deg);
+	}
+	to {
+			transform:rotate(0deg);
+	}
+}
 .moon {
-  width: 100px;
-  height: 100px;
-	margin-left: 15px;
-  border: 2px solid #FAFA33;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  background-color: #fff;
-  transform: translateZ(0);
-  
-  &::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0; left: 0;
-    background-color: #FAFA33;
-    width: 50%; height: 100%;
-    animation: flip 4s 2s steps(2) infinite alternate;
-  }
+	width:100px;
+	height:100px;
+	margin-left:15px;
+	border:2px solid #FAFA33;
+	border-radius:50%;
+	overflow:hidden;
+	position:relative;
+	background-color:#fff;
+	transform:translateZ(0);
+	&::before {
+		content:" ";
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		background-color:#FAFA33;
+		width:50%;
+		height:100%;
+		animation:flip 4s 2s steps(2) infinite alternate;
+	}
 }
-
 .disc {
-  transform-style: preserve-3d;
-  width: 100%;
-  height: 100%;
-  animation: rotate 8s linear infinite;
-  
-  &::before, &::after {
-    content: " ";
-    display: block;
-    transform-style: preserve-3d;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    transition: transform 8s;
-    position: absolute;
-    backface-visibility: hidden;
-  }
-  &::before {
-    background-color: #FAFA33;
-  }
-  &::after {
-    background-color: #fff;
-    transform: rotateY(180deg);
-  }
+	transform-style:preserve-3d;
+	width:100%;
+	height:100%;
+	animation:rotate 8s linear infinite;
+	&::before,&::after {
+		content:" ";
+		display:block;
+		transform-style:preserve-3d;
+		width:100%;
+		height:100%;
+		border-radius:50%;
+		transition:transform 8s;
+		position:absolute;
+		backface-visibility:hidden;
+	}
+	&::before {
+		background-color:#FAFA33;
+	}
+	&::after {
+		background-color:#fff;
+		transform:rotateY(180deg);
+	}
 }
-
 @keyframes rotate {
-  0%   { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
+	0% {
+		transform:rotateY(0deg);
+	}
+	100% {
+		transform:rotateY(360deg);
+	}
 }
-
 @keyframes flip {
-  0%   { left: 0; }
-  100% { left: 100%; }
+	0% {
+		left:0;
+	}
+	100% {
+		left:100%;
+	}
 }
-
-.no-scroll { -ms-overflow-style: none; /* IE, Edge */ scrollbar-width: none; /* Firefox */ } .no-scroll::-webkit-scrollbar { display: none; /* Chrome, Safari, Opera */ }
+.no-scroll {
+	-ms-overflow-style:none;
+	/* IE,Edge */ scrollbar-width:none;
+	/* Firefox */
+}
+.no-scroll::-webkit-scrollbar {
+	display: none;
+	/* Chrome,Safari,Opera */
+}
