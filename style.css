@@ -236,3 +236,8 @@ html{
   0%   { left: 0; }
   100% { left: 100%; }
 }
+
+.no-scroll { -ms-overflow-style: none; /* IE, Edge */ scrollbar-width: none; /* Firefox */ } .no-scroll::-webkit-scrollbar { display: none; /* Chrome, Safari, Opera */ }
+
+
+
