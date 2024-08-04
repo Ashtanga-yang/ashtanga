@@ -182,12 +182,12 @@ html{
 .moon {
   width: 100px;
   height: 100px;
-  border: 2px solid #FCF55F;
+  border: 2px solid #FAFA33;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
 	margin-left:15px;
-  background-color: #FCF55F;
+  background-color: #FAFA33;
   transform: translateZ(0);
   
   &::before {
@@ -222,7 +222,7 @@ html{
     background-color: #fff;
   }
   &::after {
-    background-color: #FCF55F;
+    background-color: #FAFA33;
     transform: rotateY(180deg);
   }
 }
