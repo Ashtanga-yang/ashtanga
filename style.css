@@ -188,7 +188,7 @@ html {
 	width:100px;
 	height:100px;
 	margin-left:15px;
-	border:2px solid #c9c9c9;
+	border:2px solid #e5e5e5;
 	border-radius:50%;
 	overflow:hidden;
 	position:relative;
@@ -200,7 +200,7 @@ html {
 		position:absolute;
 		top:0;
 		left:0;
-		background-color:#c9c9c9;
+		background-color:#e5e5e5;
 		width:50%;
 		height:100%;
 		animation:flip 4s 2s steps(2) infinite alternate;
@@ -223,7 +223,7 @@ html {
 		backface-visibility:hidden;
 	}
 	&::before {
-		background-color:#c9c9c9;
+		background-color:#e5e5e5;
 	}
 	&::after {
 		background-color:#FAFA33;
