@@ -192,7 +192,7 @@ html {
 	border-radius:50%;
 	overflow:hidden;
 	position:relative;
-	background-color:lemon-yellow;
+	background-color:#FFEA00;
 	transform:translateZ(0);
 	&::before {
 		content:" ";
