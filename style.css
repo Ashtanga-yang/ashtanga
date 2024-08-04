@@ -192,7 +192,7 @@ html {
 	border-radius:50%;
 	overflow:hidden;
 	position:relative;
-	background-color:#FFEA00;
+	background-color:#FAFA33;
 	transform:translateZ(0);
 	&::before {
 		content:" ";
@@ -226,7 +226,7 @@ html {
 		background-color:#c9c9c9;
 	}
 	&::after {
-		background-color:#fff;
+		background-color:#FAFA33;
 		transform:rotateY(180deg);
 	}
 }
