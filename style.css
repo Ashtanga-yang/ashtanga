@@ -27,7 +27,7 @@ p {
 .sub2 {
 	line-height:1.3rem;
 }
-.md { font-size:1.3rem; vertical-align: -3px; padding:10px 5px 0 10px; }
+.md { font-size:1.3rem; vertical-align: -2px; padding:10px 5px 0 10px; }
 .md1 { font-size: 0.8rem; padding:0 10px 0 0;}	
 u {
 	text-decoration:none;
