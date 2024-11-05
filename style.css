@@ -26,6 +26,7 @@ p {
   top: 0;
   left: 0;
   z-index: -1;
+opacity: 0.15;
 }
 .sub1 {
 	line-height:1.3rem;
