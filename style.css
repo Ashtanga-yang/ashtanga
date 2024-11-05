@@ -23,6 +23,7 @@ p {
 }
 .bg-video {
   position:relative;
+margin-right:15px;
   top: 0;
   left: 0;
   z-index: -1;
