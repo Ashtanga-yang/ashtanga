@@ -25,7 +25,10 @@
     $(function() {
       const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
       const today = new Date().getDay();
-      $("ul li").eq(today).addClass("current-day").text(`${days[today]} (오늘)`).prependTo("ul");
+      const todayItem = $("ul li").eq(today);
+
+      todayItem.addClass("current-day");
+      todayItem.contents().first().replaceWith(`${days[today]} (오늘)`);
     });
   </script>
 </body>
