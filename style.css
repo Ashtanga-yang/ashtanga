@@ -298,5 +298,6 @@ font-size:1rem;
 .bom { color:ForestGreen;}
 .ram { color:#fe6000;}
 .yoil {   font-family: "Nanum Gothic", serif;
-  font-weight: 800;
+  font-weight: 700;
+       font-size:0.8rem;
   font-style: normal; }
