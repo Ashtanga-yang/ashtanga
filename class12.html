@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga Schedule</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Song Myung', serif;
+    }
+
+    ul {
+      padding: 0;
+      margin: 10rem 0;
+      line-height: 1.5rem;
+      color: black;
+    }
+
+    li {
+      list-style: none;
+      margin: 0 0 1.5rem 15px;
+    }
+
+    .current-day {
+      font-size: 1.3rem;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .content {
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    /* 하단 고정 메뉴 */
+    .fixed-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #333;
+      padding: 10px 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .fixed-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      text-align: center;
+      flex: 1;
+      padding: 10px 0;
+    }
+
+    .fixed-menu a:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 로고 -->
+<div style="text-align: center; margin-top: 1rem;">
+  <img src="logo.jpg" width="50px" alt="Logo">
+</div>
+
+<!-- 스케줄 -->
+<ul>
+  <li>Monday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔<br>
+  요가봄 | pm 06:30 - 08:30 | 아쉬탕가요가 마이솔</div></li>
+  <li>Tuesday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
+  <li>Wednesday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔<br>
+  요가람 | pm 06:30 - 06:30 | 하타 아사나<br>
+  요가람 | pm 07:50 - 08:50 | 아쉬탕가요가<br>
+  요가람 | pm 09:00 - 10:00 | 하타 아사나</div></li>
+  <li>Thursday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
+  <li>Friday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
+  <li>Saturday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
+  <li>Sunday<div class="content">요가봄 | am 09:30 - 11:30 | 아쉬탕가요가 마이솔</div></li>
+</ul>
+
+<!-- 오늘 요일 강조 -->
+<script>
+  $(function() {
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const today = (new Date().getDay() + 6) % 7; // 요일 보정 (0=Sunday, 1=Monday, ..., 6=Saturday)
+    const todayItem = $("ul li").eq(today);
+
+    todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} (오늘)`);
+  });
+</script>
+
+<!-- 하단 고정 메뉴 -->
+<div class="fixed-menu">
+  <a href="index.html">Home</a>
+  <a href="moonday.html">Moon Day</a>
+  <a href="https://open.kakao.com/o/sCpd2RLf">Contact</a>
+</div>
+
+</body>
+</html>
