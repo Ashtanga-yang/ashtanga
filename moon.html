@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KASI Moon Days</title>
+</head>
+<body>
+  <h1>Moon Days Calculator</h1>
+  <p>Enter a year to find New Moons and Full Moons:</p>
+  <form id="moonForm">
+    <label for="year">Year:</label>
+    <input type="number" id="year" value="2025" required>
+    <button type="submit">Calculate</button>
+  </form>
+  <h2>Results:</h2>
+  <div id="results">
+    <h3>New Moons:</h3>
+    <ul id="newMoons"></ul>
+    <h3>Full Moons:</h3>
+    <ul id="fullMoons"></ul>
+  </div>
+
+  <script>
+    document.getElementById("moonForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const year = document.getElementById("year").value;
+      const serviceKey = "YOUR_API_KEY"; // 여기에 발급받은 KASI API 키를 입력하세요
+      const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${year}&numOfRows=100`;
+
+      try {
+        // API 요청 보내기
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error("Failed to fetch Moon data");
+        }
+
+        const textData = await response.text(); // XML 형식으로 데이터 수신
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(textData, "application/xml");
+
+        // 결과 리스트 초기화
+        const newMoonsList = document.getElementById("newMoons");
+        const fullMoonsList = document.getElementById("fullMoons");
+        newMoonsList.innerHTML = "";
+        fullMoonsList.innerHTML = "";
+
+        // XML 데이터를 순회하며 신월 및 보름달 필터링
+        const items = xmlDoc.getElementsByTagName("item");
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          const lunAge = parseFloat(item.getElementsByTagName("lunAge")[0].textContent);
+          const date = item.getElementsByTagName("solDate")[0].textContent;
+
+          if (lunAge === 0) {
+            // 신월
+            const li = document.createElement("li");
+            li.textContent = date;
+            newMoonsList.appendChild(li);
+          } else if (lunAge === 15) {
+            // 보름달
+            const li = document.createElement("li");
+            li.textContent = date;
+            fullMoonsList.appendChild(li);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching Moon data:", error);
+        alert("Failed to fetch Moon data. Please check your API key or try again later.");
+      }
+    });
+  </script>
+</body>
+</html>
