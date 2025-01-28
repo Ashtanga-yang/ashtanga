@@ -51,11 +51,44 @@
       transform: translateY(0%);
     }
 
+    /* 모래를 위한 스타일 */
+    .sand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: #d1a34d;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sandDrop 2s infinite;
+    }
+
+    @keyframes sandDrop {
+      0% {
+        opacity: 0;
+        top: 50%;
+      }
+      50% {
+        opacity: 1;
+        top: 90%;
+      }
+      100% {
+        opacity: 0;
+        top: 50%;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="hourglass"></div>
+  <div class="hourglass">
+    <!-- 모래를 추가 -->
+    <div class="sand"></div>
+    <div class="sand" style="animation-delay: 0.2s;"></div>
+    <div class="sand" style="animation-delay: 0.4s;"></div>
+    <div class="sand" style="animation-delay: 0.6s;"></div>
+  </div>
 
   <script>
     const hourglass = document.querySelector('.hourglass');
