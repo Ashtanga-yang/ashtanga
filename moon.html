@@ -37,10 +37,7 @@
 <body>
   <h1>Moon Day Checker</h1>
   <div class="container">
-    <p>Enter a year to see New Moon and Full Moon dates:</p>
-    <input type="number" id="yearInput" value="2025" placeholder="Enter year" required>
-    <button onclick="fetchMoonDays()">Get Moon Days</button>
-
+    <p id="yearDisplay"></p>
     <div class="moon-days" id="moonDays">
       <!-- Moon days will be displayed here -->
     </div>
@@ -49,14 +46,15 @@
   <script>
     const serviceKey = "2iaROfIsgWz4c2VRC3EyV8QBvrUurWFf4Qo06ZpA8lM163O7pkn89xI6R1o6vaU2JvvPGU%2FiV76ogJX55hRGjw%3D%3D
 "; // KASI API 키를 여기에 입력하세요
+    const currentYear = new Date().getFullYear(); // 현재 연도 자동 감지
+    const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${currentYear}&numOfRows=100`;
+
+    const yearDisplay = document.getElementById('yearDisplay');
+    const moonDaysContainer = document.getElementById('moonDays');
+
+    yearDisplay.textContent = `${currentYear} Moon Days`;
 
     async function fetchMoonDays() {
-      const year = document.getElementById('yearInput').value;
-      const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${year}&numOfRows=100`;
-
-      const moonDaysContainer = document.getElementById('moonDays');
-      moonDaysContainer.innerHTML = ''; // 결과 초기화
-
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -69,7 +67,7 @@
 
         const items = xmlDoc.getElementsByTagName('item');
         if (items.length === 0) {
-          moonDaysContainer.innerHTML = '<p class="error">No data available for the selected year.</p>';
+          moonDaysContainer.innerHTML = '<p class="error">No data available for the current year.</p>';
           return;
         }
 
@@ -117,6 +115,9 @@
       const days = ['일', '월', '화', '수', '목', '금', '토'];
       return days[date.getDay()];
     }
+
+    // 페이지 로드 시 Moon Day 데이터 가져오기
+    fetchMoonDays();
   </script>
 </body>
 </html>
