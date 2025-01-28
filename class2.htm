@@ -24,11 +24,11 @@
   <script>
     $(function() {
       const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-      const today = new Date().getDay();
+      const today = new Date().getDay(); // 오늘 요일 계산 (0=Sunday, 1=Monday, ...)
       const todayItem = $("ul li").eq(today);
 
-      todayItem.addClass("current-day");
-      todayItem.contents().first().replaceWith(`${days[today]} (오늘)`);
+      // 오늘 요일에 "(오늘)" 추가 및 강조
+      todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} (오늘)`);
     });
   </script>
 </body>
