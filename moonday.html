@@ -257,7 +257,7 @@
             
             // 신월은 ●, 보름달은 ○로 표시
             const symbol = day.phase === '보름달' ? '○' : '●';
-            dateSpan.textContent = `${dateStr} (${dayOfWeek})  ${symbol}`;
+            dateSpan.textContent = `${dateStr} (${dayOfWeek}) - ${symbol}`;
             
             listItem.appendChild(dateSpan);
             moonDaysList.appendChild(listItem);
