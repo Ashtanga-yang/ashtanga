@@ -28,7 +28,7 @@
         .current-day {
             font-size: 1.2rem;
 line-height: 1.5rem;
-            color: #007BFF;
+            color: #fe1700;
             font-weight: 500;
         }
 
@@ -93,7 +93,7 @@ line-height: 1.5rem;
             const todayItem = $("ul li").eq(today);
 
             // 오늘 요일에 "(오늘)" 추가 및 강조
-            todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} (오늘)`);
+            todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} - 오늘`);
         });
     </script>
 
