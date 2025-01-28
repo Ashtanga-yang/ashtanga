@@ -60,15 +60,18 @@
   <script>
     const hourglass = document.querySelector('.hourglass');
 
-    // 2초마다 애니메이션 실행
-    setInterval(() => {
+    function startHourglass() {
+      // 애니메이션 시작
       hourglass.classList.add('animate');
-      
+
       // 2초 후 애니메이션 리셋
       setTimeout(() => {
         hourglass.classList.remove('animate');
       }, 2000);
-    }, 2000);
+    }
+
+    // 2초마다 모래시계 애니메이션 시작
+    setInterval(startHourglass, 2000);
   </script>
 
 </body>
