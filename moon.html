@@ -2,105 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <title>Moon Day Checker</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
     body {
-      font-family: 'Song Myung', serif;
+      font-family: Arial, sans-serif;
+      text-align: center;
       margin: 0;
       padding: 0;
-      text-align: center;
+    }
+    h1 {
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin: 0;
     }
     .container {
-      margin: 20px;
+      padding: 20px;
     }
-    .fixed-menu {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #eee;
-      padding: 10px 0;
-      text-align: center;
+    .moon-days {
+      margin-top: 20px;
     }
-    .fixed-menu a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: black;
+    .error {
+      color: red;
     }
-    .fixed-menu a u {
-      text-decoration: underline;
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 5px 0;
     }
   </style>
-  <title>Ashtanga_Yang</title>
 </head>
 <body>
+  <h1>Moon Day Checker</h1>
   <div class="container">
-    <p><img src="logo.jpg" width="50px"></p>
-    <h1>Moon Day</h1>
-    <p>
-      <span class="md1">● New Moon<br>○ Full Moon</span>
-    </p>
-    <p class="sub1" id="yearDisplay">2025 Moon Day</p>
-    <div id="moonDays"></div>
-    <p>
-      by <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
-    </p>
-  </div>
+    <p>Enter a year to see New Moon and Full Moon dates:</p>
+    <input type="number" id="yearInput" value="2025" placeholder="Enter year" required>
+    <button onclick="fetchMoonDays()">Get Moon Days</button>
 
-  <!-- 하단 고정 메뉴 -->
-  <div class="fixed-menu">
-    <a href="index.html">소 개</a>
-    <a href="class.html">수 업</a>
-    <a href="https://open.kakao.com/o/sCpd2RLf">문 의</a>
-    <a href="#"><u>문데이</u></a>
+    <div class="moon-days" id="moonDays">
+      <!-- Moon days will be displayed here -->
+    </div>
   </div>
 
   <script>
-    const year = 2025; // 기본 연도 설정
-    const serviceKey = "2iaROfIsgWz4c2VRC3EyV8QBvrUurWFf4Qo06ZpA8lM163O7pkn89xI6R1o6vaU2JvvPGU/iV76ogJX55hRGjw=="; // 공공데이터포털에서 발급받은 API 키를 입력하세요
-    const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${year}&numOfRows=100`;
+    const serviceKey = "2iaROfIsgWz4c2VRC3EyV8QBvrUurWFf4Qo06ZpA8lM163O7pkn89xI6R1o6vaU2JvvPGU%2FiV76ogJX55hRGjw%3D%3D
+"; // KASI API 키를 여기에 입력하세요
 
-    // DOM 요소 가져오기
-    const moonDaysContainer = document.getElementById("moonDays");
-    const yearDisplay = document.getElementById("yearDisplay");
-
-    // API 호출
     async function fetchMoonDays() {
+      const year = document.getElementById('yearInput').value;
+      const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${year}&numOfRows=100`;
+
+      const moonDaysContainer = document.getElementById('moonDays');
+      moonDaysContainer.innerHTML = ''; // 결과 초기화
+
       try {
         const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error("Failed to fetch Moon Day data");
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
 
         const textData = await response.text();
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(textData, "application/xml");
+        const xmlDoc = parser.parseFromString(textData, 'application/xml');
 
-        // Moon Day 데이터를 처리하여 출력
-        const items = xmlDoc.getElementsByTagName("item");
-        let moonDaysHtml = "";
+        const items = xmlDoc.getElementsByTagName('item');
+        if (items.length === 0) {
+          moonDaysContainer.innerHTML = '<p class="error">No data available for the selected year.</p>';
+          return;
+        }
+
+        let newMoonsHtml = '<h3>New Moons</h3><ul>';
+        let fullMoonsHtml = '<h3>Full Moons</h3><ul>';
 
         for (let i = 0; i < items.length; i++) {
-          const item = items[i];
-          const lunAge = parseFloat(item.getElementsByTagName("lunAge")[0].textContent);
-          const solDate = item.getElementsByTagName("solDate")[0].textContent; // yyyyMMdd
+          const lunAge = parseFloat(items[i].getElementsByTagName('lunAge')[0].textContent);
+          const solDate = items[i].getElementsByTagName('solDate')[0].textContent; // yyyyMMdd
           const dayOfWeek = getDayOfWeek(solDate);
+          const formattedDate = formatDate(solDate);
 
-          if (lunAge === 0 || lunAge === 15) {
-            const symbol = lunAge === 0 ? "●" : "○"; // 신월 or 보름달
-            const formattedDate = formatDate(solDate);
-
-            moonDaysHtml += `
-              <p class="sub2">
-                <span class="md">${symbol}</span> ${formattedDate} <span class="md1">(${dayOfWeek})</span>
-              </p>`;
+          if (lunAge === 0) {
+            // 신월
+            newMoonsHtml += `<li>${formattedDate} (${dayOfWeek})</li>`;
+          } else if (lunAge === 15) {
+            // 보름달
+            fullMoonsHtml += `<li>${formattedDate} (${dayOfWeek})</li>`;
           }
         }
 
-        moonDaysContainer.innerHTML = moonDaysHtml;
+        newMoonsHtml += '</ul>';
+        fullMoonsHtml += '</ul>';
+        moonDaysContainer.innerHTML = newMoonsHtml + fullMoonsHtml;
       } catch (error) {
-        console.error("Error fetching Moon Day data:", error);
-        moonDaysContainer.innerHTML = "<p>문데이 정보를 가져오는 데 실패했습니다.</p>";
+        console.error('Error fetching Moon Day data:', error);
+        moonDaysContainer.innerHTML = '<p class="error">Failed to fetch Moon Day data. Please check your API key or try again later.</p>';
       }
     }
 
@@ -115,16 +111,12 @@
     // 요일 계산 함수
     function getDayOfWeek(yyyymmdd) {
       const year = yyyymmdd.slice(0, 4);
-      const month = yyyymmdd.slice(4, 6) - 1; // JavaScript 월은 0부터 시작
+      const month = yyyymmdd.slice(4, 6) - 1; // JavaScript의 월은 0부터 시작
       const day = yyyymmdd.slice(6, 8);
       const date = new Date(year, month, day);
-      const days = ["일", "월", "화", "수", "목", "금", "토"];
+      const days = ['일', '월', '화', '수', '목', '금', '토'];
       return days[date.getDay()];
     }
-
-    // 페이지 로드 시 실행
-    yearDisplay.textContent = `${year} Moon Day`;
-    fetchMoonDays();
   </script>
 </body>
 </html>
