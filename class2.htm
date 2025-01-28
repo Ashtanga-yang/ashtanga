@@ -28,7 +28,11 @@
     <ul>
       <li>Monday</li>
       <li>Tuesday</li>
+am 07:00 - 09:30 망원동 아쉬탕가 요가 마이솔
       <li>Wednesday</li>
+am 07:00 - 09:30 망원동 아쉬탕가 요가 마이솔</br>
+pm 05:30 
+
       <li>Thursday</li>
       <li>Friday</li>
       <li>Saturday</li>
@@ -36,21 +40,10 @@
     </ul>
   </div>
   <script>
-    $(document).ready(function () {
-      // 오늘 요일 가져오기 (0 = Sunday, 1 = Monday, ...)
-      var weekday = new Date().getDay();
-
-      // getDay() 반환값과 요일 순서 맞추기 (월요일을 첫 번째로 간주)
-      var correctedWeekday = (weekday === 0) ? 6 : weekday - 1;
-
-      // 현재 요일에 해당하는 <li> 요소 가져오기
-      var todayItem = $("ul li").eq(correctedWeekday);
-
-      // 강조를 위한 클래스 추가
-      todayItem.addClass("current-day");
-
-      // 현재 요일을 맨 위로 이동
-      $("ul").prepend(todayItem);
+    $(function () {
+      let day = (new Date().getDay() + 6) % 7; // 요일 순서 맞춤 (Monday=0, Sunday=6)
+      let today = $("ul li").eq(day).addClass("current-day"); // 오늘 요일에 클래스 추가
+      $("ul").prepend(today); // 오늘 요일을 맨 위로 이동
     });
   </script>
 </body>
