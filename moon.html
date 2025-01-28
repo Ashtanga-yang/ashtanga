@@ -9,12 +9,12 @@
     h1 { background-color: #ff6347; padding: 20px; margin: 0; color: white; }
     .container { padding: 20px; }
     .year { font-size: 1.5em; margin: 20px 0; }
-    .month { margin-top: 30px; text-align: left; }
-    .month h3 { color: #555; margin-bottom: 10px; font-weight: normal; }
+    .month { margin-top: 20px; text-align: left; padding-left: 20px; }
+    .month h3 { color: #555; font-weight: normal; }
     .month .current-month h3 { color: red; font-weight: bold; }
-    ul { list-style: none; padding: 0; margin: 0; }
-    ul li { margin: 5px 0; }
-    .date { display: block; padding: 5px; border: 1px solid #ddd; margin: 2px; background-color: #fff; cursor: pointer; }
+    ul { list-style-type: none; padding: 0; margin: 0; }
+    ul li { margin: 10px 0; }
+    .date { display: block; padding: 8px; border-radius: 4px; background-color: #fff; cursor: pointer; }
     .current-month-date { color: red; }
   </style>
 </head>
@@ -23,32 +23,86 @@
   <div class="container" id="moonDays"></div>
 
   <script>
-    const moonDays = { 2025: [ 
-      { date: "2025-01-14", phase: "보름달" },
-      { date: "2025-01-29", phase: "신월" },
-      { date: "2025-02-12", phase: "보름달" },
-      { date: "2025-02-28", phase: "신월" },
-      { date: "2025-03-14", phase: "보름달" },
-      { date: "2025-03-29", phase: "신월" },
-      { date: "2025-04-13", phase: "보름달" },
-      { date: "2025-04-28", phase: "신월" },
-      { date: "2025-05-13", phase: "보름달" },
-      { date: "2025-05-27", phase: "신월" },
-      { date: "2025-06-11", phase: "보름달" },
-      { date: "2025-06-25", phase: "신월" },
-      { date: "2025-07-11", phase: "보름달" },
-      { date: "2025-07-25", phase: "신월" },
-      { date: "2025-08-09", phase: "보름달" },
-      { date: "2025-08-23", phase: "신월" },
-      { date: "2025-09-08", phase: "보름달" },
-      { date: "2025-09-22", phase: "신월" },
-      { date: "2025-10-07", phase: "보름달" },
-      { date: "2025-10-21", phase: "신월" },
-      { date: "2025-11-05", phase: "보름달" },
-      { date: "2025-11-20", phase: "신월" },
-      { date: "2025-12-05", phase: "보름달" },
-      { date: "2025-12-20", phase: "신월" }
-    ]};
+    const moonDays = {
+      2025: [
+        { date: "2025-01-14", phase: "풀문" },
+        { date: "2025-01-29", phase: "뉴문" },
+        { date: "2025-02-12", phase: "풀문" },
+        { date: "2025-02-28", phase: "뉴문" },
+        { date: "2025-03-14", phase: "풀문" },
+        { date: "2025-03-29", phase: "뉴문" },
+        { date: "2025-04-13", phase: "풀문" },
+        { date: "2025-04-28", phase: "뉴문" },
+        { date: "2025-05-13", phase: "풀문" },
+        { date: "2025-05-27", phase: "뉴문" },
+        { date: "2025-06-11", phase: "풀문" },
+        { date: "2025-06-25", phase: "뉴문" },
+        { date: "2025-07-11", phase: "풀문" },
+        { date: "2025-07-25", phase: "뉴문" },
+        { date: "2025-08-09", phase: "풀문" },
+        { date: "2025-08-23", phase: "뉴문" },
+        { date: "2025-09-08", phase: "풀문" },
+        { date: "2025-09-22", phase: "뉴문" },
+        { date: "2025-10-07", phase: "풀문" },
+        { date: "2025-10-21", phase: "뉴문" },
+        { date: "2025-11-05", phase: "풀문" },
+        { date: "2025-11-20", phase: "뉴문" },
+        { date: "2025-12-05", phase: "풀문" },
+        { date: "2025-12-20", phase: "뉴문" }
+      ],
+      2026: [
+        { date: "2026-01-02", phase: "풀문" },
+        { date: "2026-01-17", phase: "뉴문" },
+        { date: "2026-01-31", phase: "풀문" },
+        { date: "2026-02-01", phase: "풀문" },
+        { date: "2026-02-16", phase: "뉴문" },
+        { date: "2026-03-02", phase: "풀문" },
+        { date: "2026-03-18", phase: "뉴문" },
+        { date: "2026-04-01", phase: "풀문" },
+        { date: "2026-04-16", phase: "뉴문" },
+        { date: "2026-04-30", phase: "풀문" },
+        { date: "2026-05-16", phase: "뉴문" },
+        { date: "2026-05-30", phase: "풀문" },
+        { date: "2026-06-14", phase: "뉴문" },
+        { date: "2026-06-28", phase: "풀문" },
+        { date: "2026-07-14", phase: "뉴문" },
+        { date: "2026-07-28", phase: "풀문" },
+        { date: "2026-08-12", phase: "뉴문" },
+        { date: "2026-08-26", phase: "풀문" },
+        { date: "2026-09-10", phase: "뉴문" },
+        { date: "2026-09-25", phase: "풀문" },
+        { date: "2026-10-09", phase: "뉴문" },
+        { date: "2026-10-24", phase: "풀문" },
+        { date: "2026-11-08", phase: "뉴문" },
+        { date: "2026-12-07", phase: "뉴문" }
+      ],
+      2027: [
+        { date: "2027-01-06", phase: "풀문" },
+        { date: "2027-01-20", phase: "뉴문" },
+        { date: "2027-02-04", phase: "풀문" },
+        { date: "2027-02-18", phase: "뉴문" },
+        { date: "2027-03-05", phase: "풀문" },
+        { date: "2027-03-19", phase: "뉴문" },
+        { date: "2027-04-03", phase: "풀문" },
+        { date: "2027-04-17", phase: "뉴문" },
+        { date: "2027-05-02", phase: "풀문" },
+        { date: "2027-05-16", phase: "뉴문" },
+        { date: "2027-06-01", phase: "풀문" },
+        { date: "2027-06-15", phase: "뉴문" },
+        { date: "2027-07-01", phase: "풀문" },
+        { date: "2027-07-16", phase: "뉴문" },
+        { date: "2027-08-01", phase: "풀문" },
+        { date: "2027-08-15", phase: "뉴문" },
+        { date: "2027-09-01", phase: "풀문" },
+        { date: "2027-09-15", phase: "뉴문" },
+        { date: "2027-10-01", phase: "풀문" },
+        { date: "2027-10-15", phase: "뉴문" },
+        { date: "2027-11-01", phase: "풀문" },
+        { date: "2027-11-15", phase: "뉴문" },
+        { date: "2027-12-01", phase: "풀문" },
+        { date: "2027-12-15", phase: "뉴문" }
+      ]
+    };
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -71,59 +125,47 @@
 
     function displayMoonDays() {
       const moonDaysContainer = document.getElementById('moonDays');
-      for (let year = 2025; year <= 2025; year++) { // 필요에 따라 2026, 2027 추가
+      for (let year = 2025; year <= 2027; year++) {
         const yearDiv = document.createElement('div');
+        yearDiv.classList.add('year');
         const yearTitle = document.createElement('h2');
-        yearTitle.textContent = `${year}년`;
+        yearTitle.innerText = `${year}년`;
         yearDiv.appendChild(yearTitle);
 
         for (let month = 1; month <= 12; month++) {
           const monthDiv = document.createElement('div');
-          const monthTitle = document.createElement('h3');
-          const monthMoonDays = createMoonDayList(year, month);
+          monthDiv.classList.add('month');
+          const monthDays = createMoonDayList(year, month);
+          const currentMonthFlag = year === currentYear && month === currentMonth ? 'current-month' : '';
 
-          if (currentYear === year && currentMonth === month) {
-            monthTitle.classList.add('current-month');
+          if (monthDays.length > 0) {
+            const monthTitle = document.createElement('h3');
+            monthTitle.innerText = `${month}월`;
+            if (currentMonthFlag) monthTitle.classList.add('current-month');
+            monthDiv.appendChild(monthTitle);
+            
+            const ul = document.createElement('ul');
+            monthDays.forEach(day => {
+              const li = document.createElement('li');
+              const dateSpan = document.createElement('span');
+              dateSpan.classList.add('date');
+              dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
+              if (new Date(day.date) < currentDate) {
+                dateSpan.classList.add('current-month-date');
+              }
+              li.appendChild(dateSpan);
+              ul.appendChild(li);
+            });
+            monthDiv.appendChild(ul);
+            yearDiv.appendChild(monthDiv);
           }
-
-          monthTitle.textContent = `${month}월`;
-          monthDiv.appendChild(monthTitle);
-
-          const moonDaysList = document.createElement('ul');
-          monthMoonDays.forEach(day => {
-            const listItem = document.createElement('li');
-            const dateStr = formatDate(day.date);
-            const dayOfWeek = getDayOfWeek(day.date);
-            const dateSpan = document.createElement('span');
-            dateSpan.classList.add('date');
-            
-            const symbol = day.phase === '보름달' ? '○' : '●';
-            dateSpan.textContent = `${dateStr} (${dayOfWeek}) - ${symbol}`;
-            
-            listItem.appendChild(dateSpan);
-            moonDaysList.appendChild(listItem);
-          });
-
-          monthDiv.appendChild(moonDaysList);
-          yearDiv.appendChild(monthDiv);
         }
 
         moonDaysContainer.appendChild(yearDiv);
       }
     }
 
-    function removePastDates() {
-      const allMoonDays = document.querySelectorAll('.date');
-      allMoonDays.forEach(day => {
-        const dayDate = new Date(day.textContent.split(' - ')[0]);
-        if (dayDate < currentDate) {
-          day.parentElement.style.display = 'none'; // 날짜가 지난 항목은 숨김
-        }
-      });
-    }
-
     displayMoonDays();
-    removePastDates();
   </script>
 </body>
 </html>
