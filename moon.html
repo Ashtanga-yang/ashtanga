@@ -144,7 +144,7 @@
     }
 
     function createMoonDayList(year, month) {
-      return moonDays[year].filter(day => new Date(day.date).getMonth() + 1 === month);
+      return moonDays[year].filter(day => new Date(day.date).getMonth() + 1 === month && new Date(day.date) >= tomorrow);
     }
 
     function displayMoonDays() {
