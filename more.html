@@ -51,6 +51,7 @@
       background-color: #aaa;
       transform-origin: top center;
       pointer-events: none; /* 클릭 방지 */
+      transform: rotate(0deg);
     }
 
     /* 흔들리는 애니메이션 */
@@ -77,6 +78,7 @@
 
   <script>
     const pendulum = document.querySelector('.pendulum');
+    const bob = document.querySelector('.bob');
     const bellSound = document.getElementById('bellSound');
     const path = document.querySelector('.path');
 
@@ -88,18 +90,16 @@
 
     // 애니메이션 완료 시 벨소리 출력
     pendulum.addEventListener('animationiteration', () => {
-      // 0%와 100%에서 벨소리 발생
-      const currentRotation = parseFloat(getComputedStyle(pendulum).transform.split(',')[4]);
-      
-      if (currentRotation >= 30 || currentRotation <= -30) {
+      const rotation = parseFloat(getComputedStyle(pendulum).transform.split(',')[4]);
+
+      if (rotation >= 30 || rotation <= -30) {
         playBellSound();
       }
     });
 
     // 궤적의 위치를 추적
     function updatePath() {
-      const angle = getComputedStyle(pendulum).transform.split('(')[1].split(')')[0];
-      const rotation = parseFloat(angle) || 0;
+      const rotation = parseFloat(getComputedStyle(pendulum).transform.split(',')[4]) || 0;
       path.style.transform = `rotate(${rotation}deg)`;
     }
 
