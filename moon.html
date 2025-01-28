@@ -26,7 +26,7 @@
       event.preventDefault();
 
       const year = document.getElementById("year").value;
-      const serviceKey = "YOUR_API_KEY"; // 여기에 발급받은 KASI API 키를 입력하세요
+      const serviceKey = "http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService"; // 여기에 발급받은 KASI API 키를 입력하세요
       const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${year}&numOfRows=100`;
 
       try {
