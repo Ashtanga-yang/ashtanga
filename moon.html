@@ -63,7 +63,7 @@
   </style>
 </head>
 <body>
-  <h1>Moon Days for5-2027</h1>
+  <h1>Moon Days for 2025-2027</h1>
   <div class="container">
     <!-- Moon Days -->
     <div id="moonDays">
@@ -196,7 +196,11 @@
             const dateStr = formatDate(day.date);
             const dateSpan = document.createElement('span');
             dateSpan.classList.add('date');
-            dateSpan.textContent = `${dateStr} - ${day.phase}`;
+            
+            // 신월은 ●, 보름달은 ○로 표시
+            const symbol = day.phase === '보름달' ? '○' : '●';
+            dateSpan.textContent = `${dateStr} - ${symbol}`;
+            
             listItem.appendChild(dateSpan);
             moonDaysList.appendChild(listItem);
           });
