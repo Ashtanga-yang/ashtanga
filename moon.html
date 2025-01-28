@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moon Days 2025 & 2026</title>
+  <title>Moon Days for 2025 & 2026</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,7 +25,6 @@
     .year {
       font-size: 1.5em;
       margin: 20px 0;
-      text-decoration: underline;
     }
     .error {
       color: red;
@@ -39,36 +38,16 @@
     }
     .month {
       margin-top: 30px;
-      transition: transform 0.3s ease-in-out; /* 애니메이션 추가 */
     }
     .month h3 {
       color: grey;
-      transition: color 0.3s ease; /* 애니메이션 효과 */
+      text-decoration: none;
     }
-    .month h3.current-month {
-      color: red;
-    }
-    .month li {
-      color: grey;
-      transition: color 0.3s ease;
+    .current-month {
+      color: red; /* 강조된 월은 빨간색 */
     }
     .month .current-month-date {
-      color: red;
-    }
-    /* 현재 월이 위로 올라오게 할 때의 스타일 */
-    .highlight {
-      transform: translateY(-30px); /* 현재 월을 위로 올리기 */
-      animation: highlight 0.3s ease-in-out forwards;
-    }
-
-    /* 애니메이션 키프레임 */
-    @keyframes highlight {
-      0% {
-        transform: translateY(30px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+      color: red; /* 강조된 날짜는 빨간색 */
     }
   </style>
 </head>
@@ -143,7 +122,7 @@
   </div>
 
   <script>
-    // 현재 월을 찾아서 해당 월 강조하고, 해당 월을 위로 올리기
+    // 현재 월을 찾아서 해당 월 강조하기
     const currentMonth = new Date().getMonth() + 1; // 0부터 시작하는 월 값을 1부터 시작하도록 수정
     const currentYear = new Date().getFullYear();
 
@@ -152,12 +131,11 @@
     const month2025 = document.getElementById('month2025');
     const month2026 = document.getElementById('month2026');
 
-    // 2025년, 2026년 각각에 대해 현재 월을 강조하고 위로 올리기
+    // 2025년, 2026년 각각에 대해 현재 월을 강조하기
     months2025.forEach(date => {
       const month = date.getAttribute('data-month');
       if (parseInt(month) === currentMonth) {
         date.classList.add('current-month-date');
-        month2025.classList.add('highlight');
       }
     });
 
@@ -165,11 +143,10 @@
       const month = date.getAttribute('data-month');
       if (parseInt(month) === currentMonth) {
         date.classList.add('current-month-date');
-        month2026.classList.add('highlight');
       }
     });
 
-    // 현재 월 제목 강조
+    // 현재 연도, 월 강조
     const title2025 = document.getElementById('month2025Title');
     const title2026 = document.getElementById('month2026Title');
     
