@@ -40,8 +40,11 @@
     </ul>
   </div>
   <script>
-    var weekday = new Date().getDay() + 1; // getDay() 값 보정
-    $("ul li:nth-child(" + weekday + ")").addClass("current-day");
+    // 오늘 요일 가져오기 (getDay()는 0(일요일)부터 시작)
+    var weekday = new Date().getDay(); // 0 = Sunday, ..., 6 = Saturday
+    
+    // nth-child는 1부터 시작하므로 보정 필요
+    $("ul li:nth-child(" + (weekday === 0 ? 7 : weekday) + ")").addClass("current-day");
   </script>
 </body>
 </html>
