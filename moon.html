@@ -174,7 +174,7 @@
               const dateSpan = document.createElement('span');
               dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
 
-              if (isUpcoming) {
+              if (year === currentYear && month === currentMonth && isUpcoming) {
                 dateSpan.classList.add('upcoming-moon');
               }
               li.appendChild(dateSpan);
