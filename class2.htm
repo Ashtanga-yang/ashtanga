@@ -17,13 +17,9 @@
       list-style: none;
       text-align: center;
     }
-    .current-day:after {
-      content: "}";
-      margin-left: 20px;
-    }
-    .current-day:before {
-      content: "{";
-      margin-right: 20px;
+    .current-day {
+      font-weight: bold;
+      color: #007BFF; /* 강조 스타일 */
     }
   </style>
 </head>
@@ -40,11 +36,19 @@
     </ul>
   </div>
   <script>
-    // 오늘 요일 가져오기 (getDay()는 0(일요일)부터 시작)
-    var weekday = new Date().getDay(); // 0 = Sunday, ..., 6 = Saturday
-    
-    // nth-child는 1부터 시작하므로 보정 필요
-    $("ul li:nth-child(" + (weekday === 0 ? 7 : weekday) + ")").addClass("current-day");
+    $(document).ready(function () {
+      // 오늘 요일 가져오기 (0: 일요일, 1: 월요일, ..., 6: 토요일)
+      var weekday = new Date().getDay();
+
+      // 현재 요일에 해당하는 <li> 요소 가져오기
+      var todayItem = $("ul li").eq(weekday);
+
+      // 강조를 위한 클래스 추가
+      todayItem.addClass("current-day");
+
+      // 현재 요일을 맨 위로 이동
+      $("ul").prepend(todayItem);
+    });
   </script>
 </body>
 </html>
