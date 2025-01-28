@@ -268,6 +268,9 @@ html {
 
     /* 고정된 하단 메뉴 */
     .fixed-menu {
+font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
       position: fixed;
       bottom: 0;
       left: 0;
