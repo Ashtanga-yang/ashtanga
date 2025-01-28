@@ -270,7 +270,7 @@ html {
     .fixed-menu {
 font-family:"Song Myung",serif;
   font-weight: 400;
-color: blue
+color: blue;
       position: fixed;
       bottom: 0;
       left: 0;
