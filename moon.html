@@ -174,9 +174,11 @@
               const dateSpan = document.createElement('span');
               dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
 
-              if (year === currentYear && month === currentMonth && isUpcoming && formatDate(day.date) === formatDate(currentDate)) {
+              // 오늘 문데이는 빨간색
+              if (formatDate(day.date) === formatDate(currentDate)) {
                 dateSpan.classList.add('upcoming-moon');
               }
+
               li.appendChild(dateSpan);
               ul.appendChild(li);
             });
