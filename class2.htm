@@ -8,22 +8,23 @@
     ul { padding: 0; }
     li { list-style: none; text-align: center; margin-bottom: 1rem; }
     .current-day { font-size: 1.4rem; font-weight: bold; color: #007BFF; }
+    .content { color: gray; font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <ul>
-    <li>Monday</li>
-    <li>Tuesday</li>
-    <li>Wednesday</li>
-    <li>Thursday</li>
-    <li>Friday</li>
-    <li>Saturday</li>
-    <li>Sunday</li>
+    <li>Monday<div class="content">Start of the week</div></li>
+    <li>Tuesday<div class="content">Busy day ahead</div></li>
+    <li>Wednesday<div class="content">Midweek grind</div></li>
+    <li>Thursday<div class="content">Almost there</div></li>
+    <li>Friday<div class="content">Weekend vibes</div></li>
+    <li>Saturday<div class="content">Time to relax</div></li>
+    <li>Sunday<div class="content">Prepare for the week</div></li>
   </ul>
   <script>
     $(function() {
       const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-      const today = (new Date().getDay() + 6) % 7;
+      const today = new Date().getDay();
       $("ul li").eq(today).addClass("current-day").text(`${days[today]} (오늘)`).prependTo("ul");
     });
   </script>
