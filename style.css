@@ -268,12 +268,8 @@ html {
 
     /* 고정된 하단 메뉴 */
     .fixed-menu {
-font-family: "Noto Serif", serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+font-family:"Song Myung",serif;
+  font-weight: 400;
       position: fixed;
       bottom: 0;
       left: 0;
