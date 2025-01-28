@@ -24,7 +24,7 @@
   <script>
     $(function() {
       const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-      const today = new Date().getDay(); // 오늘 요일 계산 (0=Sunday, 1=Monday, ...)
+      const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=Sunday, 1=Monday, ..., 6=Saturday)
       const todayItem = $("ul li").eq(today);
 
       // 오늘 요일에 "(오늘)" 추가 및 강조
