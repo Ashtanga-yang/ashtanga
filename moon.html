@@ -1,145 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moon Days for 2025 & 2026</title>
+  <title>Moon Days for 2025-2027</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      text-align: center;
+      background-color: #f4f4f4;
     }
     h1 {
-      background-color: #f4f4f4;
+      background-color: #ff6347;
       padding: 20px;
       margin: 0;
+      color: white;
     }
     .container {
       padding: 20px;
-    }
-    .moon-days {
-      margin-top: 20px;
     }
     .year {
       font-size: 1.5em;
       margin: 20px 0;
     }
-    .error {
+    .month {
+      margin-top: 30px;
+      text-align: left;
+    }
+    .month h3 {
+      color: #555;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+    .month .current-month h3 {
       color: red;
+      font-weight: bold;
     }
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     ul li {
       margin: 5px 0;
     }
-    .month {
-      margin-top: 30px;
+    .error {
+      color: red;
     }
-    .month h3 {
-      color: grey;
-      text-decoration: none;
+    .date {
+      display: block;
+      padding: 5px;
+      border: 1px solid #ddd;
+      margin: 2px;
+      background-color: #fff;
+      cursor: pointer;
     }
-    .current-month {
-      color: red; /* 강조된 월은 빨간색 */
-    }
-    .month .current-month-date {
-      color: red; /* 강조된 날짜는 빨간색 */
+    .current-month-date {
+      color: red;
     }
   </style>
 </head>
 <body>
-  <h1>Moon Days for 2025 & 2026</h1>
+  <h1>Moon Days for 2025-2027</h1>
   <div class="container">
     <!-- Moon Days -->
-    <div class="year" id="moonDays">
-      <!-- 월별로 날짜가 오름차순으로 정렬된 문데이 출력 -->
-      <div class="moon-days">
-        <div class="month" id="month2025">
-          <h3 id="month2025Title">2025년</h3>
-          <ul>
-            <li class="date" data-year="2025" data-month="01">2025년 01월 14일 (화) - 보름달</li>
-            <li class="date" data-year="2025" data-month="01">2025년 01월 29일 (수) - 신월</li>
-            <li class="date" data-year="2025" data-month="02">2025년 02월 12일 (수) - 보름달</li>
-            <li class="date" data-year="2025" data-month="02">2025년 02월 28일 (금) - 신월</li>
-            <li class="date" data-year="2025" data-month="03">2025년 03월 14일 (금) - 보름달</li>
-            <li class="date" data-year="2025" data-month="03">2025년 03월 29일 (토) - 신월</li>
-            <li class="date" data-year="2025" data-month="04">2025년 04월 13일 (일) - 보름달</li>
-            <li class="date" data-year="2025" data-month="04">2025년 04월 28일 (월) - 신월</li>
-            <li class="date" data-year="2025" data-month="05">2025년 05월 13일 (화) - 보름달</li>
-            <li class="date" data-year="2025" data-month="05">2025년 05월 27일 (화) - 신월</li>
-            <li class="date" data-year="2025" data-month="06">2025년 06월 11일 (수) - 보름달</li>
-            <li class="date" data-year="2025" data-month="06">2025년 06월 25일 (수) - 신월</li>
-            <li class="date" data-year="2025" data-month="07">2025년 07월 11일 (금) - 보름달</li>
-            <li class="date" data-year="2025" data-month="07">2025년 07월 25일 (금) - 신월</li>
-            <li class="date" data-year="2025" data-month="08">2025년 08월 09일 (토) - 보름달</li>
-            <li class="date" data-year="2025" data-month="08">2025년 08월 23일 (토) - 신월</li>
-            <li class="date" data-year="2025" data-month="09">2025년 09월 08일 (월) - 보름달</li>
-            <li class="date" data-year="2025" data-month="09">2025년 09월 22일 (월) - 신월</li>
-            <li class="date" data-year="2025" data-month="10">2025년 10월 07일 (화) - 보름달</li>
-            <li class="date" data-year="2025" data-month="10">2025년 10월 21일 (화) - 신월</li>
-            <li class="date" data-year="2025" data-month="11">2025년 11월 05일 (수) - 보름달</li>
-            <li class="date" data-year="2025" data-month="11">2025년 11월 20일 (목) - 신월</li>
-            <li class="date" data-year="2025" data-month="12">2025년 12월 05일 (금) - 보름달</li>
-            <li class="date" data-year="2025" data-month="12">2025년 12월 20일 (토) - 신월</li>
-          </ul>
-        </div>
-        
-        <div class="month" id="month2026">
-          <h3 id="month2026Title">2026년</h3>
-          <ul>
-            <li class="date" data-year="2026" data-month="01">2026년 01월 02일 (금) - 보름달</li>
-            <li class="date" data-year="2026" data-month="01">2026년 01월 17일 (토) - 신월</li>
-            <li class="date" data-year="2026" data-month="01">2026년 01월 31일 (토) - 보름달</li>
-            <li class="date" data-year="2026" data-month="02">2026년 02월 01일 (일) - 보름달</li>
-            <li class="date" data-year="2026" data-month="02">2026년 02월 16일 (월) - 신월</li>
-            <li class="date" data-year="2026" data-month="03">2026년 03월 02일 (월) - 보름달</li>
-            <li class="date" data-year="2026" data-month="03">2026년 03월 18일 (수) - 신월</li>
-            <li class="date" data-year="2026" data-month="04">2026년 04월 01일 (수) - 보름달</li>
-            <li class="date" data-year="2026" data-month="04">2026년 04월 16일 (목) - 신월</li>
-            <li class="date" data-year="2026" data-month="04">2026년 04월 30일 (목) - 보름달</li>
-            <li class="date" data-year="2026" data-month="05">2026년 05월 16일 (토) - 신월</li>
-            <li class="date" data-year="2026" data-month="05">2026년 05월 30일 (토) - 보름달</li>
-            <li class="date" data-year="2026" data-month="06">2026년 06월 14일 (일) - 신월</li>
-            <li class="date" data-year="2026" data-month="06">2026년 06월 28일 (일) - 보름달</li>
-            <li class="date" data-year="2026" data-month="07">2026년 07월 14일 (화) - 신월</li>
-            <li class="date" data-year="2026" data-month="07">2026년 07월 28일 (화) - 보름달</li>
-            <li class="date" data-year="2026" data-month="08">2026년 08월 12일 (수) - 신월</li>
-            <li class="date" data-year="2026" data-month="08">2026년 08월 26일 (수) - 보름달</li>
-            <li class="date" data-year="2026" data-month="09">2026년 09월 10일 (목) - 신월</li>
-            <li class="date" data-year="2026" data-month="09">2026년 09월 25일 (금) - 보름달</li>
-            <li class="date" data-year="2026" data-month="10">2026년 10월 09일 (금) - 신월</li>
-            <li class="date" data-year="2026" data-month="10">2026년 10월 24일 (토) - 보름달</li>
-            <li class="date" data-year="2026" data-month="11">2026년 11월 08일 (일) - 신월</li>
-            <li class="date" data-year="2026" data-month="12">2026년 12월 07일 (월) - 신월</li>
-          </ul>
-        </div>
-      </div>
+    <div id="moonDays">
+      <!-- 각 연도별로 날짜가 나열될 공간 -->
     </div>
   </div>
 
   <script>
-    // 현재 날짜를 기준으로 지나간 연도를 삭제하고, 현재 년도를 강조
+    const moonDays = {
+      2025: [
+        { date: "2025-01-14", phase: "보름달" },
+        { date: "2025-01-29", phase: "신월" },
+        { date: "2025-02-12", phase: "보름달" },
+        { date: "2025-02-28", phase: "신월" },
+        { date: "2025-03-14", phase: "보름달" },
+        { date: "2025-03-29", phase: "신월" },
+        { date: "2025-04-13", phase: "보름달" },
+        { date: "2025-04-28", phase: "신월" },
+        { date: "2025-05-13", phase: "보름달" },
+        { date: "2025-05-27", phase: "신월" },
+        { date: "2025-06-11", phase: "보름달" },
+        { date: "2025-06-25", phase: "신월" },
+        { date: "2025-07-11", phase: "보름달" },
+        { date: "2025-07-25", phase: "신월" },
+        { date: "2025-08-09", phase: "보름달" },
+        { date: "2025-08-23", phase: "신월" },
+        { date: "2025-09-08", phase: "보름달" },
+        { date: "2025-09-22", phase: "신월" },
+        { date: "2025-10-07", phase: "보름달" },
+        { date: "2025-10-21", phase: "신월" },
+        { date: "2025-11-05", phase: "보름달" },
+        { date: "2025-11-20", phase: "신월" },
+        { date: "2025-12-05", phase: "보름달" },
+        { date: "2025-12-20", phase: "신월" }
+      ],
+      2026: [
+        { date: "2026-01-02", phase: "보름달" },
+        { date: "2026-01-17", phase: "신월" },
+        { date: "2026-01-31", phase: "보름달" },
+        { date: "2026-02-01", phase: "보름달" },
+        { date: "2026-02-16", phase: "신월" },
+        { date: "2026-03-02", phase: "보름달" },
+        { date: "2026-03-18", phase: "신월" },
+        { date: "2026-04-01", phase: "보름달" },
+        { date: "2026-04-16", phase: "신월" },
+        { date: "2026-04-30", phase: "보름달" },
+        { date: "2026-05-16", phase: "신월" },
+        { date: "2026-05-30", phase: "보름달" },
+        { date: "2026-06-14", phase: "신월" },
+        { date: "2026-06-28", phase: "보름달" },
+        { date: "2026-07-14", phase: "신월" },
+        { date: "2026-07-28", phase: "보름달" },
+        { date: "2026-08-12", phase: "신월" },
+        { date: "2026-08-26", phase: "보름달" },
+        { date: "2026-09-10", phase: "신월" },
+        { date: "2026-09-25", phase: "보름달" },
+        { date: "2026-10-09", phase: "신월" },
+        { date: "2026-10-24", phase: "보름달" },
+        { date: "2026-11-08", phase: "신월" },
+        { date: "2026-12-07", phase: "신월" }
+      ],
+      2027: [
+        { date: "2027-01-06", phase: "보름달" },
+        { date: "2027-01-20", phase: "신월" },
+        { date: "2027-02-04", phase: "보름달" },
+        { date: "2027-02-18", phase: "신월" },
+        { date: "2027-03-05", phase: "보름달" },
+        { date: "2027-03-19", phase: "신월" },
+        { date: "2027-04-03", phase: "보름달" },
+        { date: "2027-04-17", phase: "신월" },
+        { date: "2027-05-02", phase: "보름달" },
+        { date: "2027-05-16", phase: "신월" },
+        { date: "2027-06-01", phase: "보름달" },
+        { date: "2027-06-15", phase: "신월" },
+        { date: "2027-07-01", phase: "보름달" },
+        { date: "2027-07-16", phase: "신월" },
+        { date: "2027-08-01", phase: "보름달" },
+        { date: "2027-08-15", phase: "신월" },
+        { date: "2027-09-01", phase: "보름달" },
+        { date: "2027-09-15", phase: "신월" },
+        { date: "2027-10-01", phase: "보름달" },
+        { date: "2027-10-15", phase: "신월" },
+        { date: "2027-11-01", phase: "보름달" },
+        { date: "2027-11-15", phase: "신월" },
+        { date: "2027-12-01", phase: "보름달" },
+        { date: "2027-12-15", phase: "신월" }
+      ]
+    };
+
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
 
-    const months2025 = document.querySelectorAll('#month2025 .date');
-    const months2026 = document.querySelectorAll('#month2026 .date');
-    const title2025 = document.getElementById('month2025Title');
-    const title2026 = document.getElementById('month2026Title');
-
-    // 지나간 연도의 모든 날짜 삭제
-    if (currentYear > 2025) {
-      document.getElementById('month2025').remove(); // 2025년 삭제
+    function formatDate(date) {
+      const d = new Date(date);
+      return d.getFullYear() + '-' + (d.getMonth() + 1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
     }
 
-    if (currentYear > 2026) {
-      document.getElementById('month2026').remove(); // 2026년 삭제
+    function createMoonDayList(year, month) {
+      const moonDaysList = moonDays[year].filter(day => {
+        const dayDate = new Date(day.date);
+        return dayDate.getMonth() + 1 === month;
+      });
+      return moonDaysList;
     }
-    
+
+    function displayMoonDays() {
+      const moonDaysContainer = document.getElementById('moonDays');
+      for (let year = 2025; year <= 2027; year++) {
+        const yearDiv = document.createElement('div');
+        const yearTitle = document.createElement('h2');
+        yearTitle.textContent = `${year}년`;
+        yearDiv.appendChild(yearTitle);
+
+        for (let month = 1; month <= 12; month++) {
+          const monthDiv = document.createElement('div');
+          const monthTitle = document.createElement('h3');
+          const monthMoonDays = createMoonDayList(year, month);
+
+          if (currentYear === year && currentMonth === month) {
+            monthTitle.classList.add('current-month');
+          }
+
+          monthTitle.textContent = `${month}월`;
+          monthDiv.appendChild(monthTitle);
+
+          const moonDaysList = document.createElement('ul');
+          monthMoonDays.forEach(day => {
+            const listItem = document.createElement('li');
+            const dateStr = formatDate(day.date);
+            const dateSpan = document.createElement('span');
+            dateSpan.classList.add('date');
+            dateSpan.textContent = `${dateStr} - ${day.phase}`;
+            moonDaysList.appendChild(listItem);
+          });
+
+          monthDiv.appendChild(moonDaysList);
+          yearDiv.appendChild(monthDiv);
+        }
+
+        moonDaysContainer.appendChild(yearDiv);
+      }
+    }
+
+    // 지나간 날짜 삭제
+    function removePastDates() {
+      const allMoonDays = document.querySelectorAll('.date');
+      allMoonDays.forEach(day => {
+        const dayDate = new Date(day.textContent.split(' - ')[0]);
+        if (dayDate < currentDate) {
+          day.style.display = 'none';
+        }
+      });
+    }
+
+    displayMoonDays();
+    removePastDates();
   </script>
 </body>
 </html>
