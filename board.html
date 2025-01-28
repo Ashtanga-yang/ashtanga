@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 게시판</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .post-list {
+            margin-top: 20px;
+        }
+        .post-item {
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .post-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .post-item p {
+            margin: 10px 0;
+        }
+        .post-item .controls {
+            text-align: right;
+        }
+        .post-item button {
+            background-color: #ff4d4d;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: white;
+            border-radius: 4px;
+        }
+        .post-item button:hover {
+            background-color: #e43f3f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>간단한 게시판</h1>
+</header>
+
+<div class="container">
+    <div class="form-group">
+        <label for="title">제목</label>
+        <input type="text" id="title" placeholder="제목을 입력하세요">
+    </div>
+    <div class="form-group">
+        <label for="content">내용</label>
+        <textarea id="content" rows="4" placeholder="내용을 입력하세요"></textarea>
+    </div>
+    <div class="form-group">
+        <button onclick="addPost()">게시글 작성</button>
+    </div>
+
+    <div class="post-list" id="postList">
+        <!-- 게시글 목록이 여기에 표시됩니다. -->
+    </div>
+</div>
+
+<script>
+    const postListContainer = document.getElementById('postList');
+
+    // 게시글을 저장할 배열
+    let posts = [];
+
+    // 게시글 추가 함수
+    function addPost() {
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+
+        if (!title || !content) {
+            alert('제목과 내용을 모두 입력해주세요!');
+            return;
+        }
+
+        const newPost = {
+            id: Date.now(), // 유일한 ID 생성 (현재 시간)
+            title,
+            content,
+            date: new Date().toLocaleString()
+        };
+
+        posts.push(newPost);
+        renderPosts(); // 게시글 목록을 다시 렌더링
+        resetForm(); // 입력 폼 초기화
+    }
+
+    // 게시글 목록 렌더링 함수
+    function renderPosts() {
+        postListContainer.innerHTML = ''; // 기존 목록 초기화
+
+        posts.forEach(post => {
+            const postItem = document.createElement('div');
+            postItem.classList.add('post-item');
+            postItem.setAttribute('data-id', post.id);
+
+            postItem.innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.content}</p>
+                <p><small>작성일: ${post.date}</small></p>
+                <div class="controls">
+                    <button onclick="deletePost(${post.id})">삭제</button>
+                </div>
+            `;
+
+            postListContainer.appendChild(postItem);
+        });
+    }
+
+    // 게시글 삭제 함수
+    function deletePost(postId) {
+        posts = posts.filter(post => post.id !== postId); // 삭제하려는 ID를 제외한 새로운 배열로 업데이트
+        renderPosts(); // 게시글 목록을 다시 렌더링
+    }
+
+    // 입력 폼 초기화 함수
+    function resetForm() {
+        document.getElementById('title').value = '';
+        document.getElementById('content').value = '';
+    }
+</script>
+
+</body>
+</html>
