@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>흔들리는 추와 궤적</title>
+  <title>네모 애니메이션</title>
   <style>
     body {
       display: flex;
@@ -14,97 +14,61 @@
       background-color: #f4f4f4;
     }
 
-    .pendulum-container {
+    .box-container {
       position: relative;
       height: 300px;
-      width: 300px;
+      width: 100px;
+      overflow: hidden;
     }
 
-    .pendulum {
+    .box {
       position: absolute;
       top: 0;
-      left: 50%;
-      width: 5px;
-      height: 200px;
+      left: 0;
+      width: 100px;
+      height: 100px;
       background-color: #333;
-      transform-origin: top center;
-      animation: swing 10s infinite ease-in-out;
+      animation: move 10s infinite ease-in-out;
     }
 
-    .bob {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 40px;
-      height: 40px;
-      background-color: #f44336;
-      border-radius: 50%;
-      transform: translateX(-50%);
-    }
-
-    .path {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      height: 200px;
-      width: 2px;
-      background-color: #aaa;
-      transform-origin: top center;
-      pointer-events: none; /* 클릭 방지 */
-      transform: rotate(0deg);
-    }
-
-    /* 흔들리는 애니메이션 */
-    @keyframes swing {
+    @keyframes move {
       0%, 100% {
-        transform: rotate(-30deg);
+        top: 0;
       }
       50% {
-        transform: rotate(30deg);
+        top: 200px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="pendulum-container">
-    <div class="path"></div>
-    <div class="pendulum">
-      <div class="bob"></div>
-    </div>
+  <div class="box-container">
+    <div class="box"></div>
   </div>
 
-  <audio id="bellSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+  <audio id="dingSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 
   <script>
-    const pendulum = document.querySelector('.pendulum');
-    const bob = document.querySelector('.bob');
-    const bellSound = document.getElementById('bellSound');
-    const path = document.querySelector('.path');
+    const box = document.querySelector('.box');
+    const dingSound = document.getElementById('dingSound');
 
-    // 벨소리 함수
-    function playBellSound() {
-      bellSound.currentTime = 0; // 소리가 반복되지 않게 설정
-      bellSound.play();
+    // 소리 함수
+    function playSound() {
+      dingSound.currentTime = 0;  // 소리가 반복되지 않게 설정
+      dingSound.play();
     }
 
-    // 애니메이션 완료 시 벨소리 출력
-    pendulum.addEventListener('animationiteration', () => {
-      const rotation = parseFloat(getComputedStyle(pendulum).transform.split(',')[4]);
-
-      if (rotation >= 30 || rotation <= -30) {
-        playBellSound();
+    // 애니메이션이 끝날 때마다 소리 출력
+    box.addEventListener('animationiteration', () => {
+      // 애니메이션이 위로 갈 때와 아래로 갈 때 소리를 재생
+      const topPosition = parseInt(window.getComputedStyle(box).top);
+      if (topPosition === 200) {
+        playSound();  // 아래 끝에서 소리
+      } else if (topPosition === 0) {
+        playSound();  // 위 끝에서 소리
       }
     });
-
-    // 궤적의 위치를 추적
-    function updatePath() {
-      const rotation = parseFloat(getComputedStyle(pendulum).transform.split(',')[4]) || 0;
-      path.style.transform = `rotate(${rotation}deg)`;
-    }
-
-    // 애니메이션 매 프레임마다 궤적 업데이트
-    setInterval(updatePath, 50);
   </script>
 
 </body>
