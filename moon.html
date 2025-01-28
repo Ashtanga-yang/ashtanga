@@ -47,7 +47,7 @@
     const serviceKey = "2iaROfIsgWz4c2VRC3EyV8QBvrUurWFf4Qo06ZpA8lM163O7pkn89xI6R1o6vaU2JvvPGU%2FiV76ogJX55hRGjw%3D%3D
 "; // KASI API 키를 여기에 입력하세요
     const currentYear = new Date().getFullYear(); // 현재 연도 자동 감지
-    const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService/getLunPhInfo?ServiceKey=${serviceKey}&solYear=${currentYear}&numOfRows=100`;
+    const apiUrl = `http://apis.data.go.kr/B090041/openapi/service/LunPhInfoService`;
 
     const yearDisplay = document.getElementById('yearDisplay');
     const moonDaysContainer = document.getElementById('moonDays');
