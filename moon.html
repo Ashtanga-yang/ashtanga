@@ -169,9 +169,7 @@
             const ul = document.createElement('ul');
             monthDays.forEach(day => {
               const dayDate = new Date(day.date);
-              const isUpcoming = dayDate > currentDate;
-              if (dayDate < currentDate) return; // Skip past days
-
+              const isUpcoming = dayDate >= currentDate && dayDate.getMonth() + 1 === currentMonth;
               const li = document.createElement('li');
               const dateSpan = document.createElement('span');
               dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
