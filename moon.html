@@ -129,8 +129,6 @@
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth() + 1;
-    const tomorrow = new Date(currentDate);
-    tomorrow.setDate(currentDate.getDate() + 1);
 
     function formatDate(date) {
       const d = new Date(date);
@@ -144,7 +142,10 @@
     }
 
     function createMoonDayList(year, month) {
-      return moonDays[year].filter(day => new Date(day.date).getMonth() + 1 === month && new Date(day.date) >= tomorrow);
+      return moonDays[year].filter(day => {
+        const moonDay = new Date(day.date);
+        return moonDay.getMonth() + 1 === month && moonDay >= currentDate;
+      });
     }
 
     function displayMoonDays() {
@@ -169,7 +170,6 @@
             const ul = document.createElement('ul');
             monthDays.forEach(day => {
               const dayDate = new Date(day.date);
-              const isUpcoming = dayDate >= currentDate && dayDate.getMonth() + 1 === currentMonth;
               const li = document.createElement('li');
               const dateSpan = document.createElement('span');
               dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
