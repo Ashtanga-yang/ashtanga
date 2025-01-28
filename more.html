@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>흔들리는 추</title>
+  <title>흔들리는 추와 궤적</title>
   <style>
     body {
       display: flex;
@@ -14,8 +14,16 @@
       background-color: #f4f4f4;
     }
 
-    .pendulum {
+    .pendulum-container {
       position: relative;
+      height: 300px;
+      width: 300px;
+    }
+
+    .pendulum {
+      position: absolute;
+      top: 0;
+      left: 50%;
       width: 5px;
       height: 200px;
       background-color: #333;
@@ -34,6 +42,17 @@
       transform: translateX(-50%);
     }
 
+    .path {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 200px;
+      width: 2px;
+      background-color: #aaa;
+      transform-origin: top center;
+      pointer-events: none; /* 클릭 방지 */
+    }
+
     /* 흔들리는 애니메이션 */
     @keyframes swing {
       0%, 100% {
@@ -47,9 +66,46 @@
 </head>
 <body>
 
-  <div class="pendulum">
-    <div class="bob"></div>
+  <div class="pendulum-container">
+    <div class="path"></div>
+    <div class="pendulum">
+      <div class="bob"></div>
+    </div>
   </div>
+
+  <audio id="bellSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+  <script>
+    const pendulum = document.querySelector('.pendulum');
+    const bellSound = document.getElementById('bellSound');
+    const path = document.querySelector('.path');
+
+    // 벨소리 함수
+    function playBellSound() {
+      bellSound.currentTime = 0; // 소리가 반복되지 않게 설정
+      bellSound.play();
+    }
+
+    // 애니메이션 완료 시 벨소리 출력
+    pendulum.addEventListener('animationiteration', () => {
+      // 0%와 100%에서 벨소리 발생
+      const currentRotation = parseFloat(getComputedStyle(pendulum).transform.split(',')[4]);
+      
+      if (currentRotation >= 30 || currentRotation <= -30) {
+        playBellSound();
+      }
+    });
+
+    // 궤적의 위치를 추적
+    function updatePath() {
+      const angle = getComputedStyle(pendulum).transform.split('(')[1].split(')')[0];
+      const rotation = parseFloat(angle) || 0;
+      path.style.transform = `rotate(${rotation}deg)`;
+    }
+
+    // 애니메이션 매 프레임마다 궤적 업데이트
+    setInterval(updatePath, 50);
+  </script>
 
 </body>
 </html>
