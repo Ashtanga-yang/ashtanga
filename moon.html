@@ -63,7 +63,7 @@
   </style>
 </head>
 <body>
-  <h1>Moon Days for 2025-2027</h1>
+  <h1>Moon Days for5-2027</h1>
   <div class="container">
     <!-- Moon Days -->
     <div id="moonDays">
@@ -197,6 +197,7 @@
             const dateSpan = document.createElement('span');
             dateSpan.classList.add('date');
             dateSpan.textContent = `${dateStr} - ${day.phase}`;
+            listItem.appendChild(dateSpan);
             moonDaysList.appendChild(listItem);
           });
 
@@ -214,7 +215,7 @@
       allMoonDays.forEach(day => {
         const dayDate = new Date(day.textContent.split(' - ')[0]);
         if (dayDate < currentDate) {
-          day.style.display = 'none';
+          day.parentElement.style.display = 'none';
         }
       });
     }
@@ -222,3 +223,5 @@
     displayMoonDays();
     removePastDates();
   </script>
+</body>
+</html>
