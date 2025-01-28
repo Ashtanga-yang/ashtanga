@@ -5,102 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moon Days for 2025-2027</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color: #fff; color: black; }
-    h1 { background-color: #ff6347; padding: 20px; margin: 0; color: white; }
-    .container { padding: 20px; }
-    .year { font-size: 1.5em; margin: 20px 0; }
-    .month { margin-top: 20px; text-align: left; padding-left: 20px; }
-    .month h3 { color: #555; font-weight: normal; }
-    .month .current-month h3 { color: red; font-weight: bold; }
-    ul { list-style-type: none; padding: 0; margin: 0; }
-    ul li { margin: 10px 0; }
-    .date { display: block; padding: 8px; border-radius: 4px; background-color: #fff; cursor: pointer; border: 1px solid #ccc; }
-    .current-month-date { color: red; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: black;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 10px;
+      margin: 0;
+    }
+    .year {
+      margin-top: 20px;
+    }
+    .month {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+    .upcoming-moon {
+      color: red;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 5px;
+    }
+    span {
+      display: block;
+    }
   </style>
 </head>
 <body>
   <h1>Moon Days for 2025-2027</h1>
-  <div class="container" id="moonDays"></div>
+  <div id="moonDays"></div>
 
   <script>
     const moonDays = {
       2025: [
-        { date: "2025-01-14", phase: "풀문" },
-        { date: "2025-01-29", phase: "뉴문" },
-        { date: "2025-02-12", phase: "풀문" },
-        { date: "2025-02-28", phase: "뉴문" },
-        { date: "2025-03-14", phase: "풀문" },
-        { date: "2025-03-29", phase: "뉴문" },
-        { date: "2025-04-13", phase: "풀문" },
-        { date: "2025-04-28", phase: "뉴문" },
-        { date: "2025-05-13", phase: "풀문" },
-        { date: "2025-05-27", phase: "뉴문" },
-        { date: "2025-06-11", phase: "풀문" },
-        { date: "2025-06-25", phase: "뉴문" },
-        { date: "2025-07-11", phase: "풀문" },
-        { date: "2025-07-25", phase: "뉴문" },
-        { date: "2025-08-09", phase: "풀문" },
-        { date: "2025-08-23", phase: "뉴문" },
-        { date: "2025-09-08", phase: "풀문" },
-        { date: "2025-09-22", phase: "뉴문" },
-        { date: "2025-10-07", phase: "풀문" },
-        { date: "2025-10-21", phase: "뉴문" },
-        { date: "2025-11-05", phase: "풀문" },
-        { date: "2025-11-20", phase: "뉴문" },
-        { date: "2025-12-05", phase: "풀문" },
-        { date: "2025-12-20", phase: "뉴문" }
+        { date: "2025-01-14", phase: "○" },
+        { date: "2025-01-29", phase: "●" },
+        { date: "2025-02-12", phase: "○" },
+        { date: "2025-02-28", phase: "●" },
+        { date: "2025-03-14", phase: "○" },
+        { date: "2025-03-29", phase: "●" },
+        { date: "2025-04-13", phase: "○" },
+        { date: "2025-04-28", phase: "●" },
+        { date: "2025-05-13", phase: "○" },
+        { date: "2025-05-27", phase: "●" },
+        { date: "2025-06-11", phase: "○" },
+        { date: "2025-06-25", phase: "●" },
+        { date: "2025-07-11", phase: "○" },
+        { date: "2025-07-25", phase: "●" },
+        { date: "2025-08-09", phase: "○" },
+        { date: "2025-08-23", phase: "●" },
+        { date: "2025-09-08", phase: "○" },
+        { date: "2025-09-22", phase: "●" },
+        { date: "2025-10-07", phase: "○" },
+        { date: "2025-10-21", phase: "●" },
+        { date: "2025-11-05", phase: "○" },
+        { date: "2025-11-20", phase: "●" },
+        { date: "2025-12-05", phase: "○" },
+        { date: "2025-12-20", phase: "●" }
       ],
       2026: [
-        { date: "2026-01-02", phase: "풀문" },
-        { date: "2026-01-17", phase: "뉴문" },
-        { date: "2026-01-31", phase: "풀문" },
-        { date: "2026-01-01", phase: "풀문" },
-        { date: "2026-02-16", phase: "뉴문" },
-        { date: "2026-03-02", phase: "풀문" },
-        { date: "2026-03-18", phase: "뉴문" },
-        { date: "2026-04-01", phase: "풀문" },
-        { date: "2026-04-16", phase: "뉴문" },
-        { date: "2026-04-30", phase: "풀문" },
-        { date: "2026-05-16", phase: "뉴문" },
-        { date: "2026-05-30", phase: "풀문" },
-        { date: "2026-06-14", phase: "뉴문" },
-        { date: "2026-06-28", phase: "풀문" },
-        { date: "2026-07-14", phase: "뉴문" },
-        { date: "2026-07-28", phase: "풀문" },
-        { date: "2026-08-12", phase: "뉴문" },
-        { date: "2026-08-26", phase: "풀문" },
-        { date: "2026-09-10", phase: "뉴문" },
-        { date: "2026-09-25", phase: "풀문" },
-        { date: "2026-10-09", phase: "뉴문" },
-        { date: "2026-10-24", phase: "풀문" },
-        { date: "2026-11-08", phase: "뉴문" },
-        { date: "2026-12-07", phase: "뉴문" }
+        { date: "2026-01-02", phase: "○" },
+        { date: "2026-01-17", phase: "●" },
+        { date: "2026-01-31", phase: "○" },
+        { date: "2026-02-16", phase: "●" },
+        { date: "2026-03-02", phase: "○" },
+        { date: "2026-03-18", phase: "●" },
+        { date: "2026-04-01", phase: "○" },
+        { date: "2026-04-16", phase: "●" },
+        { date: "2026-04-30", phase: "○" },
+        { date: "2026-05-16", phase: "●" },
+        { date: "2026-05-30", phase: "○" },
+        { date: "2026-06-14", phase: "●" },
+        { date: "2026-06-28", phase: "○" },
+        { date: "2026-07-14", phase: "●" },
+        { date: "2026-07-28", phase: "○" },
+        { date: "2026-08-12", phase: "●" },
+        { date: "2026-08-26", phase: "○" },
+        { date: "2026-09-10", phase: "●" },
+        { date: "2026-09-25", phase: "○" },
+        { date: "2026-10-09", phase: "●" },
+        { date: "2026-10-24", phase: "○" },
+        { date: "2026-11-08", phase: "●" },
+        { date: "2026-12-07", phase: "●" }
       ],
       2027: [
-        { date: "2027-01-06", phase: "풀문" },
-        { date: "2027-01-20", phase: "뉴문" },
-        { date: "2027-02-04", phase: "풀문" },
-        { date: "2027-02-18", phase: "뉴문" },
-        { date: "2027-03-05", phase: "풀문" },
-        { date: "2027-03-19", phase: "뉴문" },
-        { date: "2027-04-03", phase: "풀문" },
-        { date: "2027-04-17", phase: "뉴문" },
-        { date: "2027-05-02", phase: "풀문" },
-        { date: "2027-05-16", phase: "뉴문" },
-        { date: "2027-06-01", phase: "풀문" },
-        { date: "2027-06-15", phase: "뉴문" },
-        { date: "2027-07-01", phase: "풀문" },
-        { date: "2027-07-16", phase: "뉴문" },
-        { date: "2027-08-01", phase: "풀문" },
-        { date: "2027-08-15", phase: "뉴문" },
-        { date: "2027-09-01", phase: "풀문" },
-        { date: "2027-09-15", phase: "뉴문" },
-        { date: "2027-10-01", phase: "풀문" },
-        { date: "2027-10-15", phase: "뉴문" },
-        { date: "2027-11-01", phase: "풀문" },
-        { date: "2027-11-15", phase: "뉴문" },
-        { date: "2027-12-01", phase: "풀문" },
-        { date: "2027-12-15", phase: "뉴문" }
+        { date: "2027-01-06", phase: "○" },
+        { date: "2027-01-20", phase: "●" },
+        { date: "2027-02-04", phase: "○" },
+        { date: "2027-02-18", phase: "●" },
+        { date: "2027-03-05", phase: "○" },
+        { date: "2027-03-19", phase: "●" },
+        { date: "2027-04-03", phase: "○" },
+        { date: "2027-04-17", phase: "●" },
+        { date: "2027-05-02", phase: "○" },
+        { date: "2027-05-16", phase: "●" },
+        { date: "2027-06-01", phase: "○" },
+        { date: "2027-06-15", phase: "●" },
+        { date: "2027-07-01", phase: "○" },
+        { date: "2027-07-16", phase: "●" },
+        { date: "2027-08-01", phase: "○" },
+        { date: "2027-08-15", phase: "●" },
+        { date: "2027-09-01", phase: "○" },
+        { date: "2027-09-15", phase: "●" },
+        { date: "2027-10-01", phase: "○" },
+        { date: "2027-10-15", phase: "●" },
+        { date: "2027-11-01", phase: "○" },
+        { date: "2027-11-15", phase: "●" },
+        { date: "2027-12-01", phase: "○" },
+        { date: "2027-12-15", phase: "●" }
       ]
     };
 
@@ -138,37 +160,31 @@
           const monthDiv = document.createElement('div');
           monthDiv.classList.add('month');
           const monthDays = createMoonDayList(year, month);
-          const currentMonthFlag = year === currentYear && month === currentMonth ? 'current-month' : '';
 
           if (monthDays.length > 0) {
             const monthTitle = document.createElement('h3');
             monthTitle.innerText = `${month}월`;
-            if (currentMonthFlag) monthTitle.classList.add('current-month');
             monthDiv.appendChild(monthTitle);
             
             const ul = document.createElement('ul');
-            let monthHasVisibleDays = false;
-
             monthDays.forEach(day => {
               const dayDate = new Date(day.date);
+              const isUpcoming = dayDate > currentDate;
               if (dayDate < currentDate) return; // Skip past days
 
-              monthHasVisibleDays = true;
               const li = document.createElement('li');
               const dateSpan = document.createElement('span');
-              dateSpan.classList.add('date');
               dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
-              if (new Date(day.date) < currentDate) {
-                dateSpan.classList.add('current-month-date');
+
+              if (isUpcoming) {
+                dateSpan.classList.add('upcoming-moon');
               }
               li.appendChild(dateSpan);
               ul.appendChild(li);
             });
 
-            if (monthHasVisibleDays) {
-              monthDiv.appendChild(ul);
-              yearDiv.appendChild(monthDiv);
-            }
+            monthDiv.appendChild(ul);
+            yearDiv.appendChild(monthDiv);
           }
         }
 
