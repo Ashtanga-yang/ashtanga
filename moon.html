@@ -122,31 +122,24 @@
   </div>
 
   <script>
-    // 현재 날짜를 기준으로 지나간 년도를 삭제하고, 현재 년도를 강조
+    // 현재 날짜를 기준으로 지나간 연도를 삭제하고, 현재 년도를 강조
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
 
-    // 2025년, 2026년 날짜 리스트 가져오기
     const months2025 = document.querySelectorAll('#month2025 .date');
     const months2026 = document.querySelectorAll('#month2026 .date');
     const title2025 = document.getElementById('month2025Title');
     const title2026 = document.getElementById('month2026Title');
 
-    // 2025년이 지나면 해당 년도의 모든 날짜 삭제
+    // 지나간 연도의 모든 날짜 삭제
     if (currentYear > 2025) {
       document.getElementById('month2025').remove(); // 2025년 삭제
-    } else {
-      // 2025년 날짜 강조
-      title2025.classList.add('current-month');
     }
 
-    // 2026년이 지나면 해당 년도의 모든 날짜 삭제
     if (currentYear > 2026) {
       document.getElementById('month2026').remove(); // 2026년 삭제
-    } else {
-      // 2026년 날짜 강조
-      title2026.classList.add('current-month');
     }
+    
   </script>
 </body>
 </html>
