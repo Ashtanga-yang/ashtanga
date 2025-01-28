@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모래시계</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .hourglass {
+      position: relative;
+      width: 50px;
+      height: 100px;
+      border: 3px solid black;
+      border-radius: 25px;
+      background-color: transparent;
+      overflow: hidden;
+    }
+
+    .top, .bottom {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      background-color: #f2d27b;
+      transition: all 1s ease;
+    }
+
+    .top {
+      top: 0;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    .bottom {
+      bottom: 0;
+      clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+      transform: translateY(100%);
+    }
+
+    .hourglass.animate .top {
+      transform: translateY(100%);
+    }
+
+    .hourglass.animate .bottom {
+      transform: translateY(0%);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="hourglass"></div>
+
+  <script>
+    const hourglass = document.querySelector('.hourglass');
+
+    // 2초마다 애니메이션 실행
+    setInterval(() => {
+      hourglass.classList.add('animate');
+      
+      // 2초 후 애니메이션 리셋
+      setTimeout(() => {
+        hourglass.classList.remove('animate');
+      }, 2000);
+    }, 2000);
+  </script>
+
+</body>
+</html>
