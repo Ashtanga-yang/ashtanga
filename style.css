@@ -277,6 +277,7 @@ color: blue;
 border-top: 2px solid #999;
       justify-content: space-around;
       background-color: #fff;
+	    opacity : 0.5;
     }
 
     .fixed-menu a {
@@ -284,7 +285,7 @@ border-top: 2px solid #999;
   font-weight: 400;
 font-size:1rem;
       color: #000;
-      padding: 15px;
+      padding: 12px;
       text-decoration: none;
       flex: 1;
       text-align: center;
