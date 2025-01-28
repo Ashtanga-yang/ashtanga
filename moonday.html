@@ -74,7 +74,191 @@
 <p>
 	 &nbsp;
 </p>
-	
+	  <style>
+    h1 {
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 10px;
+      margin: 0;
+    }
+    .year {
+      margin: 20px 0 0 15px;
+    }
+    .month {
+      margin-top: 10px;
+    }
+    .upcoming-moon {
+      color: red;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 0px;
+    }
+    span {
+      display: block;
+    }
+    h2, h3 {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Moon Days for 2025-2027</h1>
+  <div id="moonDays"></div>
+
+  <script>
+    const moonDays = {
+      2025: [
+        { date: "2025-01-14", phase: "○" },
+        { date: "2025-01-29", phase: "●" },
+        { date: "2025-02-12", phase: "○" },
+        { date: "2025-02-28", phase: "●" },
+        { date: "2025-03-14", phase: "○" },
+        { date: "2025-03-29", phase: "●" },
+        { date: "2025-04-13", phase: "○" },
+        { date: "2025-04-28", phase: "●" },
+        { date: "2025-05-13", phase: "○" },
+        { date: "2025-05-27", phase: "●" },
+        { date: "2025-06-11", phase: "○" },
+        { date: "2025-06-25", phase: "●" },
+        { date: "2025-07-11", phase: "○" },
+        { date: "2025-07-25", phase: "●" },
+        { date: "2025-08-09", phase: "○" },
+        { date: "2025-08-23", phase: "●" },
+        { date: "2025-09-08", phase: "○" },
+        { date: "2025-09-22", phase: "●" },
+        { date: "2025-10-07", phase: "○" },
+        { date: "2025-10-21", phase: "●" },
+        { date: "2025-11-05", phase: "○" },
+        { date: "2025-11-20", phase: "●" },
+        { date: "2025-12-05", phase: "○" },
+        { date: "2025-12-20", phase: "●" }
+      ],
+      2026: [
+        { date: "2026-01-02", phase: "○" },
+        { date: "2026-01-17", phase: "●" },
+        { date: "2026-01-31", phase: "○" },
+        { date: "2026-02-16", phase: "●" },
+        { date: "2026-03-02", phase: "○" },
+        { date: "2026-03-18", phase: "●" },
+        { date: "2026-04-01", phase: "○" },
+        { date: "2026-04-16", phase: "●" },
+        { date: "2026-04-30", phase: "○" },
+        { date: "2026-05-16", phase: "●" },
+        { date: "2026-05-30", phase: "○" },
+        { date: "2026-06-14", phase: "●" },
+        { date: "2026-06-28", phase: "○" },
+        { date: "2026-07-14", phase: "●" },
+        { date: "2026-07-28", phase: "○" },
+        { date: "2026-08-12", phase: "●" },
+        { date: "2026-08-26", phase: "○" },
+        { date: "2026-09-10", phase: "●" },
+        { date: "2026-09-25", phase: "○" },
+        { date: "2026-10-09", phase: "●" },
+        { date: "2026-10-24", phase: "○" },
+        { date: "2026-11-08", phase: "●" },
+        { date: "2026-12-07", phase: "●" }
+      ],
+      2027: [
+        { date: "2027-01-06", phase: "○" },
+        { date: "2027-01-20", phase: "●" },
+        { date: "2027-02-04", phase: "○" },
+        { date: "2027-02-18", phase: "●" },
+        { date: "2027-03-05", phase: "○" },
+        { date: "2027-03-19", phase: "●" },
+        { date: "2027-04-03", phase: "○" },
+        { date: "2027-04-17", phase: "●" },
+        { date: "2027-05-02", phase: "○" },
+        { date: "2027-05-16", phase: "●" },
+        { date: "2027-06-01", phase: "○" },
+        { date: "2027-06-15", phase: "●" },
+        { date: "2027-07-01", phase: "○" },
+        { date: "2027-07-16", phase: "●" },
+        { date: "2027-08-01", phase: "○" },
+        { date: "2027-08-15", phase: "●" },
+        { date: "2027-09-01", phase: "○" },
+        { date: "2027-09-15", phase: "●" },
+        { date: "2027-10-01", phase: "○" },
+        { date: "2027-10-15", phase: "●" },
+        { date: "2027-11-01", phase: "○" },
+        { date: "2027-11-15", phase: "●" },
+        { date: "2027-12-01", phase: "○" },
+        { date: "2027-12-15", phase: "●" }
+      ]
+    };
+
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+
+    function formatDate(date) {
+      const d = new Date(date);
+      return d.getFullYear() + '-' + (d.getMonth() + 1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
+    }
+
+    function getDayOfWeek(date) {
+      const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+      const d = new Date(date);
+      return daysOfWeek[d.getDay()];
+    }
+
+    function createMoonDayList(year, month) {
+      return moonDays[year].filter(day => {
+        const moonDay = new Date(day.date);
+        return moonDay.getMonth() + 1 === month && moonDay >= currentDate;
+      });
+    }
+
+    function displayMoonDays() {
+      const moonDaysContainer = document.getElementById('moonDays');
+      for (let year = 2025; year <= 2027; year++) {
+        const yearDiv = document.createElement('div');
+        yearDiv.classList.add('year');
+        const yearTitle = document.createElement('h2');
+        yearTitle.innerText = `${year}년`;
+        yearDiv.appendChild(yearTitle);
+
+        for (let month = 1; month <= 12; month++) {
+          const monthDiv = document.createElement('div');
+          monthDiv.classList.add('month');
+          const monthDays = createMoonDayList(year, month);
+
+          if (monthDays.length > 0) {
+            const monthTitle = document.createElement('h3');
+            monthTitle.innerText = `${month}월`;
+            monthDiv.appendChild(monthTitle);
+
+            const ul = document.createElement('ul');
+            monthDays.forEach(day => {
+              const dayDate = new Date(day.date);
+              const li = document.createElement('li');
+              const dateSpan = document.createElement('span');
+              dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
+
+              // 오늘 문데이는 빨간색
+              if (formatDate(day.date) === formatDate(currentDate)) {
+                dateSpan.classList.add('upcoming-moon');
+              }
+
+              li.appendChild(dateSpan);
+              ul.appendChild(li);
+            });
+
+            monthDiv.appendChild(ul);
+            yearDiv.appendChild(monthDiv);
+          }
+        }
+
+        moonDaysContainer.appendChild(yearDiv);
+      }
+    }
+
+    displayMoonDays();
+  </script>
 <p>
 	 by <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
 </p>
