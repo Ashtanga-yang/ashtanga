@@ -5,45 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-    .module {
-      width: 220px;
-      padding: 1rem;
-      margin: 1rem;
-    }
+    ul { padding: 0; }
     li {
       list-style: none;
       text-align: center;
+      margin-bottom: 1rem;
     }
-    .current-day {
-      font-weight: bold;
-      color: #007BFF; /* 강조 스타일 */
-    }
+    .current-day { font-weight: bold; color: #007BFF; }
+    .content { font-size: 0.9rem; color: gray; }
   </style>
 </head>
 <body>
-  <div id="module" class="module">
-    <ul>
-      <li>Monday</li>
-      <li>Tuesday</li>
-am 07:00 - 09:30 망원동 아쉬탕가 요가 마이솔
-      <li>Wednesday</li>
-am 07:00 - 09:30 망원동 아쉬탕가 요가 마이솔</br>
-pm 05:30 
+  <ul>
+    <li>Monday<div class="content">
 
-      <li>Thursday</li>
-      <li>Friday</li>
-      <li>Saturday</li>
-      <li>Sunday</li>
-    </ul>
-  </div>
+sssss</div></li>
+    <li>Tuesday<div class="content">am 07:00- 09:30 망원동 아쉬탕가요가 마이솔</div></li>
+    <li>Wednesday<div class="content">Midweek hustle</div></li>
+    <li>Thursday<div class="content">Almost there!</div></li>
+    <li>Friday<div class="content">Finish strong</div></li>
+    <li>Saturday<div class="content">Relax and enjoy</div></li>
+    <li>Sunday<div class="content">Prepare for the week</div></li>
+  </ul>
   <script>
     $(function () {
-      let day = (new Date().getDay() + 6) % 7; // 요일 순서 맞춤 (Monday=0, Sunday=6)
-      let today = $("ul li").eq(day).addClass("current-day"); // 오늘 요일에 클래스 추가
-      $("ul").prepend(today); // 오늘 요일을 맨 위로 이동
+      const today = (new Date().getDay() + 6) % 7; // 요일 보정
+      $("ul li").eq(today).addClass("current-day").prependTo("ul");
     });
   </script>
 </body>
