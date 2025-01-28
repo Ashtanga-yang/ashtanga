@@ -151,7 +151,7 @@
 
             monthDays.forEach(day => {
               const dayDate = new Date(day.date);
-              if (dayDate < tomorrow) return; // Skip past days
+              if (dayDate < currentDate) return; // Skip past days
 
               monthHasVisibleDays = true;
               const li = document.createElement('li');
