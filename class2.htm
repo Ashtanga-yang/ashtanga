@@ -1,78 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="./style.css">
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
-</style>
-  <style>
-    ul { padding: 0; margin-top:10rem;
-	font-family:"Song Myung",serif;
-	line-height:1.3rem; font-weight:400;
-	color:black;}
-    li { list-style: none; margin:0 0 1rem 15px;}
-    .current-day { font-size: 1.3rem; color: #007BFF; font-weight:500; }
-    .content { color: #000; font-size: 0.9rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+    </style>
+    <style>
+        ul {
+            padding: 0;
+            margin-top: 10rem;
+            font-family: "Song Myung", serif;
+            line-height: 1.3rem;
+            font-weight: 400;
+            color: black;
+        }
+
+        li {
+            list-style: none;
+            margin: 0 0 1rem 15px;
+        }
+
+        .current-day {
+            font-size: 1.3rem;
+            color: #007BFF;
+            font-weight: 500;
+        }
+
+        .content {
+            color: #000;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
+
 <body>
-<p>
-		 &nbsp;
-	</p>
-	<p>
-		<img src="logo.jpg" width="50px">
-	</p>
-  <ul>
-    <li>Monday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</br>
-요가봄 | pm 06:30 - 08:30 | 아쉬탕가요가 마이솔
-</div></li>
-    <li>Tuesday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
-    <li>Wednesday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</br>
-요가람 | pm 06:30 - 06:30 | 하타 아사나 </br>
-<font color="#fff">요가람 | </font>pm 07:50 - 08:50 | 아쉬탕가요가</br>
-<font color="#fff">요가람 | </font>pm 09:00 - 10:00 | 하타 아사나</div></li>
-    <li>Thursday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
-    <li>Friday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div></li>
-    <li>Saturday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</br></div></li>
-    <li>Sunday<div class="content">요가봄 | am 09:30 - 11:30 | 아쉬탕가요가 마이솔</br></div></li>
-  </ul>
-<p>
-		 &nbsp;
-	</p>
-  <script>
-    $(function() {
-      const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-      const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=Sunday, 1=Monday, ..., 6=Saturday)
-      const todayItem = $("ul li").eq(today);
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        <img src="logo.jpg" width="50px">
+    </p>
+    <ul>
+        <li>Monday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</br>
+                요가봄 | pm 06:30 - 08:30 | 아쉬탕가요가 마이솔
+            </div>
+        </li>
+        <li>Tuesday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div>
+        </li>
+        <li>Wednesday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</br>
+                요가람 | pm 06:30 - 06:30 | 하타 아사나 </br>
+                <font color="#fff">요가람 | </font>pm 07:50 - 08:50 | 아쉬탕가요가</br>
+                <font color="#fff">요가람 | </font>pm 09:00 - 10:00 | 하타 아사나
+            </div>
+        </li>
+        <li>Thursday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div>
+        </li>
+        <li>Friday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</div>
+        </li>
+        <li>Saturday<div class="content">망원동 | am 07:00 - 09:30 | 아쉬탕가요가 마이솔</br></div>
+        </li>
+        <li>Sunday<div class="content">요가봄 | am 09:30 - 11:30 | 아쉬탕가요가 마이솔</br></div>
+        </li>
+    </ul>
+    <p>
+        &nbsp;
+    </p>
+    <script>
+        $(function() {
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=Sunday, 1=Monday, ..., 6=Saturday)
+            const todayItem = $("ul li").eq(today);
 
-      // 오늘 요일에 "(오늘)" 추가 및 강조
-      todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} (오늘)`);
-    });
-  </script>
+            // 오늘 요일에 "(오늘)" 추가 및 강조
+            todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} (오늘)`);
+        });
+    </script>
 
-  <!-- 하단 고정 메뉴 -->
-  <div class="fixed-menu">
-    <a href="index.html">Home</a>
-    About
-<a href="moonday.html">moon day</a>
-    <a href="https://open.kakao.com/o/sCpd2RLf">Contact</a>
-  </div>
+    <!-- 하단 고정 메뉴 -->
+    <div class="fixed-menu">
+        <a href="index.html">Home</a>
+        About
+        <a href="moonday.html">moon day</a>
+        <a href="https://open.kakao.com/o/sCpd2RLf">Contact</a>
+    </div>
 
-<div id="sun" style="top: 90px;">
-	<div id="rings">
-		<div>
-		</div>
-		<div>
-		</div>
-		<div>
-		</div>
-		<div>
-		</div>
-	</div>
-</div>
+    <div id="sun" style="top: 90px;">
+        <div id="rings">
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>
