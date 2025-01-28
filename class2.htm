@@ -1,42 +1,47 @@
-<script>
-			var weekday = new Date().getDay()
-			$("ul li:nth-child("+weekday+")").addClass("current-day");
-</script>
-<style>
-*{
-			box-sizing: border-box;
-		}
-
-
-		.module{
-			width: 220px;
-			padding: 1rem;
-			margin: 1rem;
-		}
-
-		li{
-			list-style: none;
-			text-align: center;
-		}
-
-		.current-day:after{
-			content: "}";
-			margin-left: 20px;
-		}
-		.current-day:before{
-			content: "{";
-			margin-right: 20px;
-		}
-</style>
-
-<div id="module" class="module">
-  <ul>
-    <li>Monday</li>
-    <li>Tuesday</li>
-    <li>Wednesday</li>
-    <li>Thursday</li>
-    <li>Friday</li>
-    <li>Saturday</li>
-    <li>Sunday</li>
-  </ul>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .module {
+      width: 220px;
+      padding: 1rem;
+      margin: 1rem;
+    }
+    li {
+      list-style: none;
+      text-align: center;
+    }
+    .current-day:after {
+      content: "}";
+      margin-left: 20px;
+    }
+    .current-day:before {
+      content: "{";
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="module" class="module">
+    <ul>
+      <li>Monday</li>
+      <li>Tuesday</li>
+      <li>Wednesday</li>
+      <li>Thursday</li>
+      <li>Friday</li>
+      <li>Saturday</li>
+      <li>Sunday</li>
+    </ul>
+  </div>
+  <script>
+    var weekday = new Date().getDay() + 1; // getDay() 값 보정
+    $("ul li:nth-child(" + weekday + ")").addClass("current-day");
+  </script>
+</body>
+</html>
