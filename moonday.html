@@ -197,7 +197,7 @@ font-size:1.1rem;
               const dayDate = new Date(day.date);
               const li = document.createElement('li');
               const dateSpan = document.createElement('span');
-              dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
+              dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)})  ${day.phase}`;
 
               // 오늘 문데이는 빨간색
               if (formatDate(day.date) === formatDate(currentDate)) {
