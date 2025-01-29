@@ -25,11 +25,6 @@
     font-size: 1.1rem;
   }
 
-  .next-moon {
-    color: #FF8000 !important;
-    font-weight: bold;
-  }
-
   .past-moon {
     color: black !important;
   }
@@ -53,7 +48,7 @@
   <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
   
   <p>&nbsp;</p>
-  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanㅓㅓㅓㅓㅓga_yang</a></p>
+  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
   <script>
     const moonDays = {
@@ -132,7 +127,6 @@
       const moonContainer = document.querySelector("#moonDays");
 
       let firstMoonFound = false;
-      let nextMoonFound = false;
 
       for (const year in moonDays) {
         const yearDiv = document.createElement("div");
@@ -160,17 +154,12 @@
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
-          // 오늘 문데이는 빨간색으로 표시
+          // 첫 번째 문데이는 빨간색으로 표시
           if (moonDate.getTime() === currentDateOnly.getTime() && !firstMoonFound) {
             dayDiv.classList.add("current-moon");
             firstMoonFound = true;
-          } 
-          // 바로 다음 문데이는 주황색으로 표시
-          else if (diffInDays > 0 && !nextMoonFound) {
-            dayDiv.classList.add("next-moon");
-            nextMoonFound = true;
           }
-          // 그 외 문데이는 검정색으로 표시
+          // 그 외 문데이는 기본적으로 검정색 표시
           else {
             dayDiv.classList.add("past-moon");
           }
