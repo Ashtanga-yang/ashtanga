@@ -6,51 +6,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./style.css">
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
- 
-    .year {
-      margin-bottom: 20px;
-    }
-    .current-moon {
-      color: red !important;
-      font-weight: bold;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 5px 0;
-    }
-  </style>
+  @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+  .year {
+    margin-bottom: 20px;
+  }
+
+  .current-moon {
+    color: red !important;
+    font-weight: bold;
+  }
+
+  .next-moon {
+    color: orange !important;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 5px 0;
+  }
+</style>
 <title>Ashtanga_Yang</title>
 </head>
 <body>
 
 <div class="container">
-	<p>
-		 &nbsp;
-	</p>
-	<p>
-		<img src="logo.jpg" width="50px">
-	</p>
-	<div class="moon">
-		<div class="disc">
-		</div>
-	</div>
-	<p>
-		 &nbsp;
-	</p>
-	<p>
-		<span class="md1">● New Moon<br>
-		 ○ Full Moon</span>
-	</p>
-<p>
-<a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
-</p>
-<p>
-		 &nbsp;
-	</p>
+  <p>
+     &nbsp;
+  </p>
+  <p>
+    <img src="logo.jpg" width="50px">
+  </p>
+  <div class="moon">
+    <div class="disc">
+    </div>
+  </div>
+  <p>
+     &nbsp;
+  </p>
+  <p>
+    <span class="md1">● New Moon<br>
+     ○ Full Moon</span>
+  </p>
+  <p>
+  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
+  </p>
+  <p>
+     &nbsp;
+  </p>
  <div id="moonDays"></div>
 
   <script>
@@ -137,6 +145,7 @@
       const moonContainer = document.querySelector("#moonDays");
 
       let nextMoonDayFound = false;
+      let nextNextMoonDayFound = false;
 
       for (const year in moonDays) {
         const yearDiv = document.createElement("div");
@@ -158,10 +167,9 @@
           if (!nextMoonDayFound && diff >= 0) {
             dayDiv.classList.add("current-moon");
             nextMoonDayFound = true;
-
-            setTimeout(() => {
-              dayDiv.remove();
-            }, 24 * 60 * 60 * 1000);
+          } else if (!nextNextMoonDayFound && diff >= 0) {
+            dayDiv.classList.add("next-moon");
+            nextNextMoonDayFound = true;
           }
 
           yearDiv.appendChild(dayDiv);
@@ -174,12 +182,12 @@
     displayMoonDays();
   </script>
 
-	  <!-- 하단 고정 메뉴 -->
-    <div class="fixed-menu">
-        <a href="index.html">소개</a>
-        <a href="class.html">수업</a>
-        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-<a href="#"><u>문데이</u></a>
-    </div>
+  <!-- 하단 고정 메뉴 -->
+  <div class="fixed-menu">
+      <a href="index.html">소개</a>
+      <a href="class.html">수업</a>
+      <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
+      <a href="#"><u>문데이</u></a>
+  </div>
 </body>
 </html>
