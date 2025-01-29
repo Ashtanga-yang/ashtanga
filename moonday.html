@@ -9,29 +9,23 @@
   @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
   #moonDays {
-    margin:0 0 60px 15px;
+    margin: 0 0 60px 15px;
   }
   .h2 { font-size: 0.5rem; }
   .year {
     margin-bottom: 20px;
-    font-family:"Song Myung",serif;
-	font-weight:400;
-	  	      line-height:1.8rem;
-
+    font-family: "Song Myung", serif;
+    font-weight: 400;
+    line-height: 1.8rem;
   }
 
   .current-moon {
-    color: #FF4000 !important;
+    color: red !important;
     font-weight: bold;
     font-size: 1.1rem;
   }
 
-  .next-moon {
-    color: #FF8000 !important;
-    font-weight: bold;
-  }
-
-  .past-moon {
+  .future-moon {
     color: black !important;
   }
 
@@ -40,7 +34,6 @@
     padding: 0;
   }
   li {
-
   }
 </style>
 <title>Ashtanga_Yang</title>
@@ -53,9 +46,9 @@
   <div class="moon"><div class="disc"></div></div>
   <p>&nbsp;</p>
   <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
-  
+
   <p>&nbsp;</p>
-	<p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
+  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
   <script>
     const moonDays = {
@@ -114,25 +107,26 @@
       ]
     };
 
+    // 한국 시간(KST) 기준
     const currentDate = new Date();
+    currentDate.setMinutes(currentDate.getMinutes() + currentDate.getTimezoneOffset() + (9 * 60)); // KST로 변환
 
     // 한국어 요일 배열
     const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
     function formatDate(date) {
       const d = new Date(date);
-      const dayOfWeek = weekdays[d.getDay()]; // 한국어 요일 가져오기
+      const dayOfWeek = weekdays[d.getDay()];
       return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
         .getDate()
         .toString()
-        .padStart(2, '0')} (${dayOfWeek})`; // 요일 추가
+        .padStart(2, '0')} (${dayOfWeek})`;
     }
 
     function displayMoonDays() {
       const moonContainer = document.querySelector("#moonDays");
 
-      let firstMoonFound = false;
-      let nextMoonFound = false;
+      let firstMoonFound = false; // 가장 위에 표시되는 문데이를 찾기 위한 플래그
 
       for (const year in moonDays) {
         const yearDiv = document.createElement("div");
@@ -144,29 +138,28 @@
 
         moonDays[year].forEach((day) => {
           const moonDate = new Date(day.date);
-          const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
+          moonDate.setHours(0, 0, 0, 0); // 날짜만 비교하려면 시간은 00:00으로 설정
 
-          // 지나간 문데이는 자동으로 삭제
+          const currentDateOnly = new Date(currentDate);
+          currentDateOnly.setHours(0, 0, 0, 0); // 현재 날짜도 시간 00:00으로 설정
+
+          const diffInTime = moonDate.getTime() - currentDateOnly.getTime();
+          const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초 차이를 일수로 변환
+
+          // 지난 문데이는 표시하지 않음
+          if (diffInDays < 0) {
+            return;
+          }
+
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
-          if (diff < -1) {
-            return;  // 24시간이 지난 문데이는 표시하지 않음
-          }
-
-          // 오늘 문데이는 빨간색으로 표시
-          if (formatDate(day.date) === formatDate(currentDate) && !firstMoonFound) {
+          // 가장 위에 표시되는 문데이를 빨간색으로 강조
+          if (!firstMoonFound) {
             dayDiv.classList.add("current-moon");
-            firstMoonFound = true;
-          } 
-          // 바로 다음 문데이는 주황색으로 표시
-          else if (diff > 0 && !nextMoonFound) {
-            dayDiv.classList.add("next-moon");
-            nextMoonFound = true;
-          }
-          // 그 외 문데이는 검정색으로 표시
-          else {
-            dayDiv.classList.add("past-moon");
+            firstMoonFound = true; // 첫 번째 문데이를 찾았으므로 플래그를 true로 설정
+          } else {
+            dayDiv.classList.add("future-moon");
           }
 
           yearDiv.appendChild(dayDiv);
