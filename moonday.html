@@ -58,7 +58,7 @@
      ○ Full Moon</span>
   </p>
   <p>
-  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>ㅇㄴㅁㅇㄴㅁㅇㄴㅁ
+  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
   </p>
   <p>
      &nbsp;
@@ -149,21 +149,26 @@
           const moonDate = new Date(day.date);
           const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
 
-          // 지나간 문데이는 검정색으로 표시
+          // 지나간 문데이는 자동으로 삭제
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
           if (diff < -1) {
-            dayDiv.classList.add("past-moon");
+            return;  // 24시간이 지난 문데이는 표시하지 않음
           } 
           // 오늘 문데이는 빨간색으로 표시
           else if (formatDate(day.date) === formatDate(currentDate)) {
             dayDiv.classList.add("current-moon");
             firstMoonFound = true;
           } 
-          // 다가오는 문데이는 주황색으로 표시
-          else if (diff > 0) {
+          // 바로 다음 문데이는 주황색으로 표시
+          else if (diff > 0 && !firstMoonFound) {
             dayDiv.classList.add("next-moon");
+            firstMoonFound = true;
+          }
+          // 그 외 문데이는 검정색으로 표시
+          else {
+            dayDiv.classList.add("past-moon");
           }
 
           yearDiv.appendChild(dayDiv);
