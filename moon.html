@@ -1,163 +1,189 @@
 <!DOCTYPE html>
-<html lang="ko">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Song+Myung&display=swap');
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
-        body {
-            font-family: "Song Myung", serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
+  #moonDays {
+    margin: 0 0 60px 15px;
+  }
+  .h2 { font-size: 0.5rem; }
+  .year {
+    margin-bottom: 20px;
+    font-family: "Song Myung", serif;
+    font-weight: 400;
+    line-height: 1.8rem;
+  }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
+  .current-moon {
+    color: #FF4000 !important;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
 
-        ul {
-            padding: 0;
-            margin-top: 2rem;
-            line-height: 1.3rem;
-            font-weight: 400;
-            color: #000;
-        }
+  .next-moon {
+    color: #FF8000 !important;
+    font-weight: bold;
+  }
 
-        li {
-            list-style: none;
-            margin: 0 0 2rem 15px;
-        }
+  .past-moon {
+    color: black !important;
+  }
 
-        .current-day {
-            font-size: 1.1rem;
-            line-height: 1.5rem;
-            font-weight: 500;
-        }
-
-        .content {
-            color: #000;
-        }
-
-        .yoil {
-            font-weight: bold;
-            color: #e74c3c;
-        }
-
-        .mw, .bom, .ram {
-            font-weight: bold;
-        }
-
-        .fixed-menu {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #2c3e50;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .fixed-menu a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        .fixed-menu a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+  }
+</style>
+<title>Ashtanga_Yang</title>
 </head>
-
 <body>
-    <h1>망원동 아쉬탕가 요가 마이솔 클래스</h1>
-    <p>
-        <img src="logo.jpg" width="50px">
-    </p>
-    <ul>
-        <p>
-            <font color="blue"><a href="https://ashtanga-yang.github.io/ashtanga/class.html">망원동 아쉬탕가 요가 마이솔 클래스</font></a><br>
-            매주 월요일 - 토요일 <br>
-            오전 7:00 - 9:30분까지(06:30분 수련실 개방)<br>
-            위치는 [ 몸춤 ] 서울 마포구 동교로 43 4층 | 주차 가능<br>
-            자세한 내용은 <a href="https://ashtanga-yang.github.io/ashtanga/mw.html">여기</a><br>
-            문의는 <a href="https://www.instagram.com/ashtanga_yang/">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf">kakao&nbsp;</a>&nbsp;
-        </p>
-        <p>
-            &nbsp;
-        </p>
-        <p>
-            <u>수업 일정은</u>
-        </p>
-        <li><span class="yoil">월요일</span>
-            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 LED</br>
-                <span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔
-            </div>
-        </li>
-        <li><span class="yoil">화요일</span>
-            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div>
-        </li>
-        <li><span class="yoil">수요일</span>
-            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</br>
-                <span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나 </br>
-                <span class="ram">요가람</span> | 오후 07:50 - 08:50 | 아쉬탕가 요가</br>
-                <span class="ram">요가람</span> | 오후 09:00 - 10:00 | 하타 아사나
-            </div>
-        </li>
-        <li><span class="yoil">목요일</span>
-            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div>
-        </li>
-        <li><span class="yoil">금요일</span>
-            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</br>
-                <span class="bom">요가봄</span> | 오후 06:40 - 07:40 | 하타 아사나
-            </div>
-        </li>
-        <li><span class="yoil">토요일</span>
-            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div>
-        </li>
-        <li><span class="yoil">일요일</span>
-            <div class="content"><span class="bom">요가봄</span> | 오전 09:30 - 11:30 | 아쉬탕가 요가 마이솔</br></div>
-        </li>
-    </ul>
-    <p>
-        &nbsp;
-    </p>
-    <script>
-        $(function() {
-            const days = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"];
-            const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=일요일, 1=월요일, ..., 6=토요일)
-            const todayItem = $("ul li").eq(today);
 
-            // 오늘 요일에 "(오늘)" 추가 및 강조
-            todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} <font color="red">●</font>`);
+<div class="container">
+  <p>&nbsp;</p>
+  <p><img src="logo.jpg" width="50px"></p>
+  <div class="moon"><div class="disc"></div></div>
+  <p>&nbsp;</p>
+  <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
+  
+  <p>&nbsp;</p>
+  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
+  <div id="moonDays"></div>
+  <script>
+    const moonDays = {
+      2025: [
+        { date: "2025-01-14", phase: "○" },
+        { date: "2025-01-29", phase: "●" },
+        { date: "2025-02-12", phase: "○" },
+        { date: "2025-02-28", phase: "●" },
+        { date: "2025-03-14", phase: "○" },
+        { date: "2025-03-29", phase: "●" },
+        { date: "2025-04-13", phase: "○" },
+        { date: "2025-04-28", phase: "●" },
+        { date: "2025-05-13", phase: "○" },
+        { date: "2025-05-27", phase: "●" },
+        { date: "2025-06-11", phase: "○" },
+        { date: "2025-06-25", phase: "●" },
+        { date: "2025-07-11", phase: "○" },
+        { date: "2025-07-25", phase: "●" },
+        { date: "2025-08-09", phase: "○" },
+        { date: "2025-08-23", phase: "●" },
+        { date: "2025-09-08", phase: "○" },
+        { date: "2025-09-22", phase: "●" },
+        { date: "2025-10-07", phase: "○" },
+        { date: "2025-10-21", phase: "●" },
+        { date: "2025-11-05", phase: "○" },
+        { date: "2025-11-20", phase: "●" },
+        { date: "2025-12-05", phase: "○" },
+        { date: "2025-12-20", phase: "●" }
+      ],
+      2026: [
+        { date: "2026-01-02", phase: "○" },
+        { date: "2026-01-17", phase: "●" },
+        { date: "2026-01-31", phase: "○" },
+        { date: "2026-02-16", phase: "●" },
+        { date: "2026-03-02", phase: "○" },
+        { date: "2026-03-18", phase: "●" },
+        { date: "2026-04-01", phase: "○" },
+        { date: "2026-04-16", phase: "●" },
+        { date: "2026-04-30", phase: "○" },
+        { date: "2026-05-16", phase: "●" },
+        { date: "2026-05-30", phase: "○" },
+        { date: "2026-06-14", phase: "●" },
+        { date: "2026-06-28", phase: "○" },
+        { date: "2026-07-13", phase: "●" },
+        { date: "2026-07-28", phase: "○" },
+        { date: "2026-08-11", phase: "●" },
+        { date: "2026-08-25", phase: "○" },
+        { date: "2026-09-09", phase: "●" },
+        { date: "2026-09-24", phase: "○" },
+        { date: "2026-10-09", phase: "●" },
+        { date: "2026-10-23", phase: "○" },
+        { date: "2026-11-07", phase: "●" },
+        { date: "2026-11-22", phase: "○" },
+        { date: "2026-12-06", phase: "●" },
+        { date: "2026-12-20", phase: "○" }
+      ]
+    };
+
+    const currentDate = new Date();
+
+    // 한국어 요일 배열
+    const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+
+    function formatDate(date) {
+      const d = new Date(date);
+      const dayOfWeek = weekdays[d.getDay()]; // 한국어 요일 가져오기
+      return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
+        .getDate()
+        .toString()
+        .padStart(2, '0')} (${dayOfWeek})`; // 요일 추가
+    }
+
+    function displayMoonDays() {
+      const moonContainer = document.querySelector("#moonDays");
+
+      let firstMoonFound = false;
+      let nextMoonFound = false;
+
+      for (const year in moonDays) {
+        const yearDiv = document.createElement("div");
+        yearDiv.classList.add("year");
+
+        const yearTitle = document.createElement("h2");
+        yearTitle.textContent = `${year}`;
+        yearDiv.appendChild(yearTitle);
+
+        moonDays[year].forEach((day) => {
+          const moonDate = new Date(day.date);
+          const diffInTime = moonDate.getTime() - currentDate.getTime(); // 밀리초 차이
+          const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초를 일수로 변환
+
+          // 지나간 문데이는 24시간이 지난 후 표시하지 않음
+          if (diffInDays < -1) {
+            return;  // 24시간 이상 지난 문데이는 표시하지 않음
+          }
+
+          const dayDiv = document.createElement("div");
+          dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
+
+          // 오늘 문데이는 빨간색으로 표시
+          if (formatDate(day.date) === formatDate(currentDate) && !firstMoonFound) {
+            dayDiv.classList.add("current-moon");
+            firstMoonFound = true;
+          } 
+          // 바로 다음 문데이는 주황색으로 표시
+          else if (diffInDays > 0 && !nextMoonFound) {
+            dayDiv.classList.add("next-moon");
+            nextMoonFound = true;
+          }
+          // 그 외 문데이는 검정색으로 표시
+          else {
+            dayDiv.classList.add("past-moon");
+          }
+
+          yearDiv.appendChild(dayDiv);
         });
-    </script>
 
-    <!-- 하단 고정 메뉴 -->
-    <div class="fixed-menu">
-        <a href="index.html">소개</a>
-        <a href="#"><u>수업</u></a>
-        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-        <a href="moonday.html">문데이</a>
-    </div>
+        moonContainer.appendChild(yearDiv);
+      }
+    }
 
-    <div id="sun" style="top: 90px;">
-        <div id="rings">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+    displayMoonDays();
+  </script>
 
+  <!-- 하단 고정 메뉴 -->
+  <div class="fixed-menu">
+      <a href="index.html">소개</a>
+      <a href="class.html">수업</a>
+      <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
+      <a href="#"><u>문데이</u></a>
+  </div>
 </body>
-
 </html>
