@@ -72,109 +72,128 @@ font-size:1.1rem;
 <p>
 		 &nbsp;
 	</p>
+ <div id="moonDays"></div>
 
-<div id="moonDays"></div>
-<script>
-	const moonDays = {
-  2025: [
-    { date: "2025-01-14", phase: "○" },
-    { date: "2025-01-29", phase: "●" },
-    { date: "2025-02-12", phase: "○" },
-    { date: "2025-02-28", phase: "●" },
-    { date: "2025-03-14", phase: "○" },
-    { date: "2025-03-29", phase: "●" },
-    { date: "2025-04-13", phase: "○" },
-    { date: "2025-04-28", phase: "●" },
-  ]
-};
+  <script>
+    const moonDays = {
+      2025: [
+        { date: "2025-01-14", phase: "○" },
+        { date: "2025-01-29", phase: "●" },
+        { date: "2025-02-12", phase: "○" },
+        { date: "2025-02-28", phase: "●" },
+        { date: "2025-03-14", phase: "○" },
+        { date: "2025-03-29", phase: "●" },
+        { date: "2025-04-13", phase: "○" },
+        { date: "2025-04-28", phase: "●" },
+        { date: "2025-05-13", phase: "○" },
+        { date: "2025-05-27", phase: "●" },
+        { date: "2025-06-11", phase: "○" },
+        { date: "2025-06-25", phase: "●" },
+        { date: "2025-07-11", phase: "○" },
+        { date: "2025-07-25", phase: "●" },
+        { date: "2025-08-09", phase: "○" },
+        { date: "2025-08-23", phase: "●" },
+        { date: "2025-09-08", phase: "○" },
+        { date: "2025-09-22", phase: "●" },
+        { date: "2025-10-07", phase: "○" },
+        { date: "2025-10-21", phase: "●" },
+        { date: "2025-11-05", phase: "○" },
+        { date: "2025-11-20", phase: "●" },
+        { date: "2025-12-05", phase: "○" },
+        { date: "2025-12-20", phase: "●" }
+      ],
+      2026: [
+        { date: "2026-01-02", phase: "○" },
+        { date: "2026-01-17", phase: "●" },
+        { date: "2026-01-31", phase: "○" },
+        { date: "2026-02-16", phase: "●" },
+        { date: "2026-03-02", phase: "○" },
+        { date: "2026-03-18", phase: "●" },
+        { date: "2026-04-01", phase: "○" },
+        { date: "2026-04-16", phase: "●" },
+        { date: "2026-04-30", phase: "○" },
+        { date: "2026-05-16", phase: "●" },
+        { date: "2026-05-30", phase: "○" },
+        { date: "2026-06-14", phase: "●" }
+      ],
+      2027: [
+        { date: "2027-01-06", phase: "○" },
+        { date: "2027-01-20", phase: "●" },
+        { date: "2027-02-04", phase: "○" },
+        { date: "2027-02-18", phase: "●" },
+        { date: "2027-03-05", phase: "○" },
+        { date: "2027-03-19", phase: "●" },
+        { date: "2027-04-03", phase: "○" },
+        { date: "2027-04-17", phase: "●" },
+        { date: "2027-05-02", phase: "○" },
+        { date: "2027-05-16", phase: "●" },
+        { date: "2027-06-01", phase: "○" },
+        { date: "2027-06-15", phase: "●" },
+        { date: "2027-07-01", phase: "○" },
+        { date: "2027-07-16", phase: "●" },
+        { date: "2027-08-01", phase: "○" },
+        { date: "2027-08-15", phase: "●" },
+        { date: "2027-09-01", phase: "○" },
+        { date: "2027-09-15", phase: "●" },
+        { date: "2027-10-01", phase: "○" },
+        { date: "2027-10-15", phase: "●" },
+        { date: "2027-11-01", phase: "○" },
+        { date: "2027-11-15", phase: "●" },
+        { date: "2027-12-01", phase: "○" },
+        { date: "2027-12-15", phase: "●" }
+      ]
+    };
 
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1;
+    const currentDate = new Date();
 
-// 날짜를 YYYY-MM-DD 형식으로 변환
-function formatDate(date) {
-  const d = new Date(date);
-  return d.getFullYear() + '-' + (d.getMonth() + 1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
-}
+    function formatDate(date) {
+      const d = new Date(date);
+      return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
+        .getDate()
+        .toString()
+        .padStart(2, '0')}`;
+    }
 
-// 요일 가져오기 (한글)
-function getDayOfWeek(date) {
-  const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-  const d = new Date(date);
-  return daysOfWeek[d.getDay()];
-}
+    function displayMoonDays() {
+      const moonContainer = document.querySelector("#moonDays");
 
-// 해당 연도와 월의 문데이 목록 가져오기
-function createMoonDayList(year, month) {
-  return moonDays[year].filter(day => {
-    const moonDay = new Date(day.date);
-    return moonDay.getMonth() + 1 === month;
-  });
-}
+      let nextMoonDayFound = false;
 
-// 가장 가까운 다가오는 문데이 찾기
-function getNextMoonDay(moonDayList) {
-  const futureMoonDays = moonDayList.filter(day => new Date(day.date) >= currentDate);
-  return futureMoonDays.length > 0 ? futureMoonDays[0].date : null;
-}
+      for (const year in moonDays) {
+        const yearDiv = document.createElement("div");
+        yearDiv.classList.add("year");
 
-function displayMoonDays() {
-  const moonDaysContainer = document.getElementById('moonDays');
-  moonDaysContainer.innerHTML = ""; // 기존 데이터 초기화
+        const yearTitle = document.createElement("h2");
+        yearTitle.textContent = `${year}년`;
+        yearDiv.appendChild(yearTitle);
 
-  for (let year = 2025; year <= 2025; year++) {
-    const yearDiv = document.createElement('div');
-    yearDiv.classList.add('year');
-    const yearTitle = document.createElement('h2');
-    yearTitle.innerText = `${year}년`;
-    yearDiv.appendChild(yearTitle);
+        moonDays[year].forEach((day) => {
+          const moonDate = new Date(day.date);
+          const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
 
-    for (let month = 1; month <= 12; month++) {
-      const monthDiv = document.createElement('div');
-      monthDiv.classList.add('month');
-      const monthDays = createMoonDayList(year, month);
+          if (diff < -1) return;
 
-      if (monthDays.length > 0) {
-        const monthTitle = document.createElement('h3');
-        monthTitle.innerText = `${month}월`;
-        monthDiv.appendChild(monthTitle);
+          const dayDiv = document.createElement("div");
+          dayDiv.textContent = `${formatDate(day.date)} (${day.phase})`;
 
-        const ul = document.createElement('ul');
-        const nextMoonDay = getNextMoonDay(monthDays); // 가장 가까운 다가오는 문데이
+          if (!nextMoonDayFound && diff >= 0) {
+            dayDiv.classList.add("current-moon");
+            nextMoonDayFound = true;
 
-        monthDays.forEach(day => {
-          const dayDate = new Date(day.date);
-          const li = document.createElement('li');
-          const dateSpan = document.createElement('span');
-          dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)})  ${day.phase}`;
-
-          // 현재 날짜에 해당하는 문데이는 빨간색 강조
-          if (formatDate(day.date) === formatDate(currentDate)) {
-            dateSpan.classList.add('current-moon'); 
-          } 
-          // 다음 문데이는 빨간색 강조
-          else if (formatDate(day.date) === nextMoonDay) {
-            dateSpan.classList.add('upcoming-moon');
+            setTimeout(() => {
+              dayDiv.remove();
+            }, 24 * 60 * 60 * 1000);
           }
 
-          li.appendChild(dateSpan);
-          ul.appendChild(li);
+          yearDiv.appendChild(dayDiv);
         });
 
-        monthDiv.appendChild(ul);
-        yearDiv.appendChild(monthDiv);
+        moonContainer.appendChild(yearDiv);
       }
     }
 
-    moonDaysContainer.appendChild(yearDiv);
-  }
-}
-
-displayMoonDays();
-</script>
-
-</div>
+    displayMoonDays();
+  </script>
 
 	  <!-- 하단 고정 메뉴 -->
     <div class="fixed-menu">
