@@ -112,12 +112,12 @@
 
     const currentDate = new Date();
 
-    // 요일 배열
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    // 한국어 요일 배열
+    const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
     function formatDate(date) {
       const d = new Date(date);
-      const dayOfWeek = weekdays[d.getDay()]; // 요일 가져오기
+      const dayOfWeek = weekdays[d.getDay()]; // 한국어 요일 가져오기
       return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
         .getDate()
         .toString()
