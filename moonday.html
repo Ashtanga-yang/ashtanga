@@ -22,6 +22,10 @@
     font-weight: bold;
   }
 
+  .past-moon {
+    color: black !important;
+  }
+
   ul {
     list-style: none;
     padding: 0;
@@ -54,7 +58,7 @@
      ○ Full Moon</span>
   </p>
   <p>
-  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
+  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>ㅇㄴㅁㅇㄴㅁㅇㄴㅁ
   </p>
   <p>
      &nbsp;
@@ -145,18 +149,19 @@
           const moonDate = new Date(day.date);
           const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
 
-          // 지나간 문데이는 생략
-          if (diff < -1) return;
-
+          // 지나간 문데이는 검정색으로 표시
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
-          // 오늘의 문데이를 빨간색으로 강조
-          if (formatDate(day.date) === formatDate(currentDate)) {
+          if (diff < -1) {
+            dayDiv.classList.add("past-moon");
+          } 
+          // 오늘 문데이는 빨간색으로 표시
+          else if (formatDate(day.date) === formatDate(currentDate)) {
             dayDiv.classList.add("current-moon");
             firstMoonFound = true;
           } 
-          // 다가오는 문데이는 주황색으로 강조
+          // 다가오는 문데이는 주황색으로 표시
           else if (diff > 0) {
             dayDiv.classList.add("next-moon");
           }
