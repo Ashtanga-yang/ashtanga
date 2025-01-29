@@ -52,6 +52,11 @@
         .category-btns button:hover {
             background-color: #ddd;
         }
+
+        .category-btns button.active {
+            background-color: #ccc;
+        }
+
     </style>
 </head>
 
@@ -75,7 +80,7 @@
 
     <!-- 카테고리 버튼들 -->
     <div class="category-btns">
-        <button class="filter-btn" data-category="망원동">망원동</button>
+        <button class="filter-btn active" data-category="망원동">망원동</button>
         <button class="filter-btn" data-category="요가봄">요가봄</button>
         <button class="filter-btn" data-category="요가람">요가람</button>
     </div>
@@ -123,10 +128,14 @@
 
                 // 선택된 카테고리에 해당하는 항목만 보이기
                 $("ul li." + category).show();
+
+                // 버튼 스타일 변경
+                $(".filter-btn").removeClass("active");
+                $(this).addClass("active");
             });
 
-            // 페이지 로딩 시 모든 항목 보이기
-            $("ul li").show();
+            // 페이지 로딩 시 망원동 항목만 보이기
+            $("ul li.망원동").show();
         });
     </script>
 
