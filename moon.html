@@ -53,7 +53,7 @@
   <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
   
   <p>&nbsp;</p>
-  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>ㅎㅎㅎㅎㅎㅎㅎ</p>
+  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
   <script>
     const moonDays = {
@@ -148,7 +148,10 @@
 
         moonDays[year].forEach((day) => {
           const moonDate = new Date(day.date);
-          const diffInTime = moonDate.getTime() - currentDate.getTime(); // 밀리초 차이
+          const moonDateOnly = new Date(moonDate.getFullYear(), moonDate.getMonth(), moonDate.getDate()); // 시간 제외한 날짜만 비교
+          const currentDateOnly = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()); // 현재 시간에서 날짜만
+
+          const diffInTime = moonDateOnly.getTime() - currentDateOnly.getTime(); // 밀리초 차이
           const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초를 일수로 변환
 
           // 지나간 문데이는 24시간이 지난 후 표시하지 않음
@@ -160,7 +163,7 @@
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
           // 오늘 문데이는 빨간색으로 표시
-          if (formatDate(day.date) === formatDate(currentDate) && !firstMoonFound) {
+          if (moonDateOnly.getTime() === currentDateOnly.getTime() && !firstMoonFound) {
             dayDiv.classList.add("current-moon");
             firstMoonFound = true;
           } 
