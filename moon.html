@@ -122,7 +122,8 @@
 
     function displayMoonDays() {
       const moonContainer = document.querySelector("#moonDays");
-for (const year in moonDays) {
+
+      for (const year in moonDays) {
         const yearDiv = document.createElement("div");
         yearDiv.classList.add("year");
 
@@ -134,7 +135,6 @@ for (const year in moonDays) {
           const moonDate = new Date(day.date);
           const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
 
-          // Skip days already past 24 hours
           if (diff < -1) return;
 
           const dayDiv = document.createElement("div");
@@ -147,7 +147,6 @@ for (const year in moonDays) {
           dayDiv.textContent = dateText;
           yearDiv.appendChild(dayDiv);
 
-          // Remove current moon days after 24 hours
           if (diff >= 0 && diff <= 1) {
             setTimeout(() => {
               dayDiv.remove();
