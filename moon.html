@@ -25,7 +25,7 @@
     font-size: 1.1rem;
   }
 
-  .past-moon {
+  .future-moon {
     color: black !important;
   }
 
@@ -46,7 +46,7 @@
   <div class="moon"><div class="disc"></div></div>
   <p>&nbsp;</p>
   <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
-  
+
   <p>&nbsp;</p>
   <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
@@ -126,7 +126,7 @@
     function displayMoonDays() {
       const moonContainer = document.querySelector("#moonDays");
 
-      let firstMoonFound = false;
+      let firstMoonFound = false; // 가장 위에 표시되는 문데이를 찾기 위한 플래그
 
       for (const year in moonDays) {
         const yearDiv = document.createElement("div");
@@ -146,22 +146,20 @@
           const diffInTime = moonDate.getTime() - currentDateOnly.getTime();
           const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초 차이를 일수로 변환
 
-          // 지나간 문데이는 24시간 이상 지난 문데이는 표시하지 않음
+          // 지난 문데이는 표시하지 않음
           if (diffInDays < 0) {
-            return;  // 24시간 이상 지난 문데이는 표시하지 않음
+            return;
           }
 
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
-          // 첫 번째 문데이는 빨간색으로 표시
-          if (moonDate.getTime() === currentDateOnly.getTime() && !firstMoonFound) {
+          // 가장 위에 표시되는 문데이를 빨간색으로 강조
+          if (!firstMoonFound) {
             dayDiv.classList.add("current-moon");
-            firstMoonFound = true;
-          }
-          // 그 외 문데이는 기본적으로 검정색 표시
-          else {
-            dayDiv.classList.add("past-moon");
+            firstMoonFound = true; // 첫 번째 문데이를 찾았으므로 플래그를 true로 설정
+          } else {
+            dayDiv.classList.add("future-moon");
           }
 
           yearDiv.appendChild(dayDiv);
