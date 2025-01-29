@@ -148,13 +148,16 @@
 
         moonDays[year].forEach((day) => {
           const moonDate = new Date(day.date);
-          const moonDateOnly = new Date(moonDate.getFullYear(), moonDate.getMonth(), moonDate.getDate()); // 시간 제외한 날짜만 비교
-          const currentDateOnly = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()); // 현재 시간에서 날짜만
+          // 문데이 날짜를 "00:00"로 설정
+          const moonDateOnly = new Date(moonDate.getFullYear(), moonDate.getMonth(), moonDate.getDate());
+
+          // 현재 날짜를 "00:00"로 설정
+          const currentDateOnly = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
 
           const diffInTime = moonDateOnly.getTime() - currentDateOnly.getTime(); // 밀리초 차이
           const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초를 일수로 변환
 
-          // 지나간 문데이는 24시간이 지난 후 표시하지 않음
+          // 지나간 문데이는 24시간 이상 지난 후 표시하지 않음
           if (diffInDays < -1) {
             return;  // 24시간 이상 지난 문데이는 표시하지 않음
           }
