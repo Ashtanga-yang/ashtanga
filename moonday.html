@@ -58,7 +58,7 @@
      ○ Full Moon</span>
   </p>
   <p>
-  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
+  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
   </p>
   <p>
      &nbsp;
@@ -136,6 +136,7 @@
       const moonContainer = document.querySelector("#moonDays");
 
       let firstMoonFound = false;
+      let nextMoonFound = false;
 
       for (const year in moonDays) {
         const yearDiv = document.createElement("div");
@@ -155,16 +156,17 @@
 
           if (diff < -1) {
             return;  // 24시간이 지난 문데이는 표시하지 않음
-          } 
+          }
+
           // 오늘 문데이는 빨간색으로 표시
-          else if (formatDate(day.date) === formatDate(currentDate)) {
+          if (formatDate(day.date) === formatDate(currentDate) && !firstMoonFound) {
             dayDiv.classList.add("current-moon");
             firstMoonFound = true;
           } 
           // 바로 다음 문데이는 주황색으로 표시
-          else if (diff > 0 && !firstMoonFound) {
+          else if (diff > 0 && !nextMoonFound) {
             dayDiv.classList.add("next-moon");
-            firstMoonFound = true;
+            nextMoonFound = true;
           }
           // 그 외 문데이는 검정색으로 표시
           else {
