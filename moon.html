@@ -35,6 +35,20 @@
   }
   li {
   }
+
+  /* 오늘 날짜 표시 스타일 */
+  #todayDate {
+    position: fixed;
+    top: 20px; /* 상단에서 20px 아래에 위치 */
+    left: 200px; /* 문데이 표시 시작 지점으로부터 200px 우측 */
+    font-family: "Song Myung", serif;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9); /* 배경색 추가 */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  }
 </style>
 <title>Ashtanga_Yang</title>
 </head>
@@ -50,6 +64,10 @@
   <p>&nbsp;</p>
   <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
+
+  <!-- 오늘 날짜 표시 -->
+  <div id="todayDate"></div>
+
   <script>
     const moonDays = {
       2025: [
@@ -123,6 +141,12 @@
         .padStart(2, '0')} (${dayOfWeek})`;
     }
 
+    // 오늘 날짜 표시
+    function displayTodayDate() {
+      const todayDateElement = document.querySelector("#todayDate");
+      todayDateElement.textContent = `오늘 날짜: ${formatDate(currentDate)}`;
+    }
+
     function displayMoonDays() {
       const moonContainer = document.querySelector("#moonDays");
 
@@ -169,7 +193,8 @@
       }
     }
 
-    displayMoonDays();
+    displayTodayDate(); // 오늘 날짜 표시
+    displayMoonDays(); // 문데이 표시
   </script>
 
   <!-- 하단 고정 메뉴 -->
