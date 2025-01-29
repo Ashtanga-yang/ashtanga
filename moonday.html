@@ -54,7 +54,7 @@
      ○ Full Moon</span>
   </p>
   <p>
-  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>ㅇㅇㅇㅇ
+  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
   </p>
   <p>
      &nbsp;
@@ -164,15 +164,8 @@
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
-          // 오늘이 문데이일 경우
-          if (diff === 0) {
-            dayDiv.classList.add("current-moon");
-            setTimeout(() => {
-              dayDiv.remove();
-            }, 24 * 60 * 60 * 1000); // 24시간 후 삭제
-          }
           // 가장 가까운 문데이 (빨강 표시)
-          else if (!nextMoonDayFound && diff > 0) {
+          if (!nextMoonDayFound && diff >= 0) {
             dayDiv.classList.add("current-moon");
             nextMoonDayFound = true;
 
