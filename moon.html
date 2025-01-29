@@ -39,7 +39,7 @@
   /* 오늘 날짜 표시 스타일 */
   #todayDate {
     position: fixed;
-    top: 500px; /* 상단에서 위치 */
+    top: 400px; /* 상단에서 위치 */
     left: 200px; /* 문데이 표시 시작 지점으로부터 200px 우측 */
     font-family: "Song Myung", serif;
     font-size: 1.2rem; /* 폰트 크기 줄임 */
@@ -141,7 +141,7 @@
     // 오늘 날짜 표시
     function displayTodayDate() {
       const todayDateElement = document.querySelector("#todayDate");
-      todayDateElement.textContent = `오늘: ${formatDate(currentDate)}`;
+      todayDateElement.textContent = `오늘</br> ${formatDate(currentDate)}`;
     }
 
     function displayMoonDays() {
