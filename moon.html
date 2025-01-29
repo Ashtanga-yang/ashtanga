@@ -52,7 +52,7 @@
   <p>&nbsp;</p>
   <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
   
-  <p>&nbsp;</p>
+  <p>&nbsp;</p>ㅗㅠㅠㅠㅠㅠㅠ
   <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
   <script>
@@ -112,24 +112,20 @@
       ]
     };
 
-    // 현재 한국 시간(KST, UTC+9) 기준으로 시간 설정
+    // 한국 시간(KST) 기준
     const currentDate = new Date();
-    const koreaOffset = 9 * 60; // 한국은 UTC+9
-    const localOffset = currentDate.getTimezoneOffset(); // 사용자의 로컬 시간대 오프셋
-
-    // 한국 시간을 맞추기 위해 시간 차이만큼 조정
-    currentDate.setMinutes(currentDate.getMinutes() + localOffset + koreaOffset);
+    currentDate.setMinutes(currentDate.getMinutes() + currentDate.getTimezoneOffset() + (9 * 60)); // KST로 변환
 
     // 한국어 요일 배열
     const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
     function formatDate(date) {
       const d = new Date(date);
-      const dayOfWeek = weekdays[d.getDay()]; // 한국어 요일 가져오기
+      const dayOfWeek = weekdays[d.getDay()];
       return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
         .getDate()
         .toString()
-        .padStart(2, '0')} (${dayOfWeek})`; // 요일 추가
+        .padStart(2, '0')} (${dayOfWeek})`;
     }
 
     function displayMoonDays() {
@@ -148,16 +144,15 @@
 
         moonDays[year].forEach((day) => {
           const moonDate = new Date(day.date);
-          // 문데이 날짜를 "00:00"로 설정
-          const moonDateOnly = new Date(moonDate.getFullYear(), moonDate.getMonth(), moonDate.getDate());
+          moonDate.setHours(0, 0, 0, 0); // 날짜만 비교하려면 시간은 00:00으로 설정
 
-          // 현재 날짜를 "00:00"로 설정
-          const currentDateOnly = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+          const currentDateOnly = new Date(currentDate);
+          currentDateOnly.setHours(0, 0, 0, 0); // 현재 날짜도 시간 00:00으로 설정
 
-          const diffInTime = moonDateOnly.getTime() - currentDateOnly.getTime(); // 밀리초 차이
-          const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초를 일수로 변환
+          const diffInTime = moonDate.getTime() - currentDateOnly.getTime();
+          const diffInDays = diffInTime / (1000 * 3600 * 24); // 밀리초 차이를 일수로 변환
 
-          // 지나간 문데이는 24시간 이상 지난 후 표시하지 않음
+          // 지나간 문데이는 24시간 이상 지난 문데이는 표시하지 않음
           if (diffInDays < -1) {
             return;  // 24시간 이상 지난 문데이는 표시하지 않음
           }
@@ -166,7 +161,7 @@
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
           // 오늘 문데이는 빨간색으로 표시
-          if (moonDateOnly.getTime() === currentDateOnly.getTime() && !firstMoonFound) {
+          if (moonDate.getTime() === currentDateOnly.getTime() && !firstMoonFound) {
             dayDiv.classList.add("current-moon");
             firstMoonFound = true;
           } 
