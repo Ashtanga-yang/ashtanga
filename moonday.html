@@ -164,12 +164,23 @@
           const dayDiv = document.createElement("div");
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
+          // 가장 가까운 문데이 (빨강 표시)
           if (!nextMoonDayFound && diff >= 0) {
             dayDiv.classList.add("current-moon");
             nextMoonDayFound = true;
-          } else if (!nextNextMoonDayFound && diff >= 0) {
+
+            setTimeout(() => {
+              dayDiv.remove();
+            }, 24 * 60 * 60 * 1000); // 24시간 후 삭제
+          }
+          // 그 다음 문데이 (주황색 표시)
+          else if (!nextNextMoonDayFound && diff >= 0) {
             dayDiv.classList.add("next-moon");
             nextNextMoonDayFound = true;
+
+            setTimeout(() => {
+              dayDiv.remove();
+            }, 24 * 60 * 60 * 1000); // 24시간 후 삭제
           }
 
           yearDiv.appendChild(dayDiv);
