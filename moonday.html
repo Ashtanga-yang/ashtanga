@@ -11,18 +11,16 @@
   #moonDays {
     margin:0 0 40px 15px;
   }
-  .h2 { font-size: 0.9rem;
-  }
+  .h2 { font-size: 0.9rem; }
   .year {
     margin-bottom: 20px;
-        font-size: 0.9rem;
-
+    font-size: 0.9rem;
   }
 
   .current-moon {
     color: red !important;
     font-weight: bold;
-    font-size:1.1rem;
+    font-size: 1.1rem;
   }
 
   .next-moon {
@@ -38,7 +36,6 @@
     list-style: none;
     padding: 0;
   }
-
   li {
   }
 </style>
@@ -47,30 +44,14 @@
 <body>
 
 <div class="container">
-  <p>
-     &nbsp;
-  </p>
-  <p>
-    <img src="logo.jpg" width="50px">
-  </p>
-  <div class="moon">
-    <div class="disc">
-    </div>
-  </div>
-  <p>
-     &nbsp;
-  </p>
-  <p>
-    <span class="md1">● New Moon<br>
-     ○ Full Moon</span>
-  </p>
-  <p>
-  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
-  </p>
-  <p>
-     &nbsp;
-  </p>
- <div id="moonDays"></div>
+  <p>&nbsp;</p>
+  <p><img src="logo.jpg" width="50px"></p>
+  <div class="moon"><div class="disc"></div></div>
+  <p>&nbsp;</p>
+  <p><span class="md1">● New Moon<br> ○ Full Moon</span></p>
+  <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
+  <p>&nbsp;</p>
+  <div id="moonDays"></div>
 
   <script>
     const moonDays = {
@@ -131,12 +112,16 @@
 
     const currentDate = new Date();
 
+    // 요일 배열
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
     function formatDate(date) {
       const d = new Date(date);
+      const dayOfWeek = weekdays[d.getDay()]; // 요일 가져오기
       return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
         .getDate()
         .toString()
-        .padStart(2, '0')}`;
+        .padStart(2, '0')} (${dayOfWeek})`; // 요일 추가
     }
 
     function displayMoonDays() {
@@ -150,7 +135,7 @@
         yearDiv.classList.add("year");
 
         const yearTitle = document.createElement("h2");
-        yearTitle.textContent = `${year} moon day`;
+        yearTitle.textContent = `${year}년`;
         yearDiv.appendChild(yearTitle);
 
         moonDays[year].forEach((day) => {
