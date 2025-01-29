@@ -54,7 +54,7 @@
      ○ Full Moon</span>
   </p>
   <p>
-  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>ㄹㅇㄴㄹㄴㅇㄹ
+  <a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a>
   </p>
   <p>
      &nbsp;
@@ -165,7 +165,7 @@
           dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
 
           // 오늘이 문데이일 때 (빨강 표시)
-          if (!nextMoonDayFound && diff <= 1 && diff >= 0) {
+          if (!nextMoonDayFound && diff === 0) {
             dayDiv.classList.add("current-moon");
             nextMoonDayFound = true;
 
