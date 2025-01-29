@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
       margin-bottom: 20px;
     }
     .current-moon {
-      color: red;
+      color: red !important;
       font-weight: bold;
     }
     ul {
@@ -69,18 +69,7 @@
         { date: "2026-04-30", phase: "○" },
         { date: "2026-05-16", phase: "●" },
         { date: "2026-05-30", phase: "○" },
-        { date: "2026-06-14", phase: "●" },
-        { date: "2026-06-28", phase: "○" },
-        { date: "2026-07-14", phase: "●" },
-        { date: "2026-07-28", phase: "○" },
-        { date: "2026-08-12", phase: "●" },
-        { date: "2026-08-26", phase: "○" },
-        { date: "2026-09-10", phase: "●" },
-        { date: "2026-09-25", phase: "○" },
-        { date: "2026-10-09", phase: "●" },
-        { date: "2026-10-24", phase: "○" },
-        { date: "2026-11-08", phase: "●" },
-        { date: "2026-12-07", phase: "●" }
+        { date: "2026-06-14", phase: "●" }
       ],
       2027: [
         { date: "2027-01-06", phase: "○" },
@@ -123,6 +112,8 @@
     function displayMoonDays() {
       const moonContainer = document.querySelector("#moonDays");
 
+      let nextMoonDayFound = false;
+
       for (const year in moonDays) {
         const yearDiv = document.createElement("div");
         yearDiv.classList.add("year");
@@ -138,20 +129,18 @@
           if (diff < -1) return;
 
           const dayDiv = document.createElement("div");
-          const dateText = `${formatDate(day.date)} (${day.phase})`;
+          dayDiv.textContent = `${formatDate(day.date)} (${day.phase})`;
 
-          if (diff >= 0 && diff <= 1) {
+          if (!nextMoonDayFound && diff >= 0) {
             dayDiv.classList.add("current-moon");
-          }
+            nextMoonDayFound = true;
 
-          dayDiv.textContent = dateText;
-          yearDiv.appendChild(dayDiv);
-
-          if (diff >= 0 && diff <= 1) {
             setTimeout(() => {
               dayDiv.remove();
-            }, (24 - new Date().getHours()) * 60 * 60 * 1000);
+            }, 24 * 60 * 60 * 1000);
           }
+
+          yearDiv.appendChild(dayDiv);
         });
 
         moonContainer.appendChild(yearDiv);
