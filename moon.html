@@ -9,64 +9,56 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Song+Myung&display=swap');
 
-        body {
+        ul {
+            padding: 0;
+            margin-top: 10rem;
             font-family: "Song Myung", serif;
+            line-height: 1.3rem;
+            font-weight: 400;
+            color: #000;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 50px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        td {
-            background-color: #fafafa;
+        li {
+            list-style: none;
+            margin: 0 0 2rem 15px;
         }
 
         .current-day {
-            background-color: #ffd700;
-            font-weight: bold;
-            color: red;
+            font-size: 1.1rem;
+            line-height: 1.5rem;
+            font-weight: 500;
         }
 
-        .current-day font {
-            color: red;
+        .content {
+            color: #000;
         }
 
-        .fixed-menu {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
+        /* 추가된 스타일 */
+        .category-btns {
             text-align: center;
-            padding: 10px;
+            margin-bottom: 20px;
         }
 
-        .fixed-menu a {
-            color: white;
+        .category-btns button {
+            padding: 10px 20px;
             margin: 0 10px;
-            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
-        .fixed-menu a:hover {
-            text-decoration: underline;
+        .category-btns button:hover {
+            background-color: #ddd;
         }
     </style>
 </head>
 
 <body>
-
+    <p>
+        &nbsp;
+    </p>
     <p>
         <img src="logo.jpg" width="50px">
     </p>
@@ -75,92 +67,66 @@
 
     <p style="text-align: center;">
         매주 월요일 - 토요일 <br>
-        오전 7:00 - 9:30분까지(06:30분 수련실 개방) <br>
-        위치: [몸춤] 서울 마포구 동교로 43 4층 | 주차 가능<br>
+        오전 7:00 - 9:30분까지(06:30분 수련실 개방)<br>
+        위치는 [ 몸춤 ] 서울 마포구 동교로 43 4층 | 주차 가능<br>
         자세한 내용은 <a href="https://ashtanga-yang.github.io/ashtanga/mw.html">여기</a><br>
-        문의: <a href="https://www.instagram.com/ashtanga_yang/">Instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf">Kakao</a>
+        문의는 <a href="https://www.instagram.com/ashtanga_yang/">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf">kakao&nbsp;</a>
     </p>
 
-    <table>
-        <thead>
-            <tr>
-                <th>요일</th>
-                <th>수업 시간</th>
-                <th>수업 내용</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr id="monday">
-                <td>월요일</td>
-                <td>07:00 - 09:30</td>
-                <td>망원동 | 아쉬탕가 요가 LED</td>
-            </tr>
-            <tr id="monday-bom">
-                <td>월요일</td>
-                <td>18:30 - 20:30</td>
-                <td>요가봄 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-            <tr id="tuesday">
-                <td>화요일</td>
-                <td>07:00 - 09:30</td>
-                <td>망원동 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-            <tr id="wednesday">
-                <td>수요일</td>
-                <td>07:00 - 09:30</td>
-                <td>망원동 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-            <tr id="wednesday-ram">
-                <td>수요일</td>
-                <td>18:30 - 19:30</td>
-                <td>요가람 | 하타 아사나</td>
-            </tr>
-            <tr id="wednesday-ashtanga">
-                <td>수요일</td>
-                <td>19:50 - 20:50</td>
-                <td>요가람 | 아쉬탕가 요가</td>
-            </tr>
-            <tr id="wednesday-hata">
-                <td>수요일</td>
-                <td>21:00 - 22:00</td>
-                <td>요가람 | 하타 아사나</td>
-            </tr>
-            <tr id="thursday">
-                <td>목요일</td>
-                <td>07:00 - 09:30</td>
-                <td>망원동 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-            <tr id="friday">
-                <td>금요일</td>
-                <td>07:00 - 09:30</td>
-                <td>망원동 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-            <tr id="friday-bom">
-                <td>금요일</td>
-                <td>18:40 - 19:40</td>
-                <td>요가봄 | 하타 아사나</td>
-            </tr>
-            <tr id="saturday">
-                <td>토요일</td>
-                <td>07:00 - 09:30</td>
-                <td>망원동 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-            <tr id="sunday-bom">
-                <td>일요일</td>
-                <td>09:30 - 11:30</td>
-                <td>요가봄 | 아쉬탕가 요가 마이솔</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- 카테고리 버튼들 -->
+    <div class="category-btns">
+        <button class="filter-btn" data-category="망원동">망원동</button>
+        <button class="filter-btn" data-category="요가봄">요가봄</button>
+        <button class="filter-btn" data-category="요가람">요가람</button>
+    </div>
+
+    <ul>
+        <p>
+            <u>수업 일정은</u>
+        </p>
+        <li class="망원동"><span class="yoil">월요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 LED</br>
+            <span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔
+        </div></li>
+        <li class="망원동"><span class="yoil">화요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div></li>
+        <li class="망원동"><span class="yoil">수요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</br>
+            <span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나 </br>
+            <font color="#fff">요가람 | </font>오후 07:50 - 08:50 | 아쉬탕가 요가</br>
+            <font color="#fff">요가람 | </font>오후 09:00 - 10:00 | 하타 아사나
+        </div></li>
+        <li class="망원동"><span class="yoil">목요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div></li>
+        <li class="요가봄"><span class="yoil">금요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</br>
+            <span class="bom">요가봄</span> | 오후 06:40 - 07:40 | 하타 아사나
+        </div></li>
+        <li class="망원동"><span class="yoil">토요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div></li>
+        <li class="요가봄"><span class="yoil">일요일</span><div class="content"><span class="bom">요가봄</span> | 오전 09:30 - 11:30 | 아쉬탕가 요가 마이솔</br></div></li>
+    </ul>
+
+    <p>
+        &nbsp;
+    </p>
 
     <script>
         $(function() {
-            const days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+            const days = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"];
             const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=일요일, 1=월요일, ..., 6=토요일)
-            const todayRow = $("#" + days[today].toLowerCase());
+            const todayItem = $("ul li").eq(today);
 
-            // 오늘 요일에 강조 스타일 적용
-            todayRow.addClass("current-day");
+            // 오늘 요일에 "(오늘)" 추가 및 강조
+            todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} <font color="red">●</font>`);
+
+            // 카테고리 필터링
+            $(".filter-btn").click(function() {
+                var category = $(this).data("category");
+
+                // 모든 항목 숨기기
+                $("ul li").hide();
+
+                // 선택된 카테고리에 해당하는 항목만 보이기
+                $("ul li." + category).show();
+            });
+
+            // 페이지 로딩 시 모든 항목 보이기
+            $("ul li").show();
         });
     </script>
 
