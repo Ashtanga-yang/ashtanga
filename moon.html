@@ -33,138 +33,115 @@
             color: #000;
         }
 
-        /* 추가된 스타일 */
-        .category-btns {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .category-btns button {
-            padding: 10px 20px;
-            margin: 0 10px;
+        .category-btn {
+            padding: 10px 15px;
+            margin: 5px;
             cursor: pointer;
-            font-size: 16px;
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
         }
 
-        .category-btns button:hover {
-            background-color: #ddd;
+        .category-btn:hover {
+            background-color: #0056b3;
         }
-
-        .category-btns button.active {
-            background-color: #ccc;
-        }
-
     </style>
 </head>
 
 <body>
-    <p>
-        &nbsp;
-    </p>
+    <p>&nbsp;</p>
     <p>
         <img src="logo.jpg" width="50px">
     </p>
 
-    <h2 style="text-align: center;">망원동 아쉬탕가 요가 마이솔 클래스</h2>
-
-    <p style="text-align: center;">
-        매주 월요일 - 토요일 <br>
-        오전 7:00 - 9:30분까지(06:30분 수련실 개방)<br>
-        위치는 [ 몸춤 ] 서울 마포구 동교로 43 4층 | 주차 가능<br>
-        자세한 내용은 <a href="https://ashtanga-yang.github.io/ashtanga/mw.html">여기</a><br>
-        문의는 <a href="https://www.instagram.com/ashtanga_yang/">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf">kakao&nbsp;</a>
-    </p>
-
-    <!-- 카테고리 버튼들 -->
-    <div class="category-btns">
-        <button class="filter-btn active" data-category="망원동">망원동</button>
-        <button class="filter-btn" data-category="요가봄">요가봄</button>
-        <button class="filter-btn" data-category="요가람">요가람</button>
+    <div>
+        <button class="category-btn" id="mw">망원동</button>
+        <button class="category-btn" id="bom">요가봄</button>
+        <button class="category-btn" id="ram">요가람</button>
     </div>
 
     <ul>
         <p>
-            <u>수업 일정은</u>
+            <font color="blue"><a href="https://ashtanga-yang.github.io/ashtanga/class.html">망원동 아쉬탕가 요가 마이솔 클래스</font></a><br>
+            매주 월요일 - 토요일 <br>
+            오전 7:00 - 9:30분까지(06:30분 수련실 개방)<br>
+            위치는 [ 몸춤 ] 서울 마포구 동교로 43 4층 | 주차 가능<br>
+            자세한 내용은 <a href="https://ashtanga-yang.github.io/ashtanga/mw.html">여기</a><br>
+            문의는 <a href="https://www.instagram.com/ashtanga_yang/">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf">kakao&nbsp;</a>&nbsp;
         </p>
-        <!-- 망원동 수업 -->
-        <li class="망원동"><span class="yoil">월요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 LED</br>
-            <span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔
-        </div></li>
-        <li class="망원동"><span class="yoil">화요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="망원동"><span class="yoil">수요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</br>
-            <span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나 </br>
-            <font color="#fff">요가람 | </font>오후 07:50 - 08:50 | 아쉬탕가 요가</br>
-            <font color="#fff">요가람 | </font>오후 09:00 - 10:00 | 하타 아사나
-        </div></li>
-        <li class="망원동"><span class="yoil">목요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="요가봄"><span class="yoil">금요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</br>
-            <span class="bom">요가봄</span> | 오후 06:40 - 07:40 | 하타 아사나
-        </div></li>
-        <li class="망원동"><span class="yoil">토요일</span><div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="요가봄"><span class="yoil">일요일</span><div class="content"><span class="bom">요가봄</span> | 오전 09:30 - 11:30 | 아쉬탕가 요가 마이솔</br></div></li>
+        <p>&nbsp;</p>
+        <p><u>수업 일정은</u></p>
 
-        <!-- 요가봄 수업 -->
-        <li class="요가봄"><span class="yoil">월요일</span><div class="content"><span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="요가봄"><span class="yoil">화요일</span><div class="content"><span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="요가봄"><span class="yoil">수요일</span><div class="content"><span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="요가봄"><span class="yoil">목요일</span><div class="content"><span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔</div></li>
-        <li class="요가봄"><span class="yoil">금요일</span><div class="content"><span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔</div></li>
+        <!-- 망원동 -->
+        <li class="망원동"><span class="yoil">월요일</span>
+            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 LED<br>
+                <span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔
+            </div>
+        </li>
+        <li class="망원동"><span class="yoil">화요일</span>
+            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div>
+        </li>
+        <li class="망원동"><span class="yoil">수요일</span>
+            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔<br>
+                <span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나<br>
+                <span class="ram">요가람</span> | 오후 07:50 - 08:50 | 아쉬탕가 요가<br>
+                <span class="ram">요가람</span> | 오후 09:00 - 10:00 | 하타 아사나
+            </div>
+        </li>
+        <li class="망원동"><span class="yoil">목요일</span>
+            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div>
+        </li>
+        <li class="망원동"><span class="yoil">금요일</span>
+            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔<br>
+                <span class="bom">요가봄</span> | 오후 06:40 - 07:40 | 하타 아사나
+            </div>
+        </li>
+        <li class="망원동"><span class="yoil">토요일</span>
+            <div class="content"><span class="mw">망원동</span> | 오전 07:00 - 09:30 | 아쉬탕가 요가 마이솔</div>
+        </li>
+        <li class="망원동"><span class="yoil">일요일</span>
+            <div class="content"><span class="bom">요가봄</span> | 오전 09:30 - 11:30 | 아쉬탕가 요가 마이솔</div>
+        </li>
 
-        <!-- 요가람 수업 -->
-        <li class="요가람"><span class="yoil">수요일</span><div class="content"><span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나 </br>
-            <font color="#fff">요가람 | </font>오후 07:50 - 08:50 | 아쉬탕가 요가</br>
-            <font color="#fff">요가람 | </font>오후 09:00 - 10:00 | 하타 아사나
-        </div></li>
-        <li class="요가람"><span class="yoil">목요일</span><div class="content"><span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나 </br>
-            <font color="#fff">요가람 | </font>오후 07:50 - 08:50 | 아쉬탕가 요가</br>
-            <font color="#fff">요가람 | </font>오후 09:00 - 10:00 | 하타 아사나
-        </div></li>
+        <!-- 요가봄 -->
+        <li class="요가봄"><span class="yoil">월요일</span>
+            <div class="content"><span class="bom">요가봄</span> | 오후 06:30 - 08:30 | 아쉬탕가 요가 마이솔</div>
+        </li>
+        <li class="요가봄"><span class="yoil">일요일</span>
+            <div class="content"><span class="bom">요가봄</span> | 오전 09:30 - 11:30 | 아쉬탕가 요가 마이솔</div>
+        </li>
+
+        <!-- 요가람 -->
+        <li class="요가람"><span class="yoil">수요일</span>
+            <div class="content"><span class="ram">요가람</span> | 오후 06:30 - 07:30 | 하타 아사나<br>
+                <span class="ram">요가람</span> | 오후 07:50 - 08:50 | 아쉬탕가 요가<br>
+                <span class="ram">요가람</span> | 오후 09:00 - 10:00 | 하타 아사나
+            </div>
+        </li>
     </ul>
-
-    <p>
-        &nbsp;
-    </p>
 
     <script>
         $(function() {
-            const days = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"];
-            const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=일요일, 1=월요일, ..., 6=토요일)
-            const todayItem = $("ul li").eq(today);
+            // 처음에 모든 수업 항목 숨김
+            $('ul li').hide();
 
-            // 오늘 요일에 "(오늘)" 추가 및 강조
-            todayItem.addClass("current-day").contents().first().replaceWith(`${days[today]} <font color="red">●</font>`);
-
-            // 카테고리 필터링
-            $(".filter-btn").click(function() {
-                var category = $(this).data("category");
-
-                // 모든 항목 숨기기
-                $("ul li").hide();
-
-                // 선택된 카테고리에 해당하는 항목만 보이기
-                $("ul li." + category).show();
-
-                // 버튼 스타일 변경
-                $(".filter-btn").removeClass("active");
-                $(this).addClass("active");
+            // 클릭하면 해당 카테고리만 보이게 설정
+            $('#mw').click(function() {
+                $('ul li').hide();  // 모든 항목 숨김
+                $('.망원동').show(); // 망원동 관련 항목만 보이게
             });
 
-            // 페이지 로딩 시 망원동 항목만 보이기
-            $("ul li.망원동").show();
+            $('#bom').click(function() {
+                $('ul li').hide();
+                $('.요가봄').show(); // 요가봄 관련 항목만 보이게
+            });
+
+            $('#ram').click(function() {
+                $('ul li').hide();
+                $('.요가람').show(); // 요가람 관련 항목만 보이게
+            });
         });
     </script>
-
-    <!-- 하단 고정 메뉴 -->
-    <div class="fixed-menu">
-        <a href="index.html">소개</a>
-        <a href="#"><u>수업</u></a>
-        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-        <a href="moonday.html">문데이</a>
-    </div>
-
 </body>
 
 </html>
