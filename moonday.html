@@ -11,6 +11,8 @@
   #moonDays {
     margin:0 0 40px 15px;
   }
+  .h2 { font-size: 0.9rem;
+  }
   .year {
     margin-bottom: 20px;
         font-size: 0.9rem;
@@ -148,7 +150,7 @@
         yearDiv.classList.add("year");
 
         const yearTitle = document.createElement("h2");
-        yearTitle.textContent = `${year}moon day`;
+        yearTitle.textContent = `${year} moon day`;
         yearDiv.appendChild(yearTitle);
 
         moonDays[year].forEach((day) => {
