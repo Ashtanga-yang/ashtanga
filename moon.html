@@ -1,153 +1,177 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moon Days</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-    }
-    .year {
-      margin-bottom: 20px;
-    }
-    .current-moon {
-      color: red !important;
-      font-weight: bold;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Song+Myung&display=swap');
+
+        body {
+            font-family: "Song Myung", serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            background-color: #fafafa;
+        }
+
+        .current-day {
+            background-color: #ffd700;
+            font-weight: bold;
+            color: red;
+        }
+
+        .current-day font {
+            color: red;
+        }
+
+        .fixed-menu {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .fixed-menu a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .fixed-menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
-  <div id="moonDays"></div>
 
-  <script>
-    const moonDays = {
-      2025: [
-        { date: "2025-01-14", phase: "○" },
-        { date: "2025-01-29", phase: "●" },
-        { date: "2025-02-12", phase: "○" },
-        { date: "2025-02-28", phase: "●" },
-        { date: "2025-03-14", phase: "○" },
-        { date: "2025-03-29", phase: "●" },
-        { date: "2025-04-13", phase: "○" },
-        { date: "2025-04-28", phase: "●" },
-        { date: "2025-05-13", phase: "○" },
-        { date: "2025-05-27", phase: "●" },
-        { date: "2025-06-11", phase: "○" },
-        { date: "2025-06-25", phase: "●" },
-        { date: "2025-07-11", phase: "○" },
-        { date: "2025-07-25", phase: "●" },
-        { date: "2025-08-09", phase: "○" },
-        { date: "2025-08-23", phase: "●" },
-        { date: "2025-09-08", phase: "○" },
-        { date: "2025-09-22", phase: "●" },
-        { date: "2025-10-07", phase: "○" },
-        { date: "2025-10-21", phase: "●" },
-        { date: "2025-11-05", phase: "○" },
-        { date: "2025-11-20", phase: "●" },
-        { date: "2025-12-05", phase: "○" },
-        { date: "2025-12-20", phase: "●" }
-      ],
-      2026: [
-        { date: "2026-01-02", phase: "○" },
-        { date: "2026-01-17", phase: "●" },
-        { date: "2026-01-31", phase: "○" },
-        { date: "2026-02-16", phase: "●" },
-        { date: "2026-03-02", phase: "○" },
-        { date: "2026-03-18", phase: "●" },
-        { date: "2026-04-01", phase: "○" },
-        { date: "2026-04-16", phase: "●" },
-        { date: "2026-04-30", phase: "○" },
-        { date: "2026-05-16", phase: "●" },
-        { date: "2026-05-30", phase: "○" },
-        { date: "2026-06-14", phase: "●" }
-      ],
-      2027: [
-        { date: "2027-01-06", phase: "○" },
-        { date: "2027-01-20", phase: "●" },
-        { date: "2027-02-04", phase: "○" },
-        { date: "2027-02-18", phase: "●" },
-        { date: "2027-03-05", phase: "○" },
-        { date: "2027-03-19", phase: "●" },
-        { date: "2027-04-03", phase: "○" },
-        { date: "2027-04-17", phase: "●" },
-        { date: "2027-05-02", phase: "○" },
-        { date: "2027-05-16", phase: "●" },
-        { date: "2027-06-01", phase: "○" },
-        { date: "2027-06-15", phase: "●" },
-        { date: "2027-07-01", phase: "○" },
-        { date: "2027-07-16", phase: "●" },
-        { date: "2027-08-01", phase: "○" },
-        { date: "2027-08-15", phase: "●" },
-        { date: "2027-09-01", phase: "○" },
-        { date: "2027-09-15", phase: "●" },
-        { date: "2027-10-01", phase: "○" },
-        { date: "2027-10-15", phase: "●" },
-        { date: "2027-11-01", phase: "○" },
-        { date: "2027-11-15", phase: "●" },
-        { date: "2027-12-01", phase: "○" },
-        { date: "2027-12-15", phase: "●" }
-      ]
-    };
+    <p>
+        <img src="logo.jpg" width="50px">
+    </p>
 
-    const currentDate = new Date();
+    <h2 style="text-align: center;">망원동 아쉬탕가 요가 마이솔 클래스</h2>
 
-    function formatDate(date) {
-      const d = new Date(date);
-      return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
-        .getDate()
-        .toString()
-        .padStart(2, '0')}`;
-    }
+    <p style="text-align: center;">
+        매주 월요일 - 토요일 <br>
+        오전 7:00 - 9:30분까지(06:30분 수련실 개방) <br>
+        위치: [몸춤] 서울 마포구 동교로 43 4층 | 주차 가능<br>
+        자세한 내용은 <a href="https://ashtanga-yang.github.io/ashtanga/mw.html">여기</a><br>
+        문의: <a href="https://www.instagram.com/ashtanga_yang/">Instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf">Kakao</a>
+    </p>
 
-    function displayMoonDays() {
-      const moonContainer = document.querySelector("#moonDays");
+    <table>
+        <thead>
+            <tr>
+                <th>요일</th>
+                <th>수업 시간</th>
+                <th>수업 내용</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="monday">
+                <td>월요일</td>
+                <td>07:00 - 09:30</td>
+                <td>망원동 | 아쉬탕가 요가 LED</td>
+            </tr>
+            <tr id="monday-bom">
+                <td>월요일</td>
+                <td>18:30 - 20:30</td>
+                <td>요가봄 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+            <tr id="tuesday">
+                <td>화요일</td>
+                <td>07:00 - 09:30</td>
+                <td>망원동 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+            <tr id="wednesday">
+                <td>수요일</td>
+                <td>07:00 - 09:30</td>
+                <td>망원동 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+            <tr id="wednesday-ram">
+                <td>수요일</td>
+                <td>18:30 - 19:30</td>
+                <td>요가람 | 하타 아사나</td>
+            </tr>
+            <tr id="wednesday-ashtanga">
+                <td>수요일</td>
+                <td>19:50 - 20:50</td>
+                <td>요가람 | 아쉬탕가 요가</td>
+            </tr>
+            <tr id="wednesday-hata">
+                <td>수요일</td>
+                <td>21:00 - 22:00</td>
+                <td>요가람 | 하타 아사나</td>
+            </tr>
+            <tr id="thursday">
+                <td>목요일</td>
+                <td>07:00 - 09:30</td>
+                <td>망원동 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+            <tr id="friday">
+                <td>금요일</td>
+                <td>07:00 - 09:30</td>
+                <td>망원동 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+            <tr id="friday-bom">
+                <td>금요일</td>
+                <td>18:40 - 19:40</td>
+                <td>요가봄 | 하타 아사나</td>
+            </tr>
+            <tr id="saturday">
+                <td>토요일</td>
+                <td>07:00 - 09:30</td>
+                <td>망원동 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+            <tr id="sunday-bom">
+                <td>일요일</td>
+                <td>09:30 - 11:30</td>
+                <td>요가봄 | 아쉬탕가 요가 마이솔</td>
+            </tr>
+        </tbody>
+    </table>
 
-      let nextMoonDayFound = false;
+    <script>
+        $(function() {
+            const days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+            const today = (new Date().getDay() + 6) % 7; // 오늘 요일 보정 (0=일요일, 1=월요일, ..., 6=토요일)
+            const todayRow = $("#" + days[today].toLowerCase());
 
-      for (const year in moonDays) {
-        const yearDiv = document.createElement("div");
-        yearDiv.classList.add("year");
-
-        const yearTitle = document.createElement("h2");
-        yearTitle.textContent = `${year}년`;
-        yearDiv.appendChild(yearTitle);
-
-        moonDays[year].forEach((day) => {
-          const moonDate = new Date(day.date);
-          const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
-
-          if (diff < -1) return;
-
-          const dayDiv = document.createElement("div");
-          dayDiv.textContent = `${formatDate(day.date)} (${day.phase})`;
-
-          if (!nextMoonDayFound && diff >= 0) {
-            dayDiv.classList.add("current-moon");
-            nextMoonDayFound = true;
-
-            setTimeout(() => {
-              dayDiv.remove();
-            }, 24 * 60 * 60 * 1000);
-          }
-
-          yearDiv.appendChild(dayDiv);
+            // 오늘 요일에 강조 스타일 적용
+            todayRow.addClass("current-day");
         });
+    </script>
 
-        moonContainer.appendChild(yearDiv);
-      }
-    }
+    <!-- 하단 고정 메뉴 -->
+    <div class="fixed-menu">
+        <a href="index.html">소개</a>
+        <a href="#"><u>수업</u></a>
+        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
+        <a href="moonday.html">문데이</a>
+    </div>
 
-    displayMoonDays();
-  </script>
 </body>
+
 </html>
