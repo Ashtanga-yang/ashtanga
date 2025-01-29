@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moon Days for 2025-2027</title>
+  <title>Moon Days</title>
   <style>
-    h1 {
-      text-align: center;
-      background-color: #f4f4f4;
-      padding: 10px;
-      margin: 0;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
     }
     .year {
-      margin: 20px 0 0 15px;
+      margin-bottom: 20px;
     }
     .month {
-      margin-top: 10px;
+      margin-bottom: 10px;
     }
-    .upcoming-moon {
+    .current-moon {
       color: red;
+      font-weight: bold;
     }
     ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
-      margin: 0;
     }
     li {
-      padding: 0px;
-    }
-    span {
-      display: block;
-    }
-    h2, h3 {
-      font-size: 1rem;
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
-  <h1>Moon Days for 2025-2027</h1>
   <div id="moonDays"></div>
 
   <script>
@@ -122,70 +114,61 @@
     };
 
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
 
+    // 날짜를 YYYY-MM-DD 형식으로 변환
     function formatDate(date) {
       const d = new Date(date);
-      return d.getFullYear() + '-' + (d.getMonth() + 1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
+      return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
+        .getDate()
+        .toString()
+        .padStart(2, '0')}`;
     }
 
-    function getDayOfWeek(date) {
-      const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-      const d = new Date(date);
-      return daysOfWeek[d.getDay()];
-    }
-
-    function createMoonDayList(year, month) {
-      return moonDays[year].filter(day => {
-        const moonDay = new Date(day.date);
-        return moonDay.getMonth() + 1 === month && moonDay >= currentDate;
-      });
+    // 가장 가까운 미래 문데이 찾기
+    function getNextMoonDay() {
+      const allMoonDays = Object.values(moonDays).flat();
+      const futureMoonDays = allMoonDays.filter(day => new Date(day.date) >= currentDate);
+      return futureMoonDays.length > 0 ? futureMoonDays[0].date : null;
     }
 
     function displayMoonDays() {
       const moonDaysContainer = document.getElementById('moonDays');
-      for (let year = 2025; year <= 2027; year++) {
+      moonDaysContainer.innerHTML = ""; // 기존 데이터 초기화
+
+      const nextMoonDay = getNextMoonDay(); // 가장 가까운 다가오는 문데이
+
+      for (let year in moonDays) {
         const yearDiv = document.createElement('div');
         yearDiv.classList.add('year');
         const yearTitle = document.createElement('h2');
         yearTitle.innerText = `${year}년`;
         yearDiv.appendChild(yearTitle);
 
-        for (let month = 1; month <= 12; month++) {
-          const monthDiv = document.createElement('div');
-          monthDiv.classList.add('month');
-          const monthDays = createMoonDayList(year, month);
+        moonDays[year].forEach(day => {
+          const moonDate = new Date(day.date);
 
-          if (monthDays.length > 0) {
-            const monthTitle = document.createElement('h3');
-            monthTitle.innerText = `${month}월`;
-            monthDiv.appendChild(monthTitle);
-            
-            const ul = document.createElement('ul');
-            monthDays.forEach(day => {
-              const dayDate = new Date(day.date);
-              const li = document.createElement('li');
-              const dateSpan = document.createElement('span');
-              dateSpan.innerText = `${formatDate(day.date)} (${getDayOfWeek(day.date)}) - ${day.phase}`;
+          // 지난 문데이는 표시하지 않음
+          if (moonDate < currentDate) return;
 
-              // 오늘 문데이는 빨간색
-              if (formatDate(day.date) === formatDate(currentDate)) {
-                dateSpan.classList.add('upcoming-moon');
-              }
+          const li = document.createElement('li');
+          li.innerText = `${formatDate(day.date)} (${day.phase})`;
 
-              li.appendChild(dateSpan);
-              ul.appendChild(li);
-            });
-
-            monthDiv.appendChild(ul);
-            yearDiv.appendChild(monthDiv);
+          // 다가오는 다음 문데이는 빨간색 강조
+          if (day.date === nextMoonDay) {
+            li.classList.add('current-moon');
           }
-        }
+
+          yearDiv.appendChild(li);
+        });
 
         moonDaysContainer.appendChild(yearDiv);
       }
     }
+
+    // 24시간마다 새로고침
+    setInterval(() => {
+      displayMoonDays();
+    }, 86400000); // 86400000ms = 24시간
 
     displayMoonDays();
   </script>
