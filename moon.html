@@ -13,9 +13,6 @@
     .year {
       margin-bottom: 20px;
     }
-    .month {
-      margin-bottom: 10px;
-    }
     .current-moon {
       color: red;
       font-weight: bold;
@@ -115,7 +112,6 @@
 
     const currentDate = new Date();
 
-    // 날짜를 YYYY-MM-DD 형식으로 변환
     function formatDate(date) {
       const d = new Date(date);
       return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
@@ -124,51 +120,44 @@
         .padStart(2, '0')}`;
     }
 
-    // 가장 가까운 미래 문데이 찾기
-    function getNextMoonDay() {
-      const allMoonDays = Object.values(moonDays).flat();
-      const futureMoonDays = allMoonDays.filter(day => new Date(day.date) >= currentDate);
-      return futureMoonDays.length > 0 ? futureMoonDays[0].date : null;
-    }
-
     function displayMoonDays() {
-      const moonDaysContainer = document.getElementById('moonDays');
-      moonDaysContainer.innerHTML = ""; // 기존 데이터 초기화
+      const moonContainer = document.querySelector("#moonDays");
+for (const year in moonDays) {
+        const yearDiv = document.createElement("div");
+        yearDiv.classList.add("year");
 
-      const nextMoonDay = getNextMoonDay(); // 가장 가까운 다가오는 문데이
-
-      for (let year in moonDays) {
-        const yearDiv = document.createElement('div');
-        yearDiv.classList.add('year');
-        const yearTitle = document.createElement('h2');
-        yearTitle.innerText = `${year}년`;
+        const yearTitle = document.createElement("h2");
+        yearTitle.textContent = `${year}년`;
         yearDiv.appendChild(yearTitle);
 
-        moonDays[year].forEach(day => {
+        moonDays[year].forEach((day) => {
           const moonDate = new Date(day.date);
+          const diff = (moonDate - currentDate) / (1000 * 60 * 60 * 24);
 
-          // 지난 문데이는 표시하지 않음
-          if (moonDate < currentDate) return;
+          // Skip days already past 24 hours
+          if (diff < -1) return;
 
-          const li = document.createElement('li');
-          li.innerText = `${formatDate(day.date)} (${day.phase})`;
+          const dayDiv = document.createElement("div");
+          const dateText = `${formatDate(day.date)} (${day.phase})`;
 
-          // 다가오는 다음 문데이는 빨간색 강조
-          if (day.date === nextMoonDay) {
-            li.classList.add('current-moon');
+          if (diff >= 0 && diff <= 1) {
+            dayDiv.classList.add("current-moon");
           }
 
-          yearDiv.appendChild(li);
+          dayDiv.textContent = dateText;
+          yearDiv.appendChild(dayDiv);
+
+          // Remove current moon days after 24 hours
+          if (diff >= 0 && diff <= 1) {
+            setTimeout(() => {
+              dayDiv.remove();
+            }, (24 - new Date().getHours()) * 60 * 60 * 1000);
+          }
         });
 
-        moonDaysContainer.appendChild(yearDiv);
+        moonContainer.appendChild(yearDiv);
       }
     }
-
-    // 24시간마다 새로고침
-    setInterval(() => {
-      displayMoonDays();
-    }, 86400000); // 86400000ms = 24시간
 
     displayMoonDays();
   </script>
