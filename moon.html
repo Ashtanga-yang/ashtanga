@@ -131,7 +131,8 @@
     // 한국어 요일 배열
     const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
-    function formatDate(date) {
+    // 오늘 날짜를 세로로 표시하는 함수
+    function formatDateVertical(date) {
       const d = new Date(date);
       const dayOfWeek = weekdays[d.getDay()];
       return `${d.getFullYear()}<br>${(d.getMonth() + 1).toString().padStart(2, '0')}.${d
@@ -140,10 +141,20 @@
         .padStart(2, '0')}<br>(${dayOfWeek})`;
     }
 
+    // 문데이 날짜를 가로로 표시하는 함수
+    function formatDate(date) {
+      const d = new Date(date);
+      const dayOfWeek = weekdays[d.getDay()];
+      return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d
+        .getDate()
+        .toString()
+        .padStart(2, '0')} (${dayOfWeek})`;
+    }
+
     // 오늘 날짜 표시
     function displayTodayDate() {
       const todayDateElement = document.querySelector("#todayDate");
-      todayDateElement.innerHTML = formatDate(currentDate); // HTML로 표시
+      todayDateElement.innerHTML = formatDateVertical(currentDate); // 세로로 표시
     }
 
     function displayMoonDays() {
@@ -175,7 +186,7 @@
           }
 
           const dayDiv = document.createElement("div");
-          dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
+          dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`; // 가로로 표시
 
           // 가장 위에 표시되는 문데이를 빨간색으로 강조
           if (!firstMoonFound) {
