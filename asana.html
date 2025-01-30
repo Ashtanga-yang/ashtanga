@@ -38,7 +38,6 @@
 
         /* 그룹 스타일 */
         .group {
-            margin: 0; /* 그룹 간의 기본 여백 제거 */
             padding: 20px 15px; /* 상하단 여백을 동일하게 설정 */
             border-bottom: 1px solid #ddd;
             opacity: 0;
@@ -131,15 +130,9 @@
         function showPrimaryOrder() {
             document.querySelectorAll('.group').forEach(group => {
                 // Primary 메뉴의 순서대로 표시
-                if (group.classList.contains('standing')) {
+                if (group.classList.contains('standing') || group.classList.contains('primary') || group.classList.contains('finishing')) {
                     group.style.visibility = 'visible';
                     setTimeout(() => group.classList.add('show'), 50);
-                } else if (group.classList.contains('primary')) {
-                    group.style.visibility = 'visible';
-                    setTimeout(() => group.classList.add('show'), 100);
-                } else if (group.classList.contains('finishing')) {
-                    group.style.visibility = 'visible';
-                    setTimeout(() => group.classList.add('show'), 150);
                 } else {
                     group.classList.remove('show');
                     setTimeout(() => group.style.visibility = 'hidden', 600);
@@ -151,15 +144,9 @@
         function showIntermediateOrder() {
             document.querySelectorAll('.group').forEach(group => {
                 // Intermediate 메뉴의 순서대로 표시
-                if (group.classList.contains('fundamental')) {
+                if (group.classList.contains('fundamental') || group.classList.contains('intermediate') || group.classList.contains('finishing')) {
                     group.style.visibility = 'visible';
                     setTimeout(() => group.classList.add('show'), 50);
-                } else if (group.classList.contains('intermediate')) {
-                    group.style.visibility = 'visible';
-                    setTimeout(() => group.classList.add('show'), 100);
-                } else if (group.classList.contains('finishing')) {
-                    group.style.visibility = 'visible';
-                    setTimeout(() => group.classList.add('show'), 150);
                 } else {
                     group.classList.remove('show');
                     setTimeout(() => group.style.visibility = 'hidden', 600);
