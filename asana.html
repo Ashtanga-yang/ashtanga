@@ -9,114 +9,169 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             text-align: center;
-            background: #fff;
         }
+
         h1 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            color: #333;
         }
+
+        /* 메뉴 스타일 */
+        .menu {
+            margin-bottom: 20px;
+        }
+
         .menu button {
             background: #007BFF;
             color: white;
             border: none;
-            padding: 8px 16px;
+            border-radius: 5px;
+            padding: 10px 20px;
             margin: 5px;
             cursor: pointer;
-            font-size: 14px;
-            border-radius: 3px;
+            font-size: 16px;
+            transition: background 0.3s ease;
         }
+
         .menu button:hover {
             background: #0056b3;
         }
+
+        /* 그룹 스타일 */
         .group {
+            margin-bottom: 15px;
+            padding: 10px;
             border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
+        .group.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .group h2 {
-            font-size: 16px;
-            margin: 0 0 5px;
+            font-size: 20px;
             color: #007BFF;
+            margin-bottom: 10px;
         }
+
         .group ol {
-            padding-left: 15px;
-            font-size: 14px;
-            list-style: none;
-        }
-        .group li {
-            margin: 5px 0;
+            padding-left: 20px;
+            text-align: left;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <h1>아쉬탕가 요가 시퀀스</h1>
 
+    <!-- 메뉴 -->
     <div class="menu">
-        <button onclick="showPrimaryOrder()">Primary</button>
-        <button onclick="showIntermediateOrder()">Intermediate</button>
+        <button onclick="showPrimaryOrder()">Primary (프라이머리)</button>
+        <button onclick="showIntermediateOrder()">Intermediate (인터미디어트)</button>
     </div>
 
+    <!-- 그룹 컨테이너 -->
     <div id="group-container">
-        <div class="group" id="fundamental-group">
-            <h2>Fundamental Group</h2>
-            <ol>
-                <li>Samasthitiḥ</li>
-                <li>Sūrya Namaskāra A</li>
-                <li>Sūrya Namaskāra B</li>
-            </ol>
-        </div>
-
         <div class="group" id="standing-group">
-            <h2>Standing</h2>
+            <h2>Standing (서기)</h2>
             <ol>
-                <li>Utkaṭāsana</li>
-                <li>Vīrabhadrāsana</li>
+                <li>Utkaṭāsana (उत्कटासन)</li>
+                <li>Vīrabhadrāsana (वीरभद्रासन)</li>
             </ol>
         </div>
 
         <div class="group" id="primary-group">
-            <h2>Primary Group</h2>
+            <h2>Primary Group (프라이머리 그룹)</h2>
             <ol>
-                <li>Paścimottānāsana</li>
-                <li>Pūrvottānāsana</li>
+                <li>Paścimottānāsana (पश्चिमोत्तानासन)</li>
+                <li>Pūrvottānāsana (पुर्वोत्तानासन)</li>
+                <li>Ardha Baddha Padma Paścimottānāsana (अर्धबद्धपद्मपश्चिमोत्तानासन)</li>
+                <li>Tryaṃbakāsana (त्र्यंबकासन)</li>
+                <li>Jānu Śīrṣāsana (जानुशीर्षासन)</li>
             </ol>
         </div>
 
         <div class="group" id="intermediate-group">
-            <h2>Intermediate Series</h2>
+            <h2>Intermediate Series (인터미디어트 시리즈)</h2>
             <ol>
-                <li>Pāśāsana</li>
-                <li>Krauñcāsana</li>
+                <li>Pāśāsana (पाशासन)</li>
+                <li>Krauñcāsana (क्रौञ्चासन)</li>
+                <li>Śalabhāsana (शलभासन)</li>
+                <li>Bhekāsana (भेकासन)</li>
+                <li>Dhanurāsana (धनुरासन)</li>
             </ol>
         </div>
 
         <div class="group" id="finishing-group">
-            <h2>Finishing</h2>
+            <h2>Finishing (마무리)</h2>
             <ol>
-                <li>Sarvāṅgāsana</li>
-                <li>Halāsana</li>
+                <li>Sarvāṅgāsana (सर्वाङ्गासन)</li>
+                <li>Halāsana (हलासन)</li>
+                <li>Karṇa Pīḍāsana (कर्णपीडासन)</li>
+                <li>Śīrṣāsana (शीर्षासन)</li>
+                <li>Śavāsana (शवासन)</li>
             </ol>
         </div>
     </div>
 
     <script>
         function showPrimaryOrder() {
-            document.getElementById('fundamental-group').style.display = 'none';
-            document.getElementById('standing-group').style.display = 'block';
-            document.getElementById('primary-group').style.display = 'block';
-            document.getElementById('intermediate-group').style.display = 'none';
-            document.getElementById('finishing-group').style.display = 'block';
+            const container = document.getElementById('group-container');
+            container.innerHTML = ''; // 기존 내용 초기화
+
+            const standing = document.getElementById('standing-group');
+            const primary = document.getElementById('primary-group');
+            const finishing = document.getElementById('finishing-group');
+
+            container.appendChild(standing);
+            container.appendChild(primary);
+            container.appendChild(finishing);
+
+            fadeInGroups();
         }
 
         function showIntermediateOrder() {
-            document.getElementById('fundamental-group').style.display = 'block';
-            document.getElementById('standing-group').style.display = 'none';
-            document.getElementById('primary-group').style.display = 'none';
-            document.getElementById('intermediate-group').style.display = 'block';
-            document.getElementById('finishing-group').style.display = 'block';
+            const container = document.getElementById('group-container');
+            container.innerHTML = ''; // 기존 내용 초기화
+
+            const intermediate = document.getElementById('intermediate-group');
+            const finishing = document.getElementById('finishing-group');
+
+            container.appendChild(intermediate);
+            container.appendChild(finishing);
+
+            fadeInGroups();
         }
 
-        window.onload = showPrimaryOrder;
+        function fadeInGroups() {
+            const groups = document.querySelectorAll('.group');
+            groups.forEach((group, index) => {
+                setTimeout(() => {
+                    group.classList.add('show');
+                }, index * 200);
+            });
+        }
+
+        function handleScroll() {
+            const groups = document.querySelectorAll('.group');
+            const triggerBottom = window.innerHeight * 0.85;
+
+            groups.forEach(group => {
+                const boxTop = group.getBoundingClientRect().top;
+                if (boxTop < triggerBottom) {
+                    group.classList.add('show');
+                }
+            });
+        }
+
+        // 페이지 로드 시 Primary 순서로 설정
+        window.onload = () => {
+            showPrimaryOrder();
+            window.addEventListener('scroll', handleScroll);
+        };
     </script>
 </body>
 </html>
