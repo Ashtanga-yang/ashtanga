@@ -77,6 +77,16 @@
 
     <!-- 그룹 컨테이너 -->
     <div id="group-container">
+        <div class="group fundamental">
+            <h2>Fundamental Group (기본 그룹)</h2>
+            <ol>
+                <li>Samasthitiḥ (समस्थितिः)</li>
+                <li>Sūrya Namaskāra A (सूर्यनमस्कार अ)</li>
+                <li>Sūrya Namaskāra B (सूर्यनमस्कार ब)</li>
+                <li>Pādahastāsana (पादहस्तासन)</li>
+            </ol>
+        </div>
+
         <div class="group primary">
             <h2>Standing (서기)</h2>
             <ol>
@@ -91,8 +101,6 @@
                 <li>Paścimottānāsana (पश्चिमोत्तानासन)</li>
                 <li>Pūrvottānāsana (पुर्वोत्तानासन)</li>
                 <li>Ardha Baddha Padma Paścimottānāsana (अर्धबद्धपद्मपश्चिमोत्तानासन)</li>
-                <li>Tryaṃbakāsana (त्र्यंबकासन)</li>
-                <li>Jānu Śīrṣāsana (जानुशीर्षासन)</li>
             </ol>
         </div>
 
@@ -103,7 +111,6 @@
                 <li>Krauñcāsana (क्रौञ्चासन)</li>
                 <li>Śalabhāsana (शलभासन)</li>
                 <li>Bhekāsana (भेकासन)</li>
-                <li>Dhanurāsana (धनुरासन)</li>
             </ol>
         </div>
 
@@ -113,7 +120,6 @@
                 <li>Sarvāṅgāsana (सर्वाङ्गासन)</li>
                 <li>Halāsana (हलासन)</li>
                 <li>Karṇa Pīḍāsana (कर्णपीडासन)</li>
-                <li>Śīrṣāsana (शीर्षासन)</li>
                 <li>Śavāsana (शवासन)</li>
             </ol>
         </div>
@@ -134,7 +140,7 @@
 
         function showIntermediateOrder() {
             document.querySelectorAll('.group').forEach(group => {
-                if (group.classList.contains('intermediate')) {
+                if (group.classList.contains('intermediate') || group.classList.contains('fundamental')) {
                     group.style.display = 'block';
                     setTimeout(() => group.classList.add('show'), 50);
                 } else {
