@@ -53,6 +53,16 @@
             margin-bottom: 10px;
         }
 
+        /* 프라이머리 시리즈 제목을 파랑으로 */
+        #primary .series-title {
+            color: #007BFF; /* 파랑 */
+        }
+
+        /* 인터미디어트 시리즈 제목을 빨강으로 */
+        #intermediate .series-title {
+            color: #FF0000; /* 빨강 */
+        }
+
         ul {
             list-style-type: none;
             padding-left: 0;
@@ -68,12 +78,6 @@
             content: attr(data-number);
             font-size: 0.8rem;
             margin-right: 10px;
-        }
-
-        /* 색상 설정 */
-        #primary .series-title,
-        #intermediate .series-title {
-            color: #000000; /* 검정 */
         }
 
         #primary ul li[data-number^="ST"] {
