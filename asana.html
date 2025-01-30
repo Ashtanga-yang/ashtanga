@@ -23,14 +23,22 @@
 
         .menu a {
             text-decoration: none;
-            color: #007BFF;
             margin: 0 20px;
             font-weight: bold;
             cursor: pointer;
         }
 
+        /* 색상 설정: 프라이머리 시리즈는 파랑, 인터미디어트 시리즈는 빨강 */
+        .primary-menu {
+            color: #007BFF; /* 파랑 */
+        }
+
+        .intermediate-menu {
+            color: #FF0000; /* 빨강 */
+        }
+
         .menu a:hover {
-            color: #0056b3;
+            text-decoration: underline;
         }
 
         .menu a.active {
@@ -63,12 +71,9 @@
         }
 
         /* 색상 설정 */
-        #primary .series-title {
-            color: #007BFF; /* 파랑 */
-        }
-
+        #primary .series-title,
         #intermediate .series-title {
-            color: #FF0000; /* 빨강 */
+            color: #000000; /* 검정 */
         }
 
         #primary ul li[data-number^="ST"] {
@@ -96,8 +101,8 @@
 
     <!-- Menu -->
     <div class="menu">
-        <a href="javascript:void(0);" onclick="showSeries('primary')" id="primary-menu">프라이머리 시리즈</a>
-        <a href="javascript:void(0);" onclick="showSeries('intermediate')" id="intermediate-menu">인터미디어트 시리즈</a>
+        <a href="javascript:void(0);" onclick="showSeries('primary')" id="primary-menu" class="primary-menu">프라이머리 시리즈</a>
+        <a href="javascript:void(0);" onclick="showSeries('intermediate')" id="intermediate-menu" class="intermediate-menu">인터미디어트 시리즈</a>
     </div>
 
     <!-- Primary Series (ST, PS, CL) -->
@@ -171,7 +176,7 @@
     <!-- Intermediate Series (FD, IS, CL) -->
     <div id="intermediate" class="series">
         <div>
-            <div class="series-title">Stangding(Fundamental)</div>
+            <div class="series-title">Standing(Fundamental)</div>
             <ul>
                 <li data-number="FD-1">Samasthiti</li>
                 <li data-number="FD-2">Surya Namaskara A & B</li>
