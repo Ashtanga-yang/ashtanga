@@ -5,101 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashtanga Yoga Pose List</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.4;
-            background-color: #fff;
-            color: #333;
-            padding-left: 15px;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.4;
+        background-color: #fff;
+        color: #333;
+        padding-left: 15px;
+    }
 
-        .menu {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.2rem;
-        }
+    .menu {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+    }
 
-        .menu a {
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    .menu a {
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-        /* 색상 설정: 프라이머리 시리즈는 파랑, 인터미디어트 시리즈는 빨강 */
-        .primary-menu {
-            color: #007BFF; /* 파랑 */
-        }
+    /* 색상 설정: 프라이머리 시리즈는 파랑, 인터미디어트 시리즈는 빨강 */
+    .primary-menu {
+        color: #007BFF; /* 파랑 */
+    }
 
-        .intermediate-menu {
-            color: #FF0000; /* 빨강 */
-        }
+    .intermediate-menu {
+        color: #FF0000; /* 빨강 */
+    }
 
-        .menu a:hover {
-            text-decoration: underline;
-        }
+    .menu a:hover {
+        text-decoration: underline;
+    }
 
-        .menu a.active {
-            font-weight: bold;
-            text-decoration: underline;
-        }
+    .menu a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 
-        .series-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
+    .series-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
 
-        /* 프라이머리 시리즈 제목을 파랑으로 */
-        #primary .series-title {
-            color: #007BFF; /* 파랑 */
-        }
+    /* 프라이머리 시리즈 제목을 파랑으로 */
+    #primary .series-title {
+        color: #007BFF; /* 파랑 */
+    }
 
-        /* 인터미디어트 시리즈 제목을 빨강으로 */
-        #intermediate .series-title {
-            color: #FF0000; /* 빨강 */
-        }
+    /* 인터미디어트 시리즈 제목을 빨강으로 */
+    #intermediate .series-title {
+        color: #FF0000; /* 빨강 */
+    }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+    /* 스탠딩 펀드멘탈과 클로징 제목을 검정으로 */
+    #primary .series-title:first-child,
+    #primary .series-title:last-child,
+    #intermediate .series-title:first-child,
+    #intermediate .series-title:last-child {
+        color: #000000; /* 검정 */
+    }
 
-        ul li {
-            padding: 6px 0;
-            font-size: 1rem;
-            border-bottom: 1px solid #ddd;
-        }
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
 
-        ul li::before {
-            content: attr(data-number);
-            font-size: 0.8rem;
-            margin-right: 10px;
-        }
+    ul li {
+        padding: 6px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
 
-        #primary ul li[data-number^="ST"] {
-            color: #000000; /* 검정 */
-        }
+    ul li::before {
+        content: attr(data-number);
+        font-size: 0.8rem;
+        margin-right: 10px;
+    }
 
-        #primary ul li[data-number^="PS"] {
-            color: #007BFF; /* 파랑 */
-        }
+    #primary ul li[data-number^="ST"] {
+        color: #000000; /* 검정 */
+    }
 
-        #intermediate ul li[data-number^="FD"] {
-            color: #000000; /* 검정 */
-        }
+    #primary ul li[data-number^="PS"] {
+        color: #007BFF; /* 파랑 */
+    }
 
-        #intermediate ul li[data-number^="IS"] {
-            color: #FF0000; /* 빨강 */
-        }
+    #intermediate ul li[data-number^="FD"] {
+        color: #000000; /* 검정 */
+    }
 
-        .series {
-            display: none;
-        }
-    </style>
+    #intermediate ul li[data-number^="IS"] {
+        color: #FF0000; /* 빨강 */
+    }
+
+    .series {
+        display: none;
+    }
+</style>
+
 </head>
 <body>
 
