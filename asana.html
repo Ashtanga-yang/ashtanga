@@ -87,7 +87,7 @@
             </ol>
         </div>
 
-        <div class="group primary">
+        <div class="group standing">
             <h2>Standing (서기)</h2>
             <ol>
                 <li>Utkaṭāsana (उत्कटासन)</li>
@@ -114,7 +114,7 @@
             </ol>
         </div>
 
-        <div class="group primary intermediate">
+        <div class="group finishing">
             <h2>Finishing (마무리)</h2>
             <ol>
                 <li>Sarvāṅgāsana (सर्वाङ्गासन)</li>
@@ -126,11 +126,19 @@
     </div>
 
     <script>
+        // Primary 순서로 그룹을 보여주는 함수
         function showPrimaryOrder() {
             document.querySelectorAll('.group').forEach(group => {
-                if (group.classList.contains('primary')) {
+                // Primary 메뉴의 순서대로 표시
+                if (group.classList.contains('standing')) {
                     group.style.visibility = 'visible';
                     setTimeout(() => group.classList.add('show'), 50);
+                } else if (group.classList.contains('primary')) {
+                    group.style.visibility = 'visible';
+                    setTimeout(() => group.classList.add('show'), 100);
+                } else if (group.classList.contains('finishing')) {
+                    group.style.visibility = 'visible';
+                    setTimeout(() => group.classList.add('show'), 150);
                 } else {
                     group.classList.remove('show');
                     setTimeout(() => group.style.visibility = 'hidden', 600);
@@ -138,11 +146,19 @@
             });
         }
 
+        // Intermediate 순서로 그룹을 보여주는 함수
         function showIntermediateOrder() {
             document.querySelectorAll('.group').forEach(group => {
-                if (group.classList.contains('intermediate') || group.classList.contains('fundamental')) {
+                // Intermediate 메뉴의 순서대로 표시
+                if (group.classList.contains('fundamental')) {
                     group.style.visibility = 'visible';
                     setTimeout(() => group.classList.add('show'), 50);
+                } else if (group.classList.contains('intermediate')) {
+                    group.style.visibility = 'visible';
+                    setTimeout(() => group.classList.add('show'), 100);
+                } else if (group.classList.contains('finishing')) {
+                    group.style.visibility = 'visible';
+                    setTimeout(() => group.classList.add('show'), 150);
                 } else {
                     group.classList.remove('show');
                     setTimeout(() => group.style.visibility = 'hidden', 600);
@@ -150,8 +166,8 @@
             });
         }
 
-        // 페이지 로드 시 Primary 시퀀스를 먼저 보이도록 설정
-        window.onload = () => {
+        // 페이지 로드 시 기본적으로 Primary 그룹을 먼저 보이도록 설정
+        window.onload = function() {
             showPrimaryOrder();
         };
     </script>
