@@ -60,7 +60,6 @@
             content: attr(data-number);
             font-size: 0.8rem;
             margin-right: 10px;
-            color: #007BFF;
         }
 
         /* 색상 설정 */
@@ -69,6 +68,22 @@
         }
 
         #intermediate .series-title {
+            color: #FF0000; /* 빨강 */
+        }
+
+        #primary ul li[data-number^="ST"] {
+            color: #000000; /* 검정 */
+        }
+
+        #primary ul li[data-number^="PS"] {
+            color: #007BFF; /* 파랑 */
+        }
+
+        #intermediate ul li[data-number^="FD"] {
+            color: #000000; /* 검정 */
+        }
+
+        #intermediate ul li[data-number^="IS"] {
             color: #FF0000; /* 빨강 */
         }
 
