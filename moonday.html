@@ -35,6 +35,19 @@
   }
   li {
   }
+
+  /* 오늘 날짜 표시 스타일 */
+  #todayDate {
+    position: fixed;
+    top: 10px; /* 상단에서 10px 아래에 위치 */
+    left: 200px; /* 문데이 표시 시작 지점으로부터 200px 우측 */
+    font-family: "Song Myung", serif;
+    font-size: 0.9rem; /* 폰트 크기 */
+    color: #333; /* 글자 색상 */
+    font-weight: 500; /* 글자 두께 */
+    line-height: 1.4; /* 줄 간격 조정 */
+    text-align: center; /* 가운데 정렬 */
+  }
 </style>
 <title>Ashtanga_Yang</title>
 </head>
@@ -50,6 +63,10 @@
   <p>&nbsp;</p>
   <p><a href="https://www.instagram.com/ashtanga_yang">@ashtanga_yang</a></p>
   <div id="moonDays"></div>
+
+  <!-- 오늘 날짜 표시 -->
+  <div id="todayDate"></div>
+
   <script>
     const moonDays = {
       2025: [
@@ -114,6 +131,17 @@
     // 한국어 요일 배열
     const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
+    // 오늘 날짜를 세로로 표시하는 함수
+    function formatDateVertical(date) {
+      const d = new Date(date);
+      const dayOfWeek = weekdays[d.getDay()];
+      return `${d.getFullYear()}<br>${(d.getMonth() + 1).toString().padStart(2, '0')}.${d
+        .getDate()
+        .toString()
+        .padStart(2, '0')}<br>(${dayOfWeek})`;
+    }
+
+    // 문데이 날짜를 가로로 표시하는 함수
     function formatDate(date) {
       const d = new Date(date);
       const dayOfWeek = weekdays[d.getDay()];
@@ -121,6 +149,12 @@
         .getDate()
         .toString()
         .padStart(2, '0')} (${dayOfWeek})`;
+    }
+
+    // 오늘 날짜 표시
+    function displayTodayDate() {
+      const todayDateElement = document.querySelector("#todayDate");
+      todayDateElement.innerHTML = formatDateVertical(currentDate); // 세로로 표시
     }
 
     function displayMoonDays() {
@@ -152,7 +186,7 @@
           }
 
           const dayDiv = document.createElement("div");
-          dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`;
+          dayDiv.textContent = `${formatDate(day.date)} ${day.phase}`; // 가로로 표시
 
           // 가장 위에 표시되는 문데이를 빨간색으로 강조
           if (!firstMoonFound) {
@@ -169,7 +203,8 @@
       }
     }
 
-    displayMoonDays();
+    displayTodayDate(); // 오늘 날짜 표시
+    displayMoonDays(); // 문데이 표시
   </script>
 
   <!-- 하단 고정 메뉴 -->
