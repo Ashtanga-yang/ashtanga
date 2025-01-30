@@ -34,7 +34,6 @@
         }
 
         .menu a.active {
-            color: #0056b3;
             font-weight: bold;
             text-decoration: underline;
         }
@@ -44,7 +43,6 @@
             font-weight: bold;
             margin-top: 20px;
             margin-bottom: 10px;
-            color: #007BFF;
         }
 
         ul {
@@ -63,6 +61,15 @@
             font-size: 0.8rem;
             margin-right: 10px;
             color: #007BFF;
+        }
+
+        /* 색상 설정 */
+        #primary .series-title {
+            color: #007BFF; /* 파랑 */
+        }
+
+        #intermediate .series-title {
+            color: #FF0000; /* 빨강 */
         }
 
         .series {
@@ -219,16 +226,21 @@
     </div>
 
     <script>
+        // 초기화: 첫 번째 메뉴 '프라이머리 시리즈'를 기본으로 보이게 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            showSeries('primary');
+        });
+
         function showSeries(series) {
-            // Hide both series by default
+            // 모든 시리즈 숨기기
             document.querySelector('#primary').style.display = 'none';
             document.querySelector('#intermediate').style.display = 'none';
 
-            // Remove active class from both menu items
+            // 메뉴 항목에서 active 클래스 제거
             document.querySelector('#primary-menu').classList.remove('active');
             document.querySelector('#intermediate-menu').classList.remove('active');
 
-            // Show the selected series and highlight the active menu item
+            // 선택된 시리즈 보여주기
             if (series === 'primary') {
                 document.querySelector('#primary').style.display = 'block';
                 document.querySelector('#primary-menu').classList.add('active');
