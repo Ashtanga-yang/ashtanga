@@ -35,14 +35,13 @@
         }
         .group h2 {
             font-size: 16px;
-            cursor: pointer;
-            margin: 0;
+            margin: 0 0 5px;
             color: #007BFF;
         }
         .group ol {
-            display: none;
             padding-left: 15px;
             font-size: 14px;
+            list-style: none;
         }
         .group li {
             margin: 5px 0;
@@ -59,7 +58,7 @@
 
     <div id="group-container">
         <div class="group" id="fundamental-group">
-            <h2 onclick="toggleGroup('fundamental-group')">Fundamental Group</h2>
+            <h2>Fundamental Group</h2>
             <ol>
                 <li>Samasthitiḥ</li>
                 <li>Sūrya Namaskāra A</li>
@@ -68,7 +67,7 @@
         </div>
 
         <div class="group" id="standing-group">
-            <h2 onclick="toggleGroup('standing-group')">Standing</h2>
+            <h2>Standing</h2>
             <ol>
                 <li>Utkaṭāsana</li>
                 <li>Vīrabhadrāsana</li>
@@ -76,7 +75,7 @@
         </div>
 
         <div class="group" id="primary-group">
-            <h2 onclick="toggleGroup('primary-group')">Primary Group</h2>
+            <h2>Primary Group</h2>
             <ol>
                 <li>Paścimottānāsana</li>
                 <li>Pūrvottānāsana</li>
@@ -84,7 +83,7 @@
         </div>
 
         <div class="group" id="intermediate-group">
-            <h2 onclick="toggleGroup('intermediate-group')">Intermediate Series</h2>
+            <h2>Intermediate Series</h2>
             <ol>
                 <li>Pāśāsana</li>
                 <li>Krauñcāsana</li>
@@ -92,7 +91,7 @@
         </div>
 
         <div class="group" id="finishing-group">
-            <h2 onclick="toggleGroup('finishing-group')">Finishing</h2>
+            <h2>Finishing</h2>
             <ol>
                 <li>Sarvāṅgāsana</li>
                 <li>Halāsana</li>
@@ -101,11 +100,6 @@
     </div>
 
     <script>
-        function toggleGroup(groupId) {
-            const group = document.getElementById(groupId).querySelector('ol');
-            group.style.display = (group.style.display === 'block') ? 'none' : 'block';
-        }
-
         function showPrimaryOrder() {
             document.getElementById('fundamental-group').style.display = 'none';
             document.getElementById('standing-group').style.display = 'block';
