@@ -3,78 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashtanga Yoga Asanas</title>
+    <title>아쉬탕가 요가 프라이머리 시퀀스</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        .group {
+            margin-bottom: 20px;
+        }
+        .group h2 {
+            cursor: pointer;
+            color: #007BFF;
+        }
+        .group h2:hover {
+            text-decoration: underline;
+        }
+        .group ol {
+            display: none; /* 초기 상태에서 숨김 */
+        }
+        .group.active ol {
+            display: block; /* 활성화 시 표시 */
+        }
     </style>
 </head>
 <body>
-    <h1>Ashtanga Yoga Asanas</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>산스크리트어</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Standing Poses -->
-            <tr><td>Samasthiti</td></tr>
-            <tr><td>Surya Namaskara (A & B)</td></tr>
-            <tr><td>Padangushtasana</td></tr>
-            <tr><td>Pada hastasana</td></tr>
-            <tr><td>Utthita Trikonasana</td></tr>
-            <tr><td>Parivritta Trikonasana</td></tr>
-            <tr><td>Utthita Parshvakonasana</td></tr>
-            <tr><td>Parivritta Parshvakonasana</td></tr>
-            <tr><td>Prasarita Padottanasana (A, B, C & D)</td></tr>
-            <tr><td>Parshvottanasana</td></tr>
-            <tr><td>Utthita Hasta Padangushtasana</td></tr>
-            <tr><td>Ardha Baddha Padmottanasana</td></tr>
-            <tr><td>Utkatanasana</td></tr>
-            <tr><td>Virabhadrasana (A & B)</td></tr>
-            
-            <!-- Sitting Poses -->
-            <tr><td>Dandasana (Chaturanga Dandasana)</td></tr>
-            <tr><td>Paschimattanasana</td></tr>
-            <tr><td>Purvatanasana</td></tr>
-            <tr><td>Ardha Baddha Padma Paschimattanasana</td></tr>
-            <tr><td>Trianga Mukhaekapada Paschimattanasana</td></tr>
-            <tr><td>Janu Shirshasana (A, B & C)</td></tr>
-            <tr><td>Marichyasana (A, B, C & D)</td></tr>
-            <tr><td>Navasana</td></tr>
-            <tr><td>Bhujapidasana</td></tr>
-            <tr><td>Kurmasana</td></tr>
-            <tr><td>Supta Kurmasana</td></tr>
-            <tr><td>Garbha Pindasana</td></tr>
-            <tr><td>Kukkutasana</td></tr>
-            <tr><td>Baddha Konasana</td></tr>
-            <tr><td>Upavishta Konasana</td></tr>
-            <tr><td>Supta Konasana</td></tr>
-            <tr><td>Supta Padangushtasana</td></tr>
-            <tr><td>Ubhaya Padangushtasana</td></tr>
-            <tr><td>Urdhva Mukha Paschimattanasana</td></tr>
-            <tr><td>Setu Bandhasana</td></tr>
-            <tr><td>Urdhva Dhanurasana</td></tr>
-            <tr><td>Paschimattanasana</td></tr>
-            
-            <!-- Finishing Poses -->
-            <tr><td>Salamba Sarvangasana</td></tr>
-            <tr><td>Halasana</td></tr>
-            <tr><td>Karnapidasana</td></tr>
-            <tr><td>Urdhva Padmasana</td></tr>
-            <tr><td>Pindasana</td></tr>
-            <tr><td>Matsyasana</td></tr>
-            <tr><td>Uttana Padasana</td></tr>
-            <tr><td>Shirshasana</td></tr>
-            <tr><td>Baddha Padmasana</td></tr>
-            <tr><td>Yoga Mudra</td></tr>
-            <tr><td>Padmasana</td></tr>
-            <tr><td>Uth Pluthi (Tolasana)</td></tr>
-            <tr><td>Shavasana</td></tr>
-        </tbody>
-    </table>
+    <h1>아쉬탕가 요가 프라이머리 시퀀스</h1>
+
+    <!-- Fundamental Group -->
+    <div class="group" id="fundamental-group">
+        <h2 onclick="toggleGroup('fundamental-group')">Fundamental Group (기본 그룹)</h2>
+        <ol>
+            <li>समस्थितिः (Samasthitiḥ)</li>
+            <li>सूर्यनमस्कार अ (Sūrya Namaskāra A)</li>
+            <li>सूर्यनमस्कार ब (Sūrya Namaskāra B)</li>
+            <li>पादहस्तासन (Pādahastāsana)</li>
+            <li>उत्थितहस्तासन (Utthita Hastāsana)</li>
+            <li>त्रिकोणासन (Trikonāsana)</li>
+            <li>परिवृत्तत्रिकोणासन (Parivṛtta Trikonāsana)</li>
+            <li>उत्थितपार्श्वकोणासन (Utthita Pārśvakoṇāsana)</li>
+            <li>परिवृत्तपार्श्वकोणासन (Parivṛtta Pārśvakoṇāsana)</li>
+            <li>प्रसारितपादोत्तानासन (Prasārita Pādottānāsana)</li>
+            <li>पार्श्वोत्तानासन (Pārśvottānāsana)</li>
+        </ol>
+    </div>
+
+    <!-- Standing Group -->
+    <div class="group" id="standing-group">
+        <h2 onclick="toggleGroup('standing-group')">Standing (서기)</h2>
+        <ol>
+            <li>उत्कटासन (Utkaṭāsana)</li>
+            <li>वीरभद्रासन (Vīrabhadrāsana)</li>
+        </ol>
+    </div>
+
+    <!-- Sitting Group -->
+    <div class="group" id="sitting-group">
+        <h2 onclick="toggleGroup('sitting-group')">Sitting (앉기)</h2>
+        <ol>
+            <li>पश्चिमोत्तानासन (Paścimottānāsana)</li>
+            <li>पुर्वोत्तानासन (Pūrvottānāsana)</li>
+            <li>अर्धबद्धपद्मपश्चिमोत्तानासन (Ardha Baddha Padma Paścimottānāsana)</li>
+            <li>त्र्यंबकासन (Tryaṃbakāsana)</li>
+            <li>जानुशीर्षासन (Jānu Śīrṣāsana)</li>
+            <li>मारीच्यासन (Mārīcyāsana)</li>
+            <li>नवासन (Navāsana)</li>
+            <li>भुजपीडासन (Bhujapīḍāsana)</li>
+            <li>कूर्मासन (Kūrmāsana)</li>
+            <li>सुप्तकूर्मासन (Supta Kūrmāsana)</li>
+            <li>गर्भपिण्डासन (Garbha Piṇḍāsana)</li>
+            <li>कुक्कुटासन (Kukkuṭāsana)</li>
+            <li>बद्धकोणासन (Baddha Koṇāsana)</li>
+            <li>उपविष्टकोणासन (Upaviṣṭa Koṇāsana)</li>
+            <li>सुप्तपादाङ्गुष्ठासन (Supta Pādāṅguṣṭhāsana)</li>
+            <li>उभयपादाङ्गुष्ठासन (Ubhaya Pādāṅguṣṭhāsana)</li>
+            <li>उर्ध्वमुखपश्चिमोत्तानासन (Ūrdhva Mukha Paścimottānāsana)</li>
+            <li>सेतुबंधासन (Setu Bandhāsana)</li>
+        </ol>
+    </div>
+
+    <!-- Finishing Group -->
+    <div class="group" id="finishing-group">
+        <h2 onclick="toggleGroup('finishing-group')">Finishing (마무리)</h2>
+        <ol>
+            <li>सर्वाङ्गासन (Sarvāṅgāsana)</li>
+            <li>हलासन (Halāsana)</li>
+            <li>कर्णपीडासन (Karṇa Pīḍāsana)</li>
+            <li>उर्ध्वपद्मासन (Ūrdhva Padmāsana)</li>
+            <li>पिण्डासन (Piṇḍāsana)</li>
+            <li>मत्स्यासन (Matsyāsana)</li>
+            <li>उत्तानपादासन (Uttānapādāsana)</li>
+            <li>शीर्षासन (Śīrṣāsana)</li>
+            <li>बद्धपद्मासन (Baddha Padmāsana)</li>
+            <li>योगमुद्रासन (Yoga Mudrāsana)</li>
+            <li>पद्मासन (Padmāsana)</li>
+            <li>उत्थितपद्मासन (Utthita Padmāsana)</li>
+            <li>शवासन (Śavāsana)</li>
+        </ol>
+    </div>
+
+    <script>
+        // 그룹 토글 함수
+        function toggleGroup(groupId) {
+            const group = document.getElementById(groupId);
+            group.classList.toggle('active');
+        }
+
+        // 페이지 로드 시 기본 그룹만 활성화
+        window.onload = function() {
+            document.getElementById('fundamental-group').classList.add('active');
+        };
+    </script>
 </body>
 </html>
