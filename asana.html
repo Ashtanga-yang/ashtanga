@@ -6,53 +6,58 @@
     <title>Ashtanga Yoga Pose List</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
         }
 
         h1 {
             text-align: center;
+            padding: 20px;
+            font-size: 2rem;
             color: #333;
+            background-color: #fff;
+            margin: 0;
         }
 
         .pose-list {
+            max-width: 900px;
+            margin: 40px auto;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
             padding: 20px;
-            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .pose-list .series-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
         }
 
         .pose-list ul {
             list-style-type: none;
-            padding: 0;
-        }
-
-        .pose-list li {
-            margin: 8px 0;
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        .series-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #444;
-            margin-bottom: 10px;
-        }
-
-        .pose-list li::before {
-            content: "• ";
-            color: #007BFF;
-            font-weight: bold;
+            padding-left: 0;
+            font-size: 1rem;
         }
 
         .pose-list ul li {
-            padding-left: 20px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pose-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pose-list ul li::before {
+            content: "• ";
+            color: #007BFF;
+            font-size: 1.2em;
+            padding-right: 8px;
         }
     </style>
 </head>
