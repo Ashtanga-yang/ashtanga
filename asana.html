@@ -3,28 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아쉬탕가 요가 프라이머리 시퀀스</title>
+    <title>아쉬탕가 요가 시퀀스</title>
     <style>
+        /* 카드 형태 디자인 */
         .group {
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .group:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .group h2 {
             cursor: pointer;
             color: #007BFF;
+            margin-top: 0;
         }
         .group h2:hover {
             text-decoration: underline;
         }
         .group ol {
             display: none; /* 초기 상태에서 숨김 */
+            padding-left: 20px;
         }
         .group.active ol {
             display: block; /* 활성화 시 표시 */
         }
+        .group li {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <h1>아쉬탕가 요가 프라이머리 시퀀스</h1>
+    <h1>아쉬탕가 요가 시퀀스</h1>
 
     <!-- Fundamental Group -->
     <div class="group" id="fundamental-group">
