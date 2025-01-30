@@ -33,6 +33,12 @@
             color: #0056b3;
         }
 
+        .menu a.active {
+            color: #0056b3;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
         .series-title {
             font-size: 1.2rem;
             font-weight: bold;
@@ -68,8 +74,8 @@
 
     <!-- Menu -->
     <div class="menu">
-        <a onclick="showSeries('primary')">프라이머리 시리즈</a>
-        <a onclick="showSeries('intermediate')">인터미디어트 시리즈</a>
+        <a href="javascript:void(0);" onclick="showSeries('primary')" id="primary-menu">프라이머리 시리즈</a>
+        <a href="javascript:void(0);" onclick="showSeries('intermediate')" id="intermediate-menu">인터미디어트 시리즈</a>
     </div>
 
     <!-- Primary Series (ST, PS, FN) -->
@@ -218,11 +224,17 @@
             document.querySelector('#primary').style.display = 'none';
             document.querySelector('#intermediate').style.display = 'none';
 
-            // Show the selected series
+            // Remove active class from both menu items
+            document.querySelector('#primary-menu').classList.remove('active');
+            document.querySelector('#intermediate-menu').classList.remove('active');
+
+            // Show the selected series and highlight the active menu item
             if (series === 'primary') {
                 document.querySelector('#primary').style.display = 'block';
+                document.querySelector('#primary-menu').classList.add('active');
             } else if (series === 'intermediate') {
                 document.querySelector('#intermediate').style.display = 'block';
+                document.querySelector('#intermediate-menu').classList.add('active');
             }
         }
     </script>
