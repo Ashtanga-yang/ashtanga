@@ -44,11 +44,13 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            display: none; /* 기본적으로 숨김 */
         }
 
         .group.show {
             opacity: 1;
             transform: translateY(0);
+            display: block; /* 활성화 시 보이도록 변경 */
         }
 
         .group h2 {
@@ -75,7 +77,7 @@
 
     <!-- 그룹 컨테이너 -->
     <div id="group-container">
-        <div class="group" id="standing-group">
+        <div class="group primary">
             <h2>Standing (서기)</h2>
             <ol>
                 <li>Utkaṭāsana (उत्कटासन)</li>
@@ -83,7 +85,7 @@
             </ol>
         </div>
 
-        <div class="group" id="primary-group">
+        <div class="group primary">
             <h2>Primary Group (프라이머리 그룹)</h2>
             <ol>
                 <li>Paścimottānāsana (पश्चिमोत्तानासन)</li>
@@ -94,7 +96,7 @@
             </ol>
         </div>
 
-        <div class="group" id="intermediate-group">
+        <div class="group intermediate">
             <h2>Intermediate Series (인터미디어트 시리즈)</h2>
             <ol>
                 <li>Pāśāsana (पाशासन)</li>
@@ -105,7 +107,7 @@
             </ol>
         </div>
 
-        <div class="group" id="finishing-group">
+        <div class="group primary intermediate">
             <h2>Finishing (마무리)</h2>
             <ol>
                 <li>Sarvāṅgāsana (सर्वाङ्गासन)</li>
@@ -119,58 +121,32 @@
 
     <script>
         function showPrimaryOrder() {
-            const container = document.getElementById('group-container');
-            container.innerHTML = ''; // 기존 내용 초기화
-
-            const standing = document.getElementById('standing-group');
-            const primary = document.getElementById('primary-group');
-            const finishing = document.getElementById('finishing-group');
-
-            container.appendChild(standing);
-            container.appendChild(primary);
-            container.appendChild(finishing);
-
-            fadeInGroups();
-        }
-
-        function showIntermediateOrder() {
-            const container = document.getElementById('group-container');
-            container.innerHTML = ''; // 기존 내용 초기화
-
-            const intermediate = document.getElementById('intermediate-group');
-            const finishing = document.getElementById('finishing-group');
-
-            container.appendChild(intermediate);
-            container.appendChild(finishing);
-
-            fadeInGroups();
-        }
-
-        function fadeInGroups() {
-            const groups = document.querySelectorAll('.group');
-            groups.forEach((group, index) => {
-                setTimeout(() => {
-                    group.classList.add('show');
-                }, index * 200);
-            });
-        }
-
-        function handleScroll() {
-            const groups = document.querySelectorAll('.group');
-            const triggerBottom = window.innerHeight * 0.85;
-
-            groups.forEach(group => {
-                const boxTop = group.getBoundingClientRect().top;
-                if (boxTop < triggerBottom) {
-                    group.classList.add('show');
+            document.querySelectorAll('.group').forEach(group => {
+                if (group.classList.contains('primary')) {
+                    group.style.display = 'block';
+                    setTimeout(() => group.classList.add('show'), 50);
+                } else {
+                    group.classList.remove('show');
+                    setTimeout(() => group.style.display = 'none', 600);
                 }
             });
         }
 
-        // 페이지 로드 시 Primary 순서로 설정
+        function showIntermediateOrder() {
+            document.querySelectorAll('.group').forEach(group => {
+                if (group.classList.contains('intermediate')) {
+                    group.style.display = 'block';
+                    setTimeout(() => group.classList.add('show'), 50);
+                } else {
+                    group.classList.remove('show');
+                    setTimeout(() => group.style.display = 'none', 600);
+                }
+            });
+        }
+
+        // 페이지 로드 시 Primary 시퀀스를 먼저 보이도록 설정
         window.onload = () => {
             showPrimaryOrder();
-            window.addEventListener('scroll', handleScroll);
         };
     </script>
 </body>
