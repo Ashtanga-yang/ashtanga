@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashtanga Yoga Pose List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .series-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            font-size: 1rem;
+            line-height:1.4rem;
+        }
+
+        ul li {
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Primary Series -->
+    <div>
+        <div class="series-title">Standing </div>
+        <ul>
+            <li>ST-1. Samasthiti</li>
+            <li>ST-2. Surya Namaskara A & B</li>
+            <li>ST-3. Padangushtasana</li>
+            <li>ST-4. Pada Hastasana</li>
+            <li>ST-5. Utthita Trikonasana A & B</li>
+            <li>ST-6. Utthita Parshvakonasana A & B</li>
+            <li>ST-7. Prasarita Padottanasana A, B, C, D</li>
+            <li>ST-8. Parshvottanasana - FD </li>
+            <li>ST-9. Utthita Hasta Padangushtasana</li>
+            <li>ST-10. Ardha Baddha Padmottanasana</li>
+            <li>ST-11. Utkatasana</li>
+            <li>ST-12. Virabhadrasana A & B</li>
+        </ul>
+    </div>
+        <div class="series-title">Primary Series</div>
+        <ul>
+            <li>PS-1. Dandasana</li>
+            <li>PS-2. Paschimattanasana A & B</li>
+            <li>PS-3. Purvottanasana</li>
+            <li>PS-4. Ardha Baddha Padma Paschimattanasana</li>
+            <li>PS-5. Trianga Mukhaekapada Paschimattanasana</li>
+            <li>PS-6. Janu Shirshasana A, B, C</li>
+            <li>PS-7. Marichyasana A, B, C, D</li>
+            <li>PS-8. Navasana</li>
+            <li>PS-9. Bhujapidasana</li>
+            <li>PS-10. Kurmasana</li>
+            <li>PS-11. Supta Kurmasana</li>
+            <li>PS-12. Garbha Pindasana</li>
+            <li>PS-13. Kukkutasana</li>
+            <li>PS-14. Baddha Konasana A & B</li>
+            <li>PS-15. Upavishta Konasana A & B</li>
+            <li>PS-16. Supta Konasana</li>
+            <li>PS-17. Supta Padangushtasana</li>
+            <li>PS-18. Ubhaya Padangushtasana</li>
+            <li>PS-19. Urdhva Mukha Paschimattanasana</li>
+            <li>PS-20. Setu Bandhasana</li>
+            <li>PS-21. Urdhva Dhanurasana</li>
+            <li>PS-22. Paschimattanasana</li>
+        </ul>
+    </div>
+
+    <!-- Fundamental Sequence -->
+    <div>
+        <div class="series-title">Fundamental Sequence</div>
+        <ul>
+            <li>FD-1. Samasthiti</li>
+            <li>FD-2. Surya Namaskara A & B</li>
+            <li>FD-3. Padangushtasana</li>
+            <li>FD-4. Pada Hastasana</li>
+            <li>FD-5. Utthita Trikonasana A & B</li>
+            <li>FD-6. Utthita Parshvakonasana A & B</li>
+            <li>FD-7. Prasarita Padottanasana A, B, C, D</li>
+            <li>FD-8. Parshvottanasana</li>
+        </ul>
+    </div>
+
+    <!-- Intermediate Sequence -->
+    <div>
+        <div class="series-title">Intermediate Sequence</div>
+        <ul>
+            <li>IS-1. Pashasana</li>
+            <li>IS-2. Krounchasana</li>
+            <li>IS-3. Shalabhasana A, B</li>
+            <li>IS-4. Bhekasana</li>
+            <li>IS-5. Dhanurasana</li>
+            <li>IS-6. Parsvadhanurasana</li>
+            <li>IS-7. Ustrasana</li>
+            <li>IS-8. Laghu Vajrasana</li>
+            <li>IS-9. Kapotasana</li>
+            <li>IS-10. Supta Vajrasana</li>
+            <li>IS-11. Bakasana</li>
+            <li>IS-12. Bharadvajasana</li>
+            <li>IS-13. Ardha Matsyendraasana</li>
+            <li>IS-14. Ekapada Sirsasana A, B, C</li>
+            <li>IS-15. Dwipada Sirsasana B</li>
+            <li>IS-16. Yoga Nidrasana</li>
+            <li>IS-17. Tittibhasana A, B, C</li>
+            <li>IS-18. Pincha Mayurasana</li>
+            <li>IS-19. Karandavasana</li>
+            <li>IS-20. Mayurasana</li>
+            <li>IS-21. Nakrasana</li>
+            <li>IS-22. Vatayanasana</li>
+            <li>IS-23. Parighasana</li>
+            <li>IS-24. Gomukhasana A, B, C</li>
+            <li>IS-25. Supta Urdhvapada Vajrasana A, B</li>
+            <li>IS-26. Mukta Hasta Sirsasana A, B, C</li>
+            <li>IS-27. Baddha Hasta Sirsasana A, B, C, D</li>
+            <li>IS-28. Urdhva Dhanurasana</li>
+            <li>IS-29. Drop back & Come up</li>
+            <li>IS-30. Paschimottanasana</li>
+        </ul>
+    </div>
+
+    <!-- Finishing Sequence -->
+    <div>
+        <div class="series-title">Finishing Sequence</div>
+        <ul>
+            <li>FN-1. Salamba Sarvangasana</li>
+            <li>FN-2. Halasana</li>
+            <li>FN-3. Karnapidasana</li>
+            <li>FN-4. Urdhva Padmasana</li>
+            <li>FN-5. Pindasana</li>
+            <li>FN-6. Matsyasana</li>
+            <li>FN-7. Uttana Padasana</li>
+            <li>FN-8. Shirshasana A, B, C</li>
+            <li>FN-9. Baddha Padmasana</li>
+            <li>FN-10. Yoga Mudra</li>
+            <li>FN-11. Padmasana</li>
+            <li>FN-12. Uth Pluthi (Tolasana)</li>
+            <li>FN-13. Shavasana</li>
+        </ul>
+    </div>
+</body>
+</html>
