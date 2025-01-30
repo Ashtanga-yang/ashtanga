@@ -10,9 +10,27 @@
             margin: 0;
             padding: 0;
             line-height: 1.4;
-            background-color: #fff; /* 흰색 배경 */
+            background-color: #fff;
             color: #333;
-            padding-left: 15px; /* 좌측 여백 15px */
+            padding-left: 15px;
+        }
+
+        .menu {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #007BFF;
+            margin: 0 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            color: #0056b3;
         }
 
         .series-title {
@@ -35,132 +53,174 @@
         }
 
         ul li::before {
-            content: attr(data-number); /* 번호 표시 */
-            font-size: 0.8rem; /* 넘버링 크기 0.8rem */
-            margin-right: 10px; /* 넘버링과 텍스트 간 간격 */
-            color: #007BFF; /* 넘버링 색상 */
+            content: attr(data-number);
+            font-size: 0.8rem;
+            margin-right: 10px;
+            color: #007BFF;
+        }
+
+        .series {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Standing Series -->
-    <div>
-        <div class="series-title">Standing</div>
-        <ul>
-            <li data-number="ST-1">Samasthiti</li>
-            <li data-number="ST-2">Surya Namaskara A & B</li>
-            <li data-number="ST-3">Padangushtasana</li>
-            <li data-number="ST-4">Pada Hastasana</li>
-            <li data-number="ST-5">Utthita Trikonasana A & B</li>
-            <li data-number="ST-6">Utthita Parshvakonasana A & B</li>
-            <li data-number="ST-7">Prasarita Padottanasana A, B, C, D</li>
-            <li data-number="ST-8">Parshvottanasana - FD</li>
-            <li data-number="ST-9">Utthita Hasta Padangushtasana</li>
-            <li data-number="ST-10">Ardha Baddha Padmottanasana</li>
-            <li data-number="ST-11">Utkatasana</li>
-            <li data-number="ST-12">Virabhadrasana A & B</li>
-        </ul>
+
+    <!-- Menu -->
+    <div class="menu">
+        <a onclick="showSeries('primary')">프라이머리 시리즈</a>
+        <a onclick="showSeries('intermediate')">인터미디어트 시리즈</a>
     </div>
 
-    <!-- Primary Series -->
-    <div>
-        <div class="series-title">Primary Series</div>
-        <ul>
-            <li data-number="PS-1">Dandasana</li>
-            <li data-number="PS-2">Paschimattanasana A & B</li>
-            <li data-number="PS-3">Purvottanasana</li>
-            <li data-number="PS-4">Ardha Baddha Padma Paschimattanasana</li>
-            <li data-number="PS-5">Trianga Mukhaekapada Paschimattanasana</li>
-            <li data-number="PS-6">Janu Shirshasana A, B, C</li>
-            <li data-number="PS-7">Marichyasana A, B, C, D</li>
-            <li data-number="PS-8">Navasana</li>
-            <li data-number="PS-9">Bhujapidasana</li>
-            <li data-number="PS-10">Kurmasana</li>
-            <li data-number="PS-11">Supta Kurmasana</li>
-            <li data-number="PS-12">Garbha Pindasana</li>
-            <li data-number="PS-13">Kukkutasana</li>
-            <li data-number="PS-14">Baddha Konasana A & B</li>
-            <li data-number="PS-15">Upavishta Konasana A & B</li>
-            <li data-number="PS-16">Supta Konasana</li>
-            <li data-number="PS-17">Supta Padangushtasana</li>
-            <li data-number="PS-18">Ubhaya Padangushtasana</li>
-            <li data-number="PS-19">Urdhva Mukha Paschimattanasana</li>
-            <li data-number="PS-20">Setu Bandhasana</li>
-            <li data-number="PS-21">Urdhva Dhanurasana</li>
-            <li data-number="PS-22">Paschimattanasana</li>
-        </ul>
+    <!-- Primary Series (ST, PS, FN) -->
+    <div id="primary" class="series">
+        <div>
+            <div class="series-title">Standing</div>
+            <ul>
+                <li data-number="ST-1">Samasthiti</li>
+                <li data-number="ST-2">Surya Namaskara A & B</li>
+                <li data-number="ST-3">Padangushtasana</li>
+                <li data-number="ST-4">Pada Hastasana</li>
+                <li data-number="ST-5">Utthita Trikonasana A & B</li>
+                <li data-number="ST-6">Utthita Parshvakonasana A & B</li>
+                <li data-number="ST-7">Prasarita Padottanasana A, B, C, D</li>
+                <li data-number="ST-8">Parshvottanasana - FD</li>
+                <li data-number="ST-9">Utthita Hasta Padangushtasana</li>
+                <li data-number="ST-10">Ardha Baddha Padmottanasana</li>
+                <li data-number="ST-11">Utkatasana</li>
+                <li data-number="ST-12">Virabhadrasana A & B</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="series-title">Primary Series</div>
+            <ul>
+                <li data-number="PS-1">Dandasana</li>
+                <li data-number="PS-2">Paschimattanasana A & B</li>
+                <li data-number="PS-3">Purvottanasana</li>
+                <li data-number="PS-4">Ardha Baddha Padma Paschimattanasana</li>
+                <li data-number="PS-5">Trianga Mukhaekapada Paschimattanasana</li>
+                <li data-number="PS-6">Janu Shirshasana A, B, C</li>
+                <li data-number="PS-7">Marichyasana A, B, C, D</li>
+                <li data-number="PS-8">Navasana</li>
+                <li data-number="PS-9">Bhujapidasana</li>
+                <li data-number="PS-10">Kurmasana</li>
+                <li data-number="PS-11">Supta Kurmasana</li>
+                <li data-number="PS-12">Garbha Pindasana</li>
+                <li data-number="PS-13">Kukkutasana</li>
+                <li data-number="PS-14">Baddha Konasana A & B</li>
+                <li data-number="PS-15">Upavishta Konasana A & B</li>
+                <li data-number="PS-16">Supta Konasana</li>
+                <li data-number="PS-17">Supta Padangushtasana</li>
+                <li data-number="PS-18">Ubhaya Padangushtasana</li>
+                <li data-number="PS-19">Urdhva Mukha Paschimattanasana</li>
+                <li data-number="PS-20">Setu Bandhasana</li>
+                <li data-number="PS-21">Urdhva Dhanurasana</li>
+                <li data-number="PS-22">Paschimattanasana</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="series-title">Fundamental Sequence</div>
+            <ul>
+                <li data-number="FD-1">Samasthiti</li>
+                <li data-number="FD-2">Surya Namaskara A & B</li>
+                <li data-number="FD-3">Padangushtasana</li>
+                <li data-number="FD-4">Pada Hastasana</li>
+                <li data-number="FD-5">Utthita Trikonasana A & B</li>
+                <li data-number="FD-6">Utthita Parshvakonasana A & B</li>
+                <li data-number="FD-7">Prasarita Padottanasana A, B, C, D</li>
+                <li data-number="FD-8">Parshvottanasana</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Fundamental Sequence -->
-    <div>
-        <div class="series-title">Fundamental Sequence</div>
-        <ul>
-            <li data-number="FD-1">Samasthiti</li>
-            <li data-number="FD-2">Surya Namaskara A & B</li>
-            <li data-number="FD-3">Padangushtasana</li>
-            <li data-number="FD-4">Pada Hastasana</li>
-            <li data-number="FD-5">Utthita Trikonasana A & B</li>
-            <li data-number="FD-6">Utthita Parshvakonasana A & B</li>
-            <li data-number="FD-7">Prasarita Padottanasana A, B, C, D</li>
-            <li data-number="FD-8">Parshvottanasana</li>
-        </ul>
+    <!-- Intermediate Series (FD, IS, FN) -->
+    <div id="intermediate" class="series">
+        <div>
+            <div class="series-title">Fundamental Sequence</div>
+            <ul>
+                <li data-number="FD-1">Samasthiti</li>
+                <li data-number="FD-2">Surya Namaskara A & B</li>
+                <li data-number="FD-3">Padangushtasana</li>
+                <li data-number="FD-4">Pada Hastasana</li>
+                <li data-number="FD-5">Utthita Trikonasana A & B</li>
+                <li data-number="FD-6">Utthita Parshvakonasana A & B</li>
+                <li data-number="FD-7">Prasarita Padottanasana A, B, C, D</li>
+                <li data-number="FD-8">Parshvottanasana</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="series-title">Intermediate Sequence</div>
+            <ul>
+                <li data-number="IS-1">Pashasana</li>
+                <li data-number="IS-2">Krounchasana</li>
+                <li data-number="IS-3">Shalabhasana A, B</li>
+                <li data-number="IS-4">Bhekasana</li>
+                <li data-number="IS-5">Dhanurasana</li>
+                <li data-number="IS-6">Parsvadhanurasana</li>
+                <li data-number="IS-7">Ustrasana</li>
+                <li data-number="IS-8">Laghu Vajrasana</li>
+                <li data-number="IS-9">Kapotasana</li>
+                <li data-number="IS-10">Supta Vajrasana</li>
+                <li data-number="IS-11">Bakasana</li>
+                <li data-number="IS-12">Bharadvajasana</li>
+                <li data-number="IS-13">Ardha Matsyendraasana</li>
+                <li data-number="IS-14">Ekapada Sirsasana A, B, C</li>
+                <li data-number="IS-15">Dwipada Sirsasana B</li>
+                <li data-number="IS-16">Yoga Nidrasana</li>
+                <li data-number="IS-17">Tittibhasana A, B, C</li>
+                <li data-number="IS-18">Pincha Mayurasana</li>
+                <li data-number="IS-19">Karandavasana</li>
+                <li data-number="IS-20">Mayurasana</li>
+                <li data-number="IS-21">Nakrasana</li>
+                <li data-number="IS-22">Vatayanasana</li>
+                <li data-number="IS-23">Parighasana</li>
+                <li data-number="IS-24">Gomukhasana A, B, C</li>
+                <li data-number="IS-25">Supta Urdhvapada Vajrasana A, B</li>
+                <li data-number="IS-26">Mukta Hasta Sirsasana A, B, C</li>
+                <li data-number="IS-27">Baddha Hasta Sirsasana A, B, C, D</li>
+                <li data-number="IS-28">Urdhva Dhanurasana</li>
+                <li data-number="IS-29">Drop back & Come up</li>
+                <li data-number="IS-30">Paschimottanasana</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="series-title">Finishing Sequence</div>
+            <ul>
+                <li data-number="FN-1">Salamba Sarvangasana</li>
+                <li data-number="FN-2">Halasana</li>
+                <li data-number="FN-3">Karnapidasana</li>
+                <li data-number="FN-4">Urdhva Padmasana</li>
+                <li data-number="FN-5">Pindasana</li>
+                <li data-number="FN-6">Matsyasana</li>
+                <li data-number="FN-7">Uttana Padasana</li>
+                <li data-number="FN-8">Shirshasana A, B, C</li>
+                <li data-number="FN-9">Baddha Padmasana</li>
+                <li data-number="FN-10">Yoga Mudra</li>
+                <li data-number="FN-11">Padmasana</li>
+                <li data-number="FN-12">Uth Pluthi (Tolasana)</li>
+                <li data-number="FN-13">Shavasana</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Intermediate Sequence -->
-    <div>
-        <div class="series-title">Intermediate Sequence</div>
-        <ul>
-            <li data-number="IS-1">Pashasana</li>
-            <li data-number="IS-2">Krounchasana</li>
-            <li data-number="IS-3">Shalabhasana A, B</li>
-            <li data-number="IS-4">Bhekasana</li>
-            <li data-number="IS-5">Dhanurasana</li>
-            <li data-number="IS-6">Parsvadhanurasana</li>
-            <li data-number="IS-7">Ustrasana</li>
-            <li data-number="IS-8">Laghu Vajrasana</li>
-            <li data-number="IS-9">Kapotasana</li>
-            <li data-number="IS-10">Supta Vajrasana</li>
-            <li data-number="IS-11">Bakasana</li>
-            <li data-number="IS-12">Bharadvajasana</li>
-            <li data-number="IS-13">Ardha Matsyendraasana</li>
-            <li data-number="IS-14">Ekapada Sirsasana A, B, C</li>
-            <li data-number="IS-15">Dwipada Sirsasana B</li>
-            <li data-number="IS-16">Yoga Nidrasana</li>
-            <li data-number="IS-17">Tittibhasana A, B, C</li>
-            <li data-number="IS-18">Pincha Mayurasana</li>
-            <li data-number="IS-19">Karandavasana</li>
-            <li data-number="IS-20">Mayurasana</li>
-            <li data-number="IS-21">Nakrasana</li>
-            <li data-number="IS-22">Vatayanasana</li>
-            <li data-number="IS-23">Parighasana</li>
-            <li data-number="IS-24">Gomukhasana A, B, C</li>
-            <li data-number="IS-25">Supta Urdhvapada Vajrasana A, B</li>
-            <li data-number="IS-26">Mukta Hasta Sirsasana A, B, C</li>
-            <li data-number="IS-27">Baddha Hasta Sirsasana A, B, C, D</li>
-            <li data-number="IS-28">Urdhva Dhanurasana</li>
-            <li data-number="IS-29">Drop back & Come up</li>
-            <li data-number="IS-30">Paschimottanasana</li>
-        </ul>
-    </div>
+    <script>
+        function showSeries(series) {
+            // Hide both series by default
+            document.querySelector('#primary').style.display = 'none';
+            document.querySelector('#intermediate').style.display = 'none';
 
-    <!-- Finishing Sequence -->
-    <div>
-        <div class="series-title">Finishing Sequence</div>
-        <ul>
-            <li data-number="FN-1">Salamba Sarvangasana</li>
-            <li data-number="FN-2">Halasana</li>
-            <li data-number="FN-3">Karnapidasana</li>
-            <li data-number="FN-4">Urdhva Padmasana</li>
-            <li data-number="FN-5">Pindasana</li>
-            <li data-number="FN-6">Matsyasana</li>
-            <li data-number="FN-7">Uttana Padasana</li>
-            <li data-number="FN-8">Shirshasana A, B, C</li>
-            <li data-number="FN-9">Baddha Padmasana</li>
-            <li data-number="FN-10">Yoga Mudra</li>
-            <li data-number="FN-11">Padmasana</li>
-            <li data-number="FN-12">Uth Pluthi (Tolasana)</li>
-            <li data-number="FN-13">Shavasana</li>
-        </ul>
-    </div>
+            // Show the selected series
+            if (series === 'primary') {
+                document.querySelector('#primary').style.display = 'block';
+            } else if (series === 'intermediate') {
+                document.querySelector('#intermediate').style.display = 'block';
+            }
+        }
+    </script>
+
 </body>
 </html>
