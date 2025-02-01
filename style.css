@@ -294,7 +294,7 @@ font-size:0.85rem;
     .fixed-menu a:hover {
       background-color: #fff;
     }
-.mw { text-decoration: blue 1px underline;}
+.mw { color: blue;}
 .bom { color:#088A08;}
 .ram { color:#FFA500;}
 .yoil {   font-family: "Nanum Gothic", serif;
