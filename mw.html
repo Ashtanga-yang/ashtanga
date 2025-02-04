@@ -11,27 +11,39 @@
     img { width:100%; max-width: 700px; }
 
 </style>
+        <script>
+        function copyCode() {
+            const text = "204-21-1570-557"; // 복사할 숫자 코드
+            navigator.clipboard.writeText(text).then(() => {
+                alert("코드가 복사되었습니다: " + text);
+            }).catch(err => {
+                console.error("복사 실패: ", err);
+            });
+        }
+    </script>
 </head>
 <body>
 
-<p><img src="logo.jpg" class="mw" width="50px"></p>
-
-
-
-<img src="1.jpg">
-<img src="2.jpg">
+<p><img src="logo.jpg" class="mw" width="50px" !important;></p>
 
     <p>
     <span style="color: blue;">2025.02.01 updated</span><br>
     <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;"> >> 문의하기(kakao)</a>
 </p>
-<p class="copy-text" onclick="copyText(this)">204-21-1570-557 국민</p>양승현</p>
+<p onclick="copyCode()" style="cursor: pointer; color: blue; text-decoration: underline;">
+        204-21-1570-557 국민 양승현
+    </p>
+
+<img src="1.jpg">
+<img src="2.jpg">
+
+
 <p>&nbsp;</p>
     	    <!-- 하단 고정 메뉴 -->
     <div class="fixed-menu">
-        <a href="#"><u>소개</u></a>
+        <a href="#"><소개</a>
          <a href="class.html">수업</a>
-<a href="#l"><u>망원<</u></a>
+<a href="#l"><u>망원</u></a>
         <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
 <a href="moonday.html">문데이</a>
     </div>
