@@ -31,8 +31,14 @@ li {
 	font-family:"Song Myung",serif;
 	font-size:0.9rem;
 	line-height:1.3rem;
-	content: '•'; 
-list-style-position: inside;
+ list-style-type: none; // 마커를 none 으로 선택해서 보이지 않게 해주고
+        text-indent: 5px;      // li 하위 태그들만 한번 더 들여쓰기 해주기
+
+        &::before {	       // 가상선택자를 통해 li태그 앞에 dot 을 붙여준다.
+          content: '•';   
+         font-size: 108%;
+          padding-right: 5px;
+출처: https://devbirdfeet.tistory.com/230 [새발개발자:티스토리]
 }
  
 </style>
