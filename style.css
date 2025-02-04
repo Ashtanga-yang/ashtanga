@@ -15,12 +15,6 @@ p {
 	font-family:"Song Myung",serif;
 	line-height:1.3rem;
 	color:black;
-	.p sup {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: -0.8em; /* 위쪽으로 이동 */
-        }
 }
 .song-myung-regular {
 	font-family:"Song Myung",serif;
