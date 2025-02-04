@@ -21,6 +21,9 @@ p {
 	font-weight:400;
 	font-style:normal;
 }
+img.logo {
+    width: 50px !important;
+}
 .bg-video {
   position:relative;
 margin-right:15px;
@@ -301,3 +304,4 @@ font-size:0.85rem;
   font-weight: 700;
        font-size:0.7rem;
   font-style: normal; }
+
