@@ -1,65 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./style.css">
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
-		img { width:100%; max-width: 700px; }
-</style>
 <title>Ashtanga_Yang</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+    img { width:100%; max-width: 700px; }
+    .copy-text {
+        cursor: pointer;
+        color: #007bff;
+        font-weight: bold;
+    }
+    .copy-text:hover {
+        color: #0056b3;
+    }
+    .copy-alert {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        display: none;
+        font-size: 14px;
+    }
+</style>
 </head>
 <body>
+
+<p><img src="logo.jpg" class="mw" width="50px"></p>
+
 <p>
-        &nbsp;
-    </p>
-    <p>
-        <img src="logo.jpg" class="mw" width="50px">
-    </p>
-<p>
-	<font color="blue">2025.02.01 updated</font>
-</br>
-<a href="https://open.kakao.com/o/sCpd2RLf"><font size="3" color="red"> >> 문의하기(kakao)</font></a>
+    <span style="color: blue;">2025.02.01 updated</span><br>
+    <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;"> >> 문의하기(kakao)</a>
 </p>
 
-<div id="sun" style="top: 120px">
-	<div id="rings">
-		<div>
-		</div>
-		<div>
-		</div>
-		<div>
-		</div>
-		<div>
-		</div>
-	</div>
-</div>
-	<img src="1.jpg">
-	<img src="2.jpg">
-<p onclick="copyText(this)">204-21-1570-557 국민 양승현</p>
+<img src="1.jpg">
+<img src="2.jpg">
+
+<p class="copy-text" onclick="copyText(this)">204-21-1570-557 국민 양승현</p>
+
+<div id="copy-alert" class="copy-alert">복사되었습니다!</div>
 
 <script>
 function copyText(element) {
     const text = element.innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        alert("복사됨: " + text);
-    }).catch(err => {
-        console.error("복사 실패:", err);
-    });
-}
-</script>
-<p>
-	&nbsp;
-</p>
-  <!-- 하단 고정 메뉴 -->
-  <div class="fixed-menu">
-      <a href="index.html">소개</a>
-      <a href="class.html">수업</a>
-<a href="#"><u>망원</u></a>
-      <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-      <a href="moonday.html">문데이</a>
-  </div>
-</body>
-</html>
+    navigator.clip
