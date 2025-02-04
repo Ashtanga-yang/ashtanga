@@ -15,7 +15,7 @@
         function copyCode() {
             const text = "204-21-1570-557 국민"; // 복사할 숫자 코드
             navigator.clipboard.writeText(text).then(() => {
-                alert("복사되었습니다: " + text);
+                alert("복사: " + text);
             }).catch(err => {
                 console.error("복사 실패: ", err);
             });
