@@ -1,75 +1,177 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>네모 애니메이션</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f4f4f4;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>망원동 아쉬탕가 요가</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
-    .box-container {
-      position: relative;
-      height: 300px;
-      width: 100px;
-      overflow: hidden;
-    }
+        body {
+            font-family: 'Song Myung', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
 
-    .box {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100px;
-      height: 100px;
-      background-color: #333;
-      animation: move 10s infinite ease-in-out;
-    }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    @keyframes move {
-      0%, 100% {
-        top: 0;
-      }
-      50% {
-        top: 200px;
-      }
-    }
-  </style>
+        .logo {
+            width: 50px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .schedule {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .time {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table th, .table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: yellow;
+        }
+
+        .notes {
+            font-size: 14px;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .contact {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .footer-menu {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .footer-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="box-container">
-    <div class="box"></div>
-  </div>
+<div class="container">
+    <img src="handstand.jpg" alt="요가 이미지" style="width:100%; max-width: 300px;">
 
-  <audio id="dingSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+    <div class="title">망원동 아쉬탕가 요가</div>
+    <div class="subtitle">마이솔 클래스</div>
 
-  <script>
-    const box = document.querySelector('.box');
-    const dingSound = document.getElementById('dingSound');
+    <div class="info">
+        <p><strong>강사:</strong> 양승현</p>
+        <p><strong>장소:</strong> 서울특별시 마포구 동교로 43 4층 몸춤 (주차 가능)</p>
+    </div>
 
-    // 소리 함수
-    function playSound() {
-      dingSound.currentTime = 0;  // 소리가 반복되지 않게 설정
-      dingSound.play();
-    }
+    <div class="schedule">매주 월요일부터 토요일까지</div>
+    <div class="time">오전 07:00 ~ 09:30 (06:30분 수련실 개방)</div>
 
-    // 애니메이션이 끝날 때마다 소리 출력
-    box.addEventListener('animationiteration', () => {
-      // 애니메이션이 위로 갈 때와 아래로 갈 때 소리를 재생
-      const topPosition = parseInt(window.getComputedStyle(box).top);
-      if (topPosition === 200) {
-        playSound();  // 아래 끝에서 소리
-      } else if (topPosition === 0) {
-        playSound();  // 위 끝에서 소리
-      }
-    });
-  </script>
+    <table class="table">
+        <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+        <tr>
+            <td>LED</td>
+            <td></td>
+            <td></td>
+            <td>Mysore</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table class="table">
+        <tr>
+            <td>주 2회</td>
+            <td>160,000원</td>
+        </tr>
+        <tr>
+            <td>주 3회</td>
+            <td>180,000원</td>
+        </tr>
+        <tr>
+            <td>무제한</td>
+            <td>200,000원</td>
+        </tr>
+        <tr>
+            <td>1회 체험비</td>
+            <td>30,000원</td>
+        </tr>
+    </table>
+
+    <div class="notes">
+        <ul>
+            <li>요가를 처음해 보시는 분도 수련하실 수 있습니다.</li>
+            <li>공휴일 및 매월 문데이는 휴강합니다.</li>
+            <li>주차 및 매트 보관 가능합니다.</li>
+            <li>수련 중에는 휴대전화 사용 및 음료는 자제 부탁드립니다.</li>
+            <li>기간 정지는 사전에 문의 부탁드립니다.</li>
+        </ul>
+    </div>
+
+    <div class="contact">
+        <p><strong>문의:</strong> 양승현 010-3159-5962 또는 DM / 프로필 하단 카카오톡</p>
+    </div>
+</div>
+
+<div class="footer-menu">
+    <a href="#">소개</a>
+    <a href="#">수업</a>
+    <a href="#"><u>망원</u></a>
+    <a href="#">문의</a>
+    <a href="#">문데이</a>
+</div>
 
 </body>
 </html>
