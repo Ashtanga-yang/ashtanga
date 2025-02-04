@@ -5,23 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./style.css">
 <title>Ashtanga_Yang</title>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
+ <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.body.addEventListener("click", function(e) {
                 const text = e.target.dataset.link;
                 if (!text) return;
 
                 navigator.clipboard.writeText(text)
-                    .then(() => {
-                        const button = e.target.closest("button");
-                        if (button) {
-                            gsap.fromTo(button, 
-                                { backgroundColor: "#fffce1" }, 
-                                { duration: 1, backgroundColor: "transparent" }
-                            );
-                        }
-                    })
                     .catch(() => console.error("복사 실패!"));
             });
         });
