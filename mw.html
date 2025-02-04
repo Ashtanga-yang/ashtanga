@@ -20,6 +20,19 @@
 </br>
 <a href="https://open.kakao.com/o/sCpd2RLf"><font size="3" color="red"> >> 문의하기(kakao)</font></a>
 </p>
+<p class="copy-text" onclick="copyText(this)">204-21-1570-557 국민</p>양승현 
+
+<script>
+function copyText(element) {
+    const text = element.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("복사됨: " + text);
+    }).catch(err => {
+        console.error("복사 실패:", err);
+    });
+}
+</script>
+
 <div id="sun" style="top: 120px">
 	<div id="rings">
 		<div>
