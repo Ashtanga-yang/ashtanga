@@ -3,264 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashtanga Yoga Pose List</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>아쉬탕가 요가 시퀀스</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Song+Myung&display=swap');
-
-        :root {
-            --primary-color: blue;
-            --intermediate-color: red;
-        }
-
-        body {
-                        font-family: "Song Myung", serif;
-            line-height: 1.3rem;
-            font-weight: 400;
-            color: #333;
-        }
-
-        .menu {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1rem;
-        }
-
-        .menu a {
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            cursor: pointer;
-            color:#000;
-        }
-
-        .primary-menu { color: var(--primary-color); }
-        .intermediate-menu { color: var(--intermediate-color); }
-        .menu a:hover { text-decoration: underline; }
-        .menu a.active { font-weight: bold; text-decoration: underline; }
-
-        .series-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 30px 0 10px 15px;
-        }
-
-        .series-title:first-child,
-        .series-title:last-child {
-            color: #000;
-        }
-
-        #primary .series-title { color: var(--primary-color); }
-        #intermediate .series-title { color: var(--intermediate-color); }
-
-        ul {
-                        margin: 0 15px 0 15px;
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            padding: 6px 0;
-            font-size: 1rem;
-            /*border-bottom: 1px solid #ddd;*/
-        }
-
-        ul li::before {
-            content: attr(data-number);
-            font-size: 0.8rem;
-            margin-right: 10px;
-        }
-
-        .series { display: none; }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 8px; border-bottom: 1px solid #ccc; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <p>
-        &nbsp;
-    </p>
-    <p>
-        <img src="logo.jpg" width="50px" alt="Ashtanga Yoga Logo">
-    </p>
-        <p>
-        &nbsp;
-    </p>
-    <div class="menu">
-        <a href="javascript:void(0);" onclick="showSeries('primary')" id="primary-menu" class="primary-menu" aria-label="프라이머리 시리즈">프라이머리 시리즈</a>
-        <a href="javascript:void(0);" onclick="showSeries('intermediate')" id="intermediate-menu" class="intermediate-menu" aria-label="인터미디어트 시리즈">인터미디어트 시리즈</a>
-    </div>
-    <p>
-        &nbsp;
-    </p>
-    <div id="primary" class="series">
-        <div>
-            <div class="series-title">Standing(Fundamental)</div>
-            <ul>
-                <li data-number="ST-1">Samasthiti</li>
-                <li data-number="ST-2">Surya Namaskara A, B</li>
-                <li data-number="ST-3">Padangusthasana</li>
-                <li data-number="ST-4">Pada Hastasana</li>
-                <li data-number="ST-5">Utthita Trikonasana A, B</li>
-                <li data-number="ST-6">Utthita Parshvakonasana A, B</li>
-                <li data-number="ST-7">Prasarita Padottanasana A, B, C, D</li>
-                <li data-number="ST-8">Parshvottanasana</li>
-            </ul>
-        </div>
-
-        <div>
-            <div class="series-title">Primary</div>
-            <ul>
-                <li data-number="ST-9">Utthita Hasta Padangusthasana A, B, C</li>
-                <li data-number="ST-10">Ardha Baddha Padmottanasana</li>
-                <li data-number="ST-11">Utkatasana</li>
-                <li data-number="ST-12">Virabhadrasana A, B</li>
-                <li data-number="PS-1">Dandasana</li>
-                <li data-number="PS-2">Paschimattanasana A, B</li>
-                <li data-number="PS-3">Purvottanasana</li>
-                <li data-number="PS-4">Ardha Baddha Padma Paschimattanasana</li>
-                <li data-number="PS-5">Triang Mukha Eka Pada Paschimottanasana</li>
-                <li data-number="PS-6">Janu Shirshasana A, B, C</li>
-                <li data-number="PS-7">Marichyasana A, B, C, D</li>
-                <li data-number="PS-8">Navasana ------ Half ------</li>
-                <li data-number="PS-9">Bhujapidasana</li>
-                <li data-number="PS-10">Kurmasana</li>
-                <li data-number="PS-11">Supta Kurmasana</li>
-                <li data-number="PS-12">Garbha Pindasana</li>
-                <li data-number="PS-13">Kukkutasana</li>
-                <li data-number="PS-14">Baddha Konasana A, B</li>
-                <li data-number="PS-15">Upavishta Konasana A, B</li>
-                <li data-number="PS-16">Supta Konasana</li>
-                <li data-number="PS-17">Supta Padangusthasana</li>
-                <li data-number="PS-18">Ubhaya Padangusthasana</li>
-                <li data-number="PS-19">Urdhva Mukha Paschimattanasana</li>
-                <li data-number="PS-20">Setu Bandhasana</li>
-                <li data-number="PS-21">Urdhva Dhanurasana</li>
-                <li data-number="PS-22">Paschimattanasana</li>
-            </ul>
-        </div>
-
-        <div>
-            <div class="series-title">Closing</div>
-            <ul>
-                <li data-number="CL-1">Salamba Sarvangasana</li>
-                <li data-number="CL-2">Halasana</li>
-                <li data-number="CL-3">Karnapidasana</li>
-                <li data-number="CL-4">Urdhva Padmasana</li>
-                <li data-number="CL-5">Pindasana</li>
-                <li data-number="CL-6">Matsyasana</li>
-                <li data-number="CL-7">Uttana Padasana</li>
-                <li data-number="CL-8">Shirshasana A, B, C</li>
-                <li data-number="CL-9">Baddha Padmasana</li>
-                <li data-number="CL-10">Yoga Mudra</li>
-                <li data-number="CL-11">Padmasana</li>
-                <li data-number="CL-12">Uth Pluthi (Tolasana)</li>
-                <li data-number="CL-13">Shavasana</li>
-            </ul>
-                       <p>
-        &nbsp;
-    </p>
-        </div>
-    </div>
-
-    <div id="intermediate" class="series">
-        <div>
-            <div class="series-title">Standing(Fundamental)</div>
-            <ul>
-                <li data-number="ST-1">Samasthiti</li>
-                <li data-number="ST-2">Surya Namaskara A, B</li>
-                <li data-number="ST-3">Padangusthasana</li>
-                <li data-number="ST-4">Pada Hastasana</li>
-                <li data-number="ST-5">Utthita Trikonasana A, B</li>
-                <li data-number="ST-6">Utthita Parshvakonasana A, B</li>
-                <li data-number="ST-7">Prasarita Padottanasana A, B, C, D</li>
-                <li data-number="ST-8">Parshvottanasana</li>
-            </ul>
-        </div>
-
-        <div>
-            <div class="series-title">Intermediate</div>
-            <ul>
-                <li data-number="IS-1">Pashasana</li>
-                <li data-number="IS-2">Krounchasana</li>
-                <li data-number="IS-3">Shalabhasana A, B</li>
-                <li data-number="IS-4">Bhekasana</li>
-                <li data-number="IS-5">Dhanurasana</li>
-                <li data-number="IS-6">Parsvadhanurasana</li>
-                <li data-number="IS-7">Ustrasana</li>
-                <li data-number="IS-8">Laghu Vajrasana</li>
-                <li data-number="IS-9">Kapotasana</li>
-                <li data-number="IS-10">Supta Vajrasana</li>
-                <li data-number="IS-11">Bakasana A, B</li>
-                <li data-number="IS-12">Bharadvajasana</li>
-                <li data-number="IS-13">Ardha Matsyendra Asana</li>
-                <li data-number="IS-14">Ekapada Sirsasana A, B</li>
-                <li data-number="IS-15">Dwipada Sirsasana A, B</li>
-                <li data-number="IS-16">Yoga Nidrasana</li>
-                <li data-number="IS-17">Tittibhasana A, B, C, D</li>
-                <li data-number="IS-18">Pincha Mayurasana</li>
-                <li data-number="IS-19">Karandavasana</li>
-                <li data-number="IS-20">Mayurasana</li>
-                <li data-number="IS-21">Nakrasana</li>
-                <li data-number="IS-22">Vatayanasana</li>
-                <li data-number="IS-23">Parighasana</li>
-                <li data-number="IS-24">Gomukhasana A, B</li>
-                <li data-number="IS-25">Supta Urdhvapada Vajrasana A, B</li>
-                <li data-number="IS-26">Mukta Hasta Sirsasana A, B, C</li>
-                <li data-number="IS-27">Baddha Hasta Sirsasana A, B, C, D</li>
-                <li data-number="IS-28">Urdhva Dhanurasana</li>
-                <li data-number="IS-29">Come up & Drop back</li>
-                <li data-number="IS-30">Paschimottanasana</li>
-            </ul>
-        </div>
-
-        <div>
-            <div class="series-title">Closing</div>
-            <ul>
-                <li data-number="CL-1">Salamba Sarvangasana</li>
-                <li data-number="CL-2">Halasana</li>
-                <li data-number="CL-3">Karnapidasana</li>
-                <li data-number="CL-4">Urdhva Padmasana</li>
-                <li data-number="CL-5">Pindasana</li>
-                <li data-number="CL-6">Matsyasana</li>
-                <li data-number="CL-7">Uttana Padasana</li>
-                <li data-number="CL-8">Shirshasana A, B, C</li>
-                <li data-number="CL-9">Baddha Padmasana</li>
-                <li data-number="CL-10">Yoga Mudra</li>
-                <li data-number="CL-11">Padmasana</li>
-                <li data-number="CL-12">Uth Pluthi (Tolasana)</li>
-                <li data-number="CL-13">Shavasana</li>
-            </ul>
-                       <p>
-        &nbsp;
-    </p>
-        </div>
+    <div class="container">
+        <h2>아쉬탕가 요가 시퀀스</h2>
+        <input type="text" id="search" placeholder="검색..." onkeyup="filterList()">
+        
+        <h3>프라이머리 시리즈</h3>
+        <ul id="primary">
+            <li>1. 수리아 나마스카라 A</li>
+            <li>2. 수리아 나마스카라 B</li>
+            <li>3. 파당구쉬타아사나</li>
+            <li>4. 파당가스타아사나</li>
+            <li>5. 우트카타아사나</li>
+        </ul>
+        
+        <h3>인터미디어트 시리즈</h3>
+        <ul id="intermediate">
+            <li>1. 파샤사나</li>
+            <li>2. 크라우찬다아사나</li>
+            <li>3. 바카라아사나</li>
+            <li>4. 아르다 마츠옌드라아사나</li>
+            <li>5. 에카 파다 시르사아사나</li>
+        </ul>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => showSeries('primary'));
-
-        const seriesElements = document.querySelectorAll('.series');
-        const menuLinks = document.querySelectorAll('.menu a');
-
-        function showSeries(series) {
-            seriesElements.forEach(el => el.style.display = 'none');
-            menuLinks.forEach(link => link.classList.remove('active'));
-
-            const activeSeries = document.querySelector(`#${series}`);
-            const activeLink = document.querySelector(`#${series}-menu`);
+        function filterList() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let lists = document.querySelectorAll('ul li');
             
-            activeSeries.style.display = 'block';
-            activeLink.classList.add('active');
+            lists.forEach(li => {
+                li.style.display = li.textContent.toLowerCase().includes(input) ? '' : 'none';
+            });
         }
     </script>
-    
-    
-    <!-- 하단 고정 메뉴 -->
-    <div class="fixed-menu">
-        <a href="index.html">소개</a>
-        <a href="class.html">수업</a>
-        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-        <a href="#"><u>아사나</u></a>
-<a href="moonday.html">문데이</a>
-    </div>
 </body>
 </html>
+
+
+여기에 아쉬탕가 요가의 프라이머리와 인터미디어트 시퀀스를 리스트로 정리했고, 검색 기능도 추가했어. 필요한 수정이 있으면 알려줘!
+
