@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아쉬탕가 요가 시퀀스</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        .container { max-width: 400px; margin: auto; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; }
         ul { list-style-type: none; padding: 0; }
-        li { padding: 8px; border-bottom: 1px solid #ccc; }
-        .hidden { display: none; }
-        nav { position: fixed; top: 10px; right: 10px; background: #f8f9fa; padding: 10px; border-radius: 5px; }
-        nav a { display: block; margin: 5px 0; text-decoration: none; color: #007BFF; cursor: pointer; }
+        li { padding: 8px; border-bottom: 1px solid #eee; }
+        nav { margin-bottom: 20px; }
+        nav a { margin: 5px; padding: 5px 10px; text-decoration: none; color: #007BFF; border: 1px solid #007BFF; border-radius: 5px; display: inline-block; }
+        nav a:hover { background: #007BFF; color: white; }
         #primary li { color: blue; }
         #intermediate li { color: red; }
         #closing li { color: purple; }
@@ -19,13 +19,13 @@
 </head>
 <body>
     <nav>
-        <a onclick="showSection('primary')">프라이머리 시리즈</a>
-        <a onclick="showSection('intermediate')">인터미디어트 시리즈</a>
+        <a onclick="showSection('primary')">프라이머리</a>
+        <a onclick="showSection('intermediate')">인터미디어트</a>
     </nav>
     <div class="container">
-        <h2>아쉬탕가 요가 시퀀스</h2>
+        <h2>아쉬탕가 요가</h2>
         <input type="text" id="search" placeholder="검색..." onkeyup="filterList()"><div id="primary-section">
-        <h3 id="primary">프라이머리 시리즈</h3>
+        <h3>프라이머리 시리즈</h3>
         <ul>
             <li>수리아 나마스카라 A</li>
             <li>수리아 나마스카라 B</li>
@@ -36,7 +36,7 @@
     </div>
     
     <div id="intermediate-section" class="hidden">
-        <h3 id="intermediate">인터미디어트 시리즈</h3>
+        <h3>인터미디어트 시리즈</h3>
         <ul>
             <li>파샤사나</li>
             <li>크라우찬다아사나</li>
@@ -47,7 +47,7 @@
     </div>
     
     <div id="closing-section">
-        <h3 id="closing">클로징 시퀀스</h3>
+        <h3>클로징 시퀀스</h3>
         <ul>
             <li>우르드바 다누라아사나</li>
             <li>살람바 사르방가아사나</li>
@@ -61,9 +61,7 @@
 <script>
     function filterList() {
         let input = document.getElementById('search').value.toLowerCase();
-        let lists = document.querySelectorAll('ul li');
-        
-        lists.forEach(li => {
+        document.querySelectorAll('ul li').forEach(li => {
             li.style.display = li.textContent.toLowerCase().includes(input) ? '' : 'none';
         });
     }
