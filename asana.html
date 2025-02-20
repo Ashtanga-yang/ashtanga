@@ -11,7 +11,7 @@
         li { padding: 8px; border-bottom: 1px solid #ccc; }
         .hidden { display: none; }
         nav { position: fixed; top: 10px; right: 10px; background: #f8f9fa; padding: 10px; border-radius: 5px; }
-        nav a { display: block; margin: 5px 0; text-decoration: none; color: #007BFF; }
+        nav a { display: block; margin: 5px 0; text-decoration: none; color: #007BFF; cursor: pointer; }
         #primary li { color: blue; }
         #intermediate li { color: red; }
         #closing li { color: purple; }
@@ -19,38 +19,43 @@
 </head>
 <body>
     <nav>
-        <a href="#primary">프라이머리 시리즈</a>
-        <a href="#intermediate">인터미디어트 시리즈</a>
-        <a href="#closing">클로징 시퀀스</a>
+        <a onclick="showSection('primary')">프라이머리 시리즈</a>
+        <a onclick="showSection('intermediate')">인터미디어트 시리즈</a>
     </nav>
     <div class="container">
         <h2>아쉬탕가 요가 시퀀스</h2>
-        <input type="text" id="search" placeholder="검색..." onkeyup="filterList()"><h3 id="primary">프라이머리 시리즈</h3>
-    <ul>
-        <li>수리아 나마스카라 A</li>
-        <li>수리아 나마스카라 B</li>
-        <li>파당구쉬타아사나</li>
-        <li>파당가스타아사나</li>
-        <li>우트카타아사나</li>
-    </ul>
+        <input type="text" id="search" placeholder="검색..." onkeyup="filterList()"><div id="primary-section">
+        <h3 id="primary">프라이머리 시리즈</h3>
+        <ul>
+            <li>수리아 나마스카라 A</li>
+            <li>수리아 나마스카라 B</li>
+            <li>파당구쉬타아사나</li>
+            <li>파당가스타아사나</li>
+            <li>우트카타아사나</li>
+        </ul>
+    </div>
     
-    <h3 id="intermediate">인터미디어트 시리즈</h3>
-    <ul>
-        <li>파샤사나</li>
-        <li>크라우찬다아사나</li>
-        <li>바카라아사나</li>
-        <li>아르다 마츠옌드라아사나</li>
-        <li>에카 파다 시르사아사나</li>
-    </ul>
+    <div id="intermediate-section" class="hidden">
+        <h3 id="intermediate">인터미디어트 시리즈</h3>
+        <ul>
+            <li>파샤사나</li>
+            <li>크라우찬다아사나</li>
+            <li>바카라아사나</li>
+            <li>아르다 마츠옌드라아사나</li>
+            <li>에카 파다 시르사아사나</li>
+        </ul>
+    </div>
     
-    <h3 id="closing">클로징 시퀀스</h3>
-    <ul>
-        <li>우르드바 다누라아사나</li>
-        <li>살람바 사르방가아사나</li>
-        <li>할라아사나</li>
-        <li>카르나피다아사나</li>
-        <li>마츠야아사나</li>
-    </ul>
+    <div id="closing-section">
+        <h3 id="closing">클로징 시퀀스</h3>
+        <ul>
+            <li>우르드바 다누라아사나</li>
+            <li>살람바 사르방가아사나</li>
+            <li>할라아사나</li>
+            <li>카르나피다아사나</li>
+            <li>마츠야아사나</li>
+        </ul>
+    </div>
 </div>
 
 <script>
@@ -61,6 +66,12 @@
         lists.forEach(li => {
             li.style.display = li.textContent.toLowerCase().includes(input) ? '' : 'none';
         });
+    }
+
+    function showSection(section) {
+        document.getElementById('primary-section').style.display = (section === 'primary') ? 'block' : 'none';
+        document.getElementById('intermediate-section').style.display = (section === 'intermediate') ? 'block' : 'none';
+        document.getElementById('closing-section').style.display = 'block';
     }
 </script>
 
