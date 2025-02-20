@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE html><html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,49 +25,44 @@
     </nav>
     <div class="container">
         <h2>아쉬탕가 요가 시퀀스</h2>
-        <input type="text" id="search" placeholder="검색..." onkeyup="filterList()">
-        
-        <h3 id="primary">프라이머리 시리즈</h3>
-        <ul>
-            <li>1. 수리아 나마스카라 A</li>
-            <li>2. 수리아 나마스카라 B</li>
-            <li>3. 파당구쉬타아사나</li>
-            <li>4. 파당가스타아사나</li>
-            <li>5. 우트카타아사나</li>
-        </ul>
-        
-        <h3 id="intermediate">인터미디어트 시리즈</h3>
-        <ul>
-            <li>1. 파샤사나</li>
-            <li>2. 크라우찬다아사나</li>
-            <li>3. 바카라아사나</li>
-            <li>4. 아르다 마츠옌드라아사나</li>
-            <li>5. 에카 파다 시르사아사나</li>
-        </ul>
-        
-        <h3 id="closing">클로징 시퀀스</h3>
-        <ul>
-            <li>1. 우르드바 다누라아사나</li>
-            <li>2. 살람바 사르방가아사나</li>
-            <li>3. 할라아사나</li>
-            <li>4. 카르나피다아사나</li>
-            <li>5. 마츠야아사나</li>
-        </ul>
-    </div>
+        <input type="text" id="search" placeholder="검색..." onkeyup="filterList()"><h3 id="primary">프라이머리 시리즈</h3>
+    <ul>
+        <li>수리아 나마스카라 A</li>
+        <li>수리아 나마스카라 B</li>
+        <li>파당구쉬타아사나</li>
+        <li>파당가스타아사나</li>
+        <li>우트카타아사나</li>
+    </ul>
+    
+    <h3 id="intermediate">인터미디어트 시리즈</h3>
+    <ul>
+        <li>파샤사나</li>
+        <li>크라우찬다아사나</li>
+        <li>바카라아사나</li>
+        <li>아르다 마츠옌드라아사나</li>
+        <li>에카 파다 시르사아사나</li>
+    </ul>
+    
+    <h3 id="closing">클로징 시퀀스</h3>
+    <ul>
+        <li>우르드바 다누라아사나</li>
+        <li>살람바 사르방가아사나</li>
+        <li>할라아사나</li>
+        <li>카르나피다아사나</li>
+        <li>마츠야아사나</li>
+    </ul>
+</div>
 
-    <script>
-        function filterList() {
-            let input = document.getElementById('search').value.toLowerCase();
-            let lists = document.querySelectorAll('ul li');
-            
-            lists.forEach(li => {
-                li.style.display = li.textContent.toLowerCase().includes(input) ? '' : 'none';
-            });
-        }
-    </script>
+<script>
+    function filterList() {
+        let input = document.getElementById('search').value.toLowerCase();
+        let lists = document.querySelectorAll('ul li');
+        
+        lists.forEach(li => {
+            li.style.display = li.textContent.toLowerCase().includes(input) ? '' : 'none';
+        });
+    }
+</script>
+
 </body>
 </html>
-
-
-각 시리즈의 리스트 색상을 프라이머리는 파랑, 인터미디어트는 빨강, 클로징은 보라색으로 변경했어. 더 수정할 부분이 있으면 알려줘!
-
