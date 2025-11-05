@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>요가 시간표</title>
+  <style>
+    :root{--accent:#6b8e23;--muted:#666}
+    body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; margin:24px;background:#fbfbfb;color:#222}
+    .container{max-width:980px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(15,15,15,0.06)}
+    h1{font-size:1.6rem;margin:0 0 8px;color:var(--accent)}
+    p.lead{margin:0 0 18px;color:var(--muted)}
+    table{width:100%;border-collapse:collapse;table-layout:fixed}
+    th,td{border:1px solid #eee;padding:10px;font-size:0.95rem;vertical-align:middle;text-align:center}
+    th{background:#fafafa;color:#333}
+    .time{width:96px;background:#fcfcfc;font-weight:600}
+    .class{font-weight:700}
+    .meta{display:block;font-size:0.78rem;color:var(--muted);margin-top:6px}
+    .studio{font-size:0.78rem;background:#f5f7f2;border-radius:6px;padding:4px 6px;display:inline-block;margin-top:6px}
+    .legend{margin-top:14px;font-size:0.9rem}
+    .controls{display:flex;gap:8px;justify-content:flex-end;margin-bottom:10px}
+    button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.secondary{background:#eee;color:#333}
+    @media (max-width:720px){
+      table,thead,tbody,th,td,tr{display:block}
+      thead{display:none}
+      tr{margin-bottom:12px}
+      td{border:0;padding:6px;background:#fff}
+      .time{background:transparent;text-align:left;padding-left:0}
+      .cell-inner{display:flex;justify-content:space-between;align-items:center}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <button onclick="window.print()">인쇄</button>
+      <button class="secondary" onclick="downloadHTML()">HTML 다운로드</button>
+    </div>
+    <h1>요가 시간표</h1>
+    <p class="lead">아쉬탕가 마이솔 및 스튜디오별 정기 수업 (작성: 사용자가 제공한 일정)</p>
+
+    <table aria-label="주간 요가 시간표">
+      <thead>
+        <tr>
+          <th class="time">시간</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th>토</th>
+          <th>일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 07:00 - 09:30 아쉬탕가 마이솔 (화~일) -->
+        <tr>
+          <td class="time">07:00 - 09:30</td>
+          <td></td>
+          <td colspan="5">
+            <div class="class">아쉬탕가 마이솔</div>
+            <span class="meta">강사: 양승현<br><span class="studio">정기: 매주 화요일 ~ 일요일</span></span>
+          </td>
+          <td></td>
+        </tr>
+
+        <!-- 10:30 요가다솔 (일) -->
+        <tr>
+          <td class="time">10:30</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="class">요가다솔</div>
+            <span class="meta">정기 수업</span>
+          </td>
+        </tr>
+
+        <!-- 18:40 요가다솔 (월,수) -->
+        <tr>
+          <td class="time">18:40</td>
+          <td>
+            <div class="class">요가다솔</div>
+            <span class="meta">월요일 수업</span>
+          </td>
+          <td></td>
+          <td>
+            <div class="class">요가다솔</div>
+            <span class="meta">수요일 수업</span>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <!-- 20:00 빈야사 요가 (화,목) -->
+        <tr>
+          <td class="time">20:00</td>
+          <td></td>
+          <td>
+            <div class="class">빈야사 요가</div>
+            <span class="meta">문요가 — 화요일</span>
+          </td>
+          <td></td>
+          <td>
+            <div class="class">빈야사 요가</div>
+            <span class="meta">문요가 — 목요일</span>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <!-- 20:30 풀라잉 인요가 + 싱잉볼 테라피 (월) & 플라잉 하타요가 (금) -->
+        <tr>
+          <td class="time">20:30</td>
+          <td>
+            <div class="class">풀라잉 인요가 + 싱잉볼 테라피</div>
+            <span class="meta">문요가 — 월요일</span>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="class">플라잉 하타요가</div>
+            <span class="meta">문요가 — 금요일</span>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="legend">
+      <strong>메모:</strong>
+      <ul>
+        <li>아쉬탕가 마이솔: 매주 화요일 ~ 일요일 07:00 - 09:30, 강사: 양승현</li>
+        <li>문요가에서 진행되는 저녁 수업: 월(20:30), 화/목(20:00), 금(20:30)</li>
+        <li>요가다솔: 월/수 오후 18:40, 일 오전 10:30</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    function downloadHTML(){
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'yoga_timetable.html';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
