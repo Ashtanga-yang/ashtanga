@@ -20,7 +20,7 @@
                 .catch(() => console.error("복사 실패!"));
         });
 
-        // 2. 다국어(i18next) 설정
+        // 2. 다국어(i18next) 설정 (KO, EN만 유지)
         const resources = {
             ko: {
                 translation: {
@@ -61,26 +61,6 @@
                     "contact_text": "Inquiries: ",
                     "menu_1": "Intro", "menu_2": "Class", "menu_3": "Guide", "menu_4": "Inquiry", "menu_5": "Moonday"
                 }
-            },
-            ja: {
-                translation: {
-                    "updated": "2025.07.01 更新",
-                    "info_1": "望遠(マンウォン) アシュタンガヨガ マイソールクラス",
-                    "info_2": "講師: 梁承賢 (ヤン・スンヒョン)",
-                    "info_3": "毎週 火曜日 - 日曜日 | 07:00 - 09:30 | 06:30 シャラ開放",
-                    "info_4": "ソウル麻浦区東橋路43 4階 | ",
-                    "view_map": "地図を見る",
-                    "mon": "月", "tue": "火", "wed": "水", "thu": "木", "fri": "金", "sat": "土", "sun": "日",
-                    "closed": "休講",
-                    "week_2": "週2回", "week_3": "週3回", "unlimited": "無制限", "once": "1回", "five_times": "5回(有効期間: 1ヶ月)",
-                    "account": "", 
-                    "notice_1": "- 駐車およびマットの保管可能です。",
-                    "notice_2": "- ムーンデーおよび祝日は休講します。",
-                    "notice_3": "- 修練中の携帯電話の使用および飲料의 摂取はご遠慮ください。",
-                    "notice_4": "- 期間停止は事前にご連絡ください。",
-                    "contact_text": "お問い合わせは ",
-                    "menu_1": "紹介", "menu_2": "クラス", "menu_3": "案内", "menu_4": "問合せ", "menu_5": "ムーンデー"
-                }
             }
         };
 
@@ -97,7 +77,7 @@
                 element.innerHTML = i18next.t(key);
             });
 
-            // [로직 수정] 요소를 아예 삭제하지 않고 글씨만 비워서 영역(여백)을 유지함
+            // 영어 환경일 때 글씨만 숨겨서 기존 레이아웃 배율(여백)을 그대로 유지
             const accountElement = document.querySelector('.mw');
             if (accountElement) {
                 if (i18next.language === 'ko') {
@@ -177,7 +157,7 @@
         font-weight: bold;
     }
 
-    /* 계좌번호 영역 전용 여백 설정 박스 */
+    /* 계좌번호 레이아웃 고정 컨테이너 */
     .account-container {
         margin-top: 15px;
         margin-bottom: 15px;
@@ -190,11 +170,10 @@
 
     <p><span style="color: blue; font-size:0.7rem;" data-i18n="updated">2025.07.01 updated</span></p>
 
-    <!-- 언어 선택 상단 바 -->
+    <!-- 언어 선택 상단 바 (KR, EN만 노출) -->
     <div class="lang-switcher">
         <span onclick="changeLanguage('ko')">KR</span>|
-        <span onclick="changeLanguage('en')">EN</span>|
-        <span onclick="changeLanguage('ja')">JP</span>
+        <span onclick="changeLanguage('en')">EN</span>
     </div>
 
     <p>
@@ -244,7 +223,6 @@
         </tr>
     </table>
 
-    <!-- 여백을 고정하는 컨테이너로 감싸 안이지 않게 처리 -->
     <div class="account-container">
         <p class="mw" data-link="204-21-1570-557 국민" data-i18n="account">계좌 번호: 204-21-1570-557 국민 양승현</p>     
     </div>
