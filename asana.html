@@ -11,7 +11,6 @@
     document.addEventListener("DOMContentLoaded", function() {
         // 1. 계좌번호 클릭 복사 기능
         document.body.addEventListener("click", function(e) {
-            // 영어, 일본어일 때는 복사 기능이 작동하지 않도록 방어 코드 추가
             if (i18next.language !== 'ko') return;
             
             const text = e.target.dataset.link;
@@ -54,7 +53,7 @@
                     "mon": "Mon", "tue": "Tue", "wed": "Wed", "thu": "Thu", "fri": "Fri", "sat": "Sat", "sun": "Sun",
                     "closed": "Closed",
                     "week_2": "2 times a week", "week_3": "3 times a week", "unlimited": "Unlimited", "once": "1 time", "five_times": "5 times (Valid for 1 month)",
-                    "account": "", // 영어일 때는 텍스트를 비웁니다.
+                    "account": "", 
                     "notice_1": "- Parking and mat storage available.",
                     "notice_2": "- Closed on Moondays and public holidays.",
                     "notice_3": "- Please refrain from using mobile phones and drinking beverages during practice.",
@@ -74,7 +73,7 @@
                     "mon": "月", "tue": "火", "wed": "水", "thu": "木", "fri": "金", "sat": "土", "sun": "日",
                     "closed": "休講",
                     "week_2": "週2回", "week_3": "週3回", "unlimited": "無制限", "once": "1回", "five_times": "5回(有効期間: 1ヶ月)",
-                    "account": "", // 일본어일 때는 텍스트를 비웁니다.
+                    "account": "", 
                     "notice_1": "- 駐車およびマットの保管可能です。",
                     "notice_2": "- ムーンデーおよび祝日は休講します。",
                     "notice_3": "- 修練中の携帯電話の使用および飲料의 摂取はご遠慮ください。",
@@ -98,13 +97,13 @@
                 element.innerHTML = i18next.t(key);
             });
 
-            // [추가된 로직] 한국어가 아닐 때 계좌번호 영역 요소를 완전히 숨김 처리
+            // [로직 수정] 요소를 아예 삭제하지 않고 글씨만 비워서 영역(여백)을 유지함
             const accountElement = document.querySelector('.mw');
             if (accountElement) {
                 if (i18next.language === 'ko') {
-                    accountElement.style.display = 'block';
+                    accountElement.style.visibility = 'visible';
                 } else {
-                    accountElement.style.display = 'none';
+                    accountElement.style.visibility = 'hidden'; 
                 }
             }
         }
@@ -177,6 +176,12 @@
         color: blue; 
         font-weight: bold;
     }
+
+    /* 계좌번호 영역 전용 여백 설정 박스 */
+    .account-container {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 </style>
 </head>
 <body>
@@ -239,8 +244,10 @@
         </tr>
     </table>
 
-    <!-- EN, JP 모드일 때는 JavaScript가 이 태그 자체를 display: none 처리합니다 -->
-    <p class="mw" data-link="204-21-1570-557 국민" data-i18n="account">계좌 번호: 204-21-1570-557 국민 양승현</p>     
+    <!-- 여백을 고정하는 컨테이너로 감싸 안이지 않게 처리 -->
+    <div class="account-container">
+        <p class="mw" data-link="204-21-1570-557 국민" data-i18n="account">계좌 번호: 204-21-1570-557 국민 양승현</p>     
+    </div>
 
     <ul>
         <li data-i18n="notice_1">- 주차 및 매트 보관 가능합니다.</li>
