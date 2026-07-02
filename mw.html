@@ -5,146 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./style.css">
 <title>Ashtanga_Yang</title>
- <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.body.addEventListener("click", function(e) {
-                const text = e.target.dataset.link;
-                if (!text) return;
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.addEventListener("click", function(e) {
+            const text = e.target.dataset.link;
+            if (!text) return;
 
-                navigator.clipboard.writeText(text)
-                    .catch(() => console.error("복사 실패!"));
-            });
+            navigator.clipboard.writeText(text)
+                .catch(() => console.error("복사 실패!"));
         });
-    </script>
+    });
+</script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
     img { width:100%; max-width: 700px; }
 
-ul {
-    list-style: none;  /* 기본 목록 스타일 제거 */
-    padding: 0;
-    margin: 0;
-}
+    ul {
+        list-style: none;  /* 기본 목록 스타일 제거 */
+        padding: 0;
+        margin: 0;
+    }
 
-li {
-    margin-left: 15px;
-	font-family:"Song Myung",serif;
-	font-size:1rem;
-	line-height:1.4rem;
-font-color: #616161;
-}
-	table {
-    width: 365px; /* 테이블 너비 조정 */
-    border-collapse: collapse; /* 중복된 테두리 제거 */
-    margin-left: 15px;
-			font-family:"Song Myung",serif;
-    font-size: 0.8rem;
-    text-align: center;
- border: 1px solid #fff; /* 테두리 스타일 */
-}
+    li {
+        margin-left: 15px;
+        font-family:"Song Myung",serif;
+        font-size:1rem;
+        line-height:1.4rem;
+        color: #616161; /* [수정] font-color를 올바른 속성인 color로 변경 */
+    }
 
-th, td {
-    border: 2px solid #fff; /* 테두리 스타일 */
-    padding: 7px; /* 셀 안쪽 여백 */
-}
+    table {
+        width: 365px; /* 테이블 너비 조정 */
+        border-collapse: collapse; /* 중복된 테두리 제거 */
+        margin-left: 15px;
+        font-family:"Song Myung",serif;
+        font-size: 0.8rem;
+        text-align: center;
+        border: 1px solid #fff; /* 테두리 스타일 */
+    }
 
-th {
-    background-color: #E1F5FE; /* 테이블 헤더 배경색 */
-}
+    th, td {
+        border: 2px solid #fff; /* 테두리 스타일 */
+        padding: 7px; /* 셀 안쪽 여백 */
+    }
 
-tr:nth-child(even) {
-    background-color: #E1F5FE; /* 짝수 행 배경색 */
-}
+    th {
+        background-color: #E1F5FE; /* 테이블 헤더 배경색 */
+    }
 
-tr:hover {
-    background-color: yellow; /* 마우스 오버 시 배경색 변경 */
-}
+    tr:nth-child(even) {
+        background-color: #E1F5FE; /* 짝수 행 배경색 */
+    }
 
- 
+    tr:hover {
+        background-color: yellow; /* 마우스 오버 시 배경색 변경 */
+    }
 </style>
 </head>
 <body>
+    <p>&nbsp;</p>
+    <p><img src="logo.jpg" class="logo-img" alt="Logo"></p>
+
+    <p><span style="color: blue; font-size:0.7rem;">2025.07.01 updated</span></p>
+
     <p>
-        &nbsp;
-    </p>
-<p><img src="logo.jpg" class="logo-img"></p>
+        망원 아쉬탕가 요가 마이솔 클래스<br>
+        강사: 양승현<br>
+        매주 화요일 - 일요일 | 07:00 - 09:30 | 06:30 수련실 개방<br>
+        서울 마포구 동교로 43 4층 | <a href="https://naver.me/FlZkCAeu" target='_blank'>지도 보기</a><br>
+    </p>     	
 
-<p><span style="color: blue; font-size:0.7rem;">2025.07.01 updated</span></p>
+    <!-- [수정] 테이블과 계좌번호를 감싸고 있던 비정상적인 p 태그들을 정돈 -->
+    <table border="1">
+        <tr>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+            <th>일</th>
+        </tr>
+        <tr>
+            <td colspan="1">휴 강</td>
+            <td colspan="1">Led</td>
+            <td colspan="5">Mysore</td>
+        </tr>
+    </table>
 
-     <p>
-         망원 아쉬탕가 요가 마이솔 클래스</br>
- 강사: 양승현</br>
- 매주 화요일 - 일요일 | 07:00 - 09:30 | 06:30 수련실 개방</br>
-서울 마포구 동교로 43 4층 | <a href="https://naver.me/FlZkCAeu" target='_blank'>지도 보기</a></br>
-       </p>     	
-<p>
-	<table border="1">
-    <tr>
-        <th>월</th>
-        <th>화</th>
-        <th>수</th>
-        <th>목</th>
-        <th>금</th>
-        <th>토</th>
-<th>일</th>
-    </tr>
-    <tr>
-        <td colspan="1">휴 강</td>
-<td colspan="1">Led</td>
-   <td colspan="5">Mysore</td>
-    </tr>
-</table>
+    <table border="1">
+        <tr>
+            <td>주 2회</td>
+            <td>160,000원</td>
+        </tr>
+        <tr>
+            <td>주 3회</td>
+            <td>180,000원</td>
+        </tr>
+        <tr>
+            <td>무제한</td>
+            <td>200,000원</td>
+        </tr>
+        <tr>
+            <td>1회</td>
+            <td>30,000원</td>
+        </tr>
+        <tr>
+            <td>5회(유효기간: 1개월)</td>
+            <td>100,000원</td>
+        </tr>
+    </table>
 
-<table border="1">
-    <tr>
-        <td>주 2회</td>
-        <td>160,000원</td>
-    </tr>
-    <tr>
-        <td>주 3회</td>
-        <td>180,000원</td>
-    </tr>
-    <tr>
-        <td>무제한</td>
-        <td>200,000원</td>
-    </tr>
-    <tr>
-        <td>1회</td>
-        <td>30,000원</td>
-    </tr>
-    <tr>
-        <td>5회(유효기간: 1개월)</td>
-        <td>100,000원</td>
-    </tr>
-</table>
-<p class="mw" data-link="204-21-1570-557 국민">계좌 번호: 204-21-1570-557 국민 양승현</p>     
-</P>
- <ul>
-<li>- 주차 및 매트 보관 가능합니다.</li>
-<li>- 문데이 및 공휴일에는 휴강합니다.</li> 
-<li>- 휴대전화 사용 및 음료는 자제 부탁드립니다.</li> 
-<li>- 기간 정지는 사전에 문의 부탁드립니다.</li>
- </ul>
- <!--img src="2.jpg"-->
-   <p>
-        &nbsp;
-    </p>                                                      
-    <p>문의는 <a href="https://www.instagram.com/ashtanga_yang/" style="color: red; font-size: 16px;">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;">kakao&nbsp;</a>
-</p>
+    <p class="mw" data-link="204-21-1570-557 국민">계좌 번호: 204-21-1570-557 국민 양승현</p>     
 
-<p>
-        &nbsp;
-    </p>
-    	    <!-- 하단 고정 메뉴 -->
+    <ul>
+        <li>- 주차 및 매트 보관 가능합니다.</li>
+        <li>- 문데이 및 공휴일에는 휴강합니다.</li> 
+        <li>- 휴대전화 사용 및 음료는 자제 부탁드립니다.</li> 
+        <li>- 기간 정지는 사전에 문의 부탁드립니다.</li>
+    </ul>
+
+    <p>&nbsp;</p>                                                      
+    <p>문의는 <a href="https://www.instagram.com/ashtanga_yang/" style="color: red; font-size: 16px;">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;">kakao&nbsp;</a></p>
+
+    <p>&nbsp;</p>
+    
+    <!-- 하단 고정 메뉴 -->
     <div class="fixed-menu">
         <a href="index.html">소개</a>
-         <a href="class.html">수업</a>
-<a href="#"><u>안내</u></a>
+        <a href="class.html">수업</a>
+        <a href="#"><u>안내</u></a>
         <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-<a href="moonday.html">문데이</a>
+        <a href="moonday.html">문데이</a>
     </div>
-    </body>
-
+</body>
 </html>
-
-
