@@ -9,7 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 1. 계좌번호 클릭 복사 기능 (기존 코드)
+        // 1. 계좌번호 클릭 복사 기능
         document.body.addEventListener("click", function(e) {
             const text = e.target.dataset.link;
             if (!text) return;
@@ -63,7 +63,7 @@
             ja: {
                 translation: {
                     "updated": "2025.07.01 更新",
-                    "info_1": "望遠(マンウォン) アシュタンガヨ가 マイソールクラス",
+                    "info_1": "望遠(マンウォン) アシュタンガヨガ マイソールクラス",
                     "info_2": "講師: 梁承賢 (ヤン・スンヒョン)",
                     "info_3": "毎週 火曜日 - 日曜日 | 07:00 - 09:30 | 06:30 シャラ開放",
                     "info_4": "ソウル麻浦区東橋路43 4階 | ",
@@ -74,7 +74,7 @@
                     "account": "口座番号: 国民銀行 204-21-1570-557 ヤン・スンヒョン",
                     "notice_1": "- 駐車およびマットの保管可能です。",
                     "notice_2": "- ムーンデーおよび祝日は休講します。",
-                    "notice_3": "- 修練中の携帯電話の使用および飲料の摂取はご遠慮ください。",
+                    "notice_3": "- 修練中の携帯電話の使用および飲料의 摂取はご遠慮ください。",
                     "notice_4": "- 期間停止は事前にご連絡ください。",
                     "contact_text": "お問い合わせは ",
                     "menu_1": "紹介", "menu_2": "クラス", "menu_3": "案内", "menu_4": "問合せ", "menu_5": "ムーンデー"
@@ -83,7 +83,7 @@
         };
 
         i18next.init({
-            lng: 'ko', // 기본 언어
+            lng: 'ko', 
             resources: resources
         }, function(err, t) {
             updateContent();
@@ -96,11 +96,10 @@
             });
         }
 
-        // 글로벌 함수로 선언하여 버튼 클릭 시 호출 가능하게 설정
         window.changeLanguage = function(lng) {
             i18next.changeLanguage(lng, function(err, t) {
                 updateContent();
-                document.documentElement.lang = lng; // html lang 속성 변경
+                document.documentElement.lang = lng; 
             });
         }
     });
@@ -120,7 +119,7 @@
         font-family:"Song Myung",serif;
         font-size:1rem;
         line-height:1.4rem;
-        color: #616161; /* font-color를 color로 수정 */
+        color: #616161; 
     }
     table {
         width: 365px;
@@ -162,25 +161,23 @@
         color: #000;
     }
     .lang-switcher span:hover {
-        color: #blue;
+        color: blue; /* # 제거 완료 */
         font-weight: bold;
     }
 </style>
 </head>
 <body>
     
-   
     <p><img src="logo.jpg" class="logo-img"></p>
 
     <p><span style="color: blue; font-size:0.7rem;" data-i18n="updated">2025.07.01 updated</span></p>
 
- <!-- 언어 선택 상단 바 추가 -->
+    <!-- 언어 선택 상단 바 -->
     <div class="lang-switcher">
         <span onclick="changeLanguage('ko')">KR</span>|
         <span onclick="changeLanguage('en')">EN</span>|
         <span onclick="changeLanguage('ja')">JP</span>
     </div>
-
 
     <p>
         <span data-i18n="info_1">망원 아쉬탕가 요가 마이솔 클래스</span><br>
