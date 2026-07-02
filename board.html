@@ -1,174 +1,143 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>간단한 게시판</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .form-group button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .form-group button:hover {
-            background-color: #45a049;
-        }
-        .post-list {
-            margin-top: 20px;
-        }
-        .post-item {
-            padding: 15px;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-        .post-item h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-        .post-item p {
-            margin: 10px 0;
-        }
-        .post-item .controls {
-            text-align: right;
-        }
-        .post-item button {
-            background-color: #ff4d4d;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            color: white;
-            border-radius: 4px;
-        }
-        .post-item button:hover {
-            background-color: #e43f3f;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<title>Ashtanga_Yang</title>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.addEventListener("click", function(e) {
+            const text = e.target.dataset.link;
+            if (!text) return;
+
+            navigator.clipboard.writeText(text)
+                .catch(() => console.error("Copy failed!"));
+        });
+    });
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+    img { width:100%; max-width: 700px; }
+
+    ul {
+        list-style: none;  /* 기본 목록 스타일 제거 */
+        padding: 0;
+        margin: 0;
+        margin-top: 15px;  /* 계좌 정보가 빠진 자리에 안정적인 여백 추가 */
+    }
+
+    li {
+        margin-left: 15px;
+        font-family:"Song Myung",serif;
+        font-size:1rem;
+        line-height:1.4rem;
+        color: #616161; /* 오타 수정: font-color -> color */
+    }
+
+    table {
+        width: 365px; /* 테이블 너비 조정 */
+        border-collapse: collapse; /* 중복된 테두리 제거 */
+        margin-left: 15px;
+        font-family:"Song Myung",serif;
+        font-size: 0.8rem;
+        text-align: center;
+        border: 1px solid #fff; /* 테두리 스타일 */
+        margin-bottom: 10px;
+    }
+
+    th, td {
+        border: 2px solid #fff; /* 테두리 스타일 */
+        padding: 7px; /* 셀 안쪽 여백 */
+    }
+
+    th {
+        background-color: #E1F5FE; /* 테이블 헤더 배경색 */
+    }
+
+    tr:nth-child(even) {
+        background-color: #E1F5FE; /* 짝수 행 배경색 */
+    }
+
+    tr:hover {
+        background-color: yellow; /* 마우스 오버 시 배경색 변경 */
+    }
+</style>
 </head>
 <body>
+    <p>&nbsp;</p>
+    <p><img src="logo.jpg" class="logo-img"></p>
 
-<header>
-    <h1>간단한 게시판</h1>
-</header>
+    <p><span style="color: blue; font-size:0.7rem;">Updated 2025.07.01</span></p>
 
-<div class="container">
-    <div class="form-group">
-        <label for="title">제목</label>
-        <input type="text" id="title" placeholder="제목을 입력하세요">
+    <p>
+        Mangwon Ashtanga Yoga Mysore Class<br>
+        Teacher: Seunghyun Yang<br>
+        Tue - Sun | 07:00 - 09:30 | Shala opens at 06:30<br>
+        4F, 43, Donggyo-ro, Mapo-gu, Seoul | <a href="https://naver.me/FlZkCAeu" target='_blank'>View Map</a><br>
+    </p>     	
+    
+    <p>
+        <table border="1">
+            <tr>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+            <tr>
+                <td colspan="1">Closed</td>
+                <td colspan="1">Led</td>
+                <td colspan="5">Mysore</td>
+            </tr>
+        </table>
+
+        <table border="1">
+            <tr>
+                <td>2 times a week</td>
+                <td>160,000 KRW</td>
+            </tr>
+            <tr>
+                <td>3 times a week</td>
+                <td>180,000 KRW</td>
+            </tr>
+            <tr>
+                <td>Unlimited</td>
+                <td>200,000 KRW</td>
+            </tr>
+            <tr>
+                <td>1 time</td>
+                <td>30,000 KRW</td>
+            </tr>
+            <tr>
+                <td>5 times (Valid for 1 month)</td>
+                <td>100,000 KRW</td>
+            </tr>
+        </table>
+    </p>
+
+    <ul>
+        <li>- Parking and mat storage available.</li>
+        <li>- Closed on Moondays and public holidays.</li> 
+        <li>- Please refrain from using mobile phones and drinking beverages during practice.</li> 
+        <li>- Please inquire in advance for membership suspension.</li>
+    </ul>
+
+    <p>&nbsp;</p>                                                      
+    <p>Inquiries: <a href="https://www.instagram.com/ashtanga_yang/" style="color: red; font-size: 16px;">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;">kakao&nbsp;</a></p>
+
+    <p>&nbsp;</p>
+    
+    <!-- 하단 고정 메뉴 -->
+    <div class="fixed-menu">
+        <a href="index.html">Intro</a>
+        <a href="class.html">Class</a>
+        <a href="#"><u>Guide</u></a>
+        <a href="https://open.kakao.com/o/sCpd2RLf">Inquiry</a>
+        <a href="moonday.html">Moonday</a>
     </div>
-    <div class="form-group">
-        <label for="content">내용</label>
-        <textarea id="content" rows="4" placeholder="내용을 입력하세요"></textarea>
-    </div>
-    <div class="form-group">
-        <button onclick="addPost()">게시글 작성</button>
-    </div>
-
-    <div class="post-list" id="postList">
-        <!-- 게시글 목록이 여기에 표시됩니다. -->
-    </div>
-</div>
-
-<script>
-    const postListContainer = document.getElementById('postList');
-
-    // 게시글을 저장할 배열
-    let posts = [];
-
-    // 게시글 추가 함수
-    function addPost() {
-        const title = document.getElementById('title').value;
-        const content = document.getElementById('content').value;
-
-        if (!title || !content) {
-            alert('제목과 내용을 모두 입력해주세요!');
-            return;
-        }
-
-        const newPost = {
-            id: Date.now(), // 유일한 ID 생성 (현재 시간)
-            title,
-            content,
-            date: new Date().toLocaleString()
-        };
-
-        posts.push(newPost);
-        renderPosts(); // 게시글 목록을 다시 렌더링
-        resetForm(); // 입력 폼 초기화
-    }
-
-    // 게시글 목록 렌더링 함수
-    function renderPosts() {
-        postListContainer.innerHTML = ''; // 기존 목록 초기화
-
-        posts.forEach(post => {
-            const postItem = document.createElement('div');
-            postItem.classList.add('post-item');
-            postItem.setAttribute('data-id', post.id);
-
-            postItem.innerHTML = `
-                <h3>${post.title}</h3>
-                <p>${post.content}</p>
-                <p><small>작성일: ${post.date}</small></p>
-                <div class="controls">
-                    <button onclick="deletePost(${post.id})">삭제</button>
-                </div>
-            `;
-
-            postListContainer.appendChild(postItem);
-        });
-    }
-
-    // 게시글 삭제 함수
-    function deletePost(postId) {
-        posts = posts.filter(post => post.id !== postId); // 삭제하려는 ID를 제외한 새로운 배열로 업데이트
-        renderPosts(); // 게시글 목록을 다시 렌더링
-    }
-
-    // 입력 폼 초기화 함수
-    function resetForm() {
-        document.getElementById('title').value = '';
-        document.getElementById('content').value = '';
-    }
-</script>
-
 </body>
 </html>
