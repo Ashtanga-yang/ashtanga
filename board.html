@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
             if (!text) return;
 
             navigator.clipboard.writeText(text)
-                .catch(() => console.error("복사 실패!"));
+                .catch(() => console.error("Copy failed!"));
         });
     });
 </script>
@@ -24,6 +24,7 @@
         list-style: none;  /* 기본 목록 스타일 제거 */
         padding: 0;
         margin: 0;
+        margin-top: 15px;  /* 계좌 정보가 빠진 자리에 균형감 있는 위쪽 여백 추가 */
     }
 
     li {
@@ -31,7 +32,7 @@
         font-family:"Song Myung",serif;
         font-size:1rem;
         line-height:1.4rem;
-        color: #616161; /* [수정] font-color를 올바른 속성인 color로 변경 */
+        color: #616161; 
     }
 
     table {
@@ -66,28 +67,27 @@
     <p>&nbsp;</p>
     <p><img src="logo.jpg" class="logo-img" alt="Logo"></p>
 
-    <p><span style="color: blue; font-size:0.7rem;">2025.07.01 updated</span></p>
+    <p><span style="color: blue; font-size:0.7rem;">Updated 2025.07.01</span></p>
 
     <p>
-        망원 아쉬탕가 요가 마이솔 클래스<br>
-        강사: 양승현<br>
-        매주 화요일 - 일요일 | 07:00 - 09:30 | 06:30 수련실 개방<br>
-        서울 마포구 동교로 43 4층 | <a href="https://naver.me/FlZkCAeu" target='_blank'>지도 보기</a><br>
+        Mangwon Ashtanga Yoga Mysore Class<br>
+        Teacher: Seunghyun Yang<br>
+        Tue - Sun | 07:00 - 09:30 | Shala opens at 06:30<br>
+        4F, 43, Donggyo-ro, Mapo-gu, Seoul | <a href="https://naver.me/FlZkCAeu" target='_blank'>View Map</a><br>
     </p>     	
 
-    <!-- [수정] 테이블과 계좌번호를 감싸고 있던 비정상적인 p 태그들을 정돈 -->
     <table border="1">
         <tr>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-            <th>토</th>
-            <th>일</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
         </tr>
         <tr>
-            <td colspan="1">휴 강</td>
+            <td colspan="1">Closed</td>
             <td colspan="1">Led</td>
             <td colspan="5">Mysore</td>
         </tr>
@@ -95,48 +95,48 @@
 
     <table border="1">
         <tr>
-            <td>주 2회</td>
-            <td>160,000원</td>
+            <td>2 times a week</td>
+            <td>160,000 KRW</td>
         </tr>
         <tr>
-            <td>주 3회</td>
-            <td>180,000원</td>
+            <td>3 times a week</td>
+            <td>180,000 KRW</td>
         </tr>
         <tr>
-            <td>무제한</td>
-            <td>200,000원</td>
+            <td>Unlimited</td>
+            <td>200,000 KRW</td>
         </tr>
         <tr>
-            <td>1회</td>
-            <td>30,000원</td>
+            <td>1 time</td>
+            <td>30,000 KRW</td>
         </tr>
         <tr>
-            <td>5회(유효기간: 1개월)</td>
-            <td>100,000원</td>
+            <td>5 times (Valid for 1 month)</td>
+            <td>100,000 KRW</td>
         </tr>
     </table>
 
-    <p class="mw" data-link="204-21-1570-557 국민">계좌 번호: 204-21-1570-557 국민 양승현</p>     
+    <!-- 계좌 번호 문단(<p class="mw">)이 완벽히 제거되었습니다. -->
 
     <ul>
-        <li>- 주차 및 매트 보관 가능합니다.</li>
-        <li>- 문데이 및 공휴일에는 휴강합니다.</li> 
-        <li>- 휴대전화 사용 및 음료는 자제 부탁드립니다.</li> 
-        <li>- 기간 정지는 사전에 문의 부탁드립니다.</li>
+        <li>- Parking and mat storage available.</li>
+        <li>- Closed on Moondays and public holidays.</li> 
+        <li>- Please refrain from using mobile phones and drinking beverages during practice.</li> 
+        <li>- Please inquire in advance for membership suspension.</li>
     </ul>
 
     <p>&nbsp;</p>                                                      
-    <p>문의는 <a href="https://www.instagram.com/ashtanga_yang/" style="color: red; font-size: 16px;">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;">kakao&nbsp;</a></p>
+    <p>Inquiries: <a href="https://www.instagram.com/ashtanga_yang/" style="color: red; font-size: 16px;">instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;">kakao&nbsp;</a></p>
 
     <p>&nbsp;</p>
     
-    <!-- 하단 고정 메뉴 -->
+    <!-- 하단 고정 메뉴 영어화 -->
     <div class="fixed-menu">
-        <a href="index.html">소개</a>
-        <a href="class.html">수업</a>
-        <a href="#"><u>안내</u></a>
-        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-        <a href="moonday.html">문데이</a>
+        <a href="index.html">Intro</a>
+        <a href="class.html">Class</a>
+        <a href="#"><u>Guide</u></a>
+        <a href="https://open.kakao.com/o/sCpd2RLf">Inquiry</a>
+        <a href="moonday.html">Moonday</a>
     </div>
 </body>
 </html>
