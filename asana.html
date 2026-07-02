@@ -1,1 +1,257 @@
-https://docs.google.com/document/d/1KIQZjVd5L04lMnPcZ76Jr33hoGzcmzaFTK9X8fgG5rA/edit?usp=drivesdk
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<title>Ashtanga_Yang</title>
+<!-- i18next 라이브러리 추가 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. 계좌번호 클릭 복사 기능 (기존 코드)
+        document.body.addEventListener("click", function(e) {
+            const text = e.target.dataset.link;
+            if (!text) return;
+
+            navigator.clipboard.writeText(text)
+                .catch(() => console.error("복사 실패!"));
+        });
+
+        // 2. 다국어(i18next) 설정
+        const resources = {
+            ko: {
+                translation: {
+                    "updated": "2025.07.01 updated",
+                    "info_1": "망원 아쉬탕가 요가 마이솔 클래스",
+                    "info_2": "강사: 양승현",
+                    "info_3": "매주 화요일 - 일요일 | 07:00 - 09:30 | 06:30 수련실 개방",
+                    "info_4": "서울 마포구 동교로 43 4층 | ",
+                    "view_map": "지도 보기",
+                    "mon": "월", "tue": "화", "wed": "수", "thu": "목", "fri": "금", "sat": "토", "sun": "일",
+                    "closed": "휴 강",
+                    "week_2": "주 2회", "week_3": "주 3회", "unlimited": "무제한", "once": "1회", "five_times": "5회(유효기간: 1개월)",
+                    "account": "계좌 번호: 204-21-1570-557 국민 양승현",
+                    "notice_1": "- 주차 및 매트 보관 가능합니다.",
+                    "notice_2": "- 문데이 및 공휴일에는 휴강합니다.",
+                    "notice_3": "- 수련 중에는 휴대전화 사용 및 음료는 자제 부탁드립니다.",
+                    "notice_4": "- 기간 정지는 사전에 문의 부탁드립니다.",
+                    "contact_text": "문의는 ",
+                    "menu_1": "소개", "menu_2": "수업", "menu_3": "안내", "menu_4": "문의", "menu_5": "문데이"
+                }
+            },
+            en: {
+                translation: {
+                    "updated": "Updated 2025.07.01",
+                    "info_1": "Mangwon Ashtanga Yoga Mysore Class",
+                    "info_2": "Teacher: Seunghyun Yang",
+                    "info_3": "Tue - Sun | 07:00 - 09:30 | Shala opens at 06:30",
+                    "info_4": "4F, 43, Donggyo-ro, Mapo-gu, Seoul | ",
+                    "view_map": "View Map",
+                    "mon": "Mon", "tue": "Tue", "wed": "Wed", "thu": "Thu", "fri": "Fri", "sat": "Sat", "sun": "Sun",
+                    "closed": "Closed",
+                    "week_2": "2 times a week", "week_3": "3 times a week", "unlimited": "Unlimited", "once": "1 time", "five_times": "5 times (Valid for 1 month)",
+                    "account": "Account: Kookmin Bank 204-21-1570-557 Yang Seunghyun",
+                    "notice_1": "- Parking and mat storage available.",
+                    "notice_2": "- Closed on Moondays and public holidays.",
+                    "notice_3": "- Please refrain from using mobile phones and drinking beverages during practice.",
+                    "notice_4": "- Please inquire in advance for membership suspension.",
+                    "contact_text": "Inquiries: ",
+                    "menu_1": "Intro", "menu_2": "Class", "menu_3": "Guide", "menu_4": "Inquiry", "menu_5": "Moonday"
+                }
+            },
+            ja: {
+                translation: {
+                    "updated": "2025.07.01 更新",
+                    "info_1": "望遠(マンウォン) アシュタンガヨ가 マイソールクラス",
+                    "info_2": "講師: 梁承賢 (ヤン・スンヒョン)",
+                    "info_3": "毎週 火曜日 - 日曜日 | 07:00 - 09:30 | 06:30 シャラ開放",
+                    "info_4": "ソウル麻浦区東橋路43 4階 | ",
+                    "view_map": "地図を見る",
+                    "mon": "月", "tue": "火", "wed": "水", "thu": "木", "fri": "金", "sat": "土", "sun": "日",
+                    "closed": "休講",
+                    "week_2": "週2回", "week_3": "週3回", "unlimited": "無制限", "once": "1回", "five_times": "5回(有効期間: 1ヶ月)",
+                    "account": "口座番号: 国民銀行 204-21-1570-557 ヤン・スンヒョン",
+                    "notice_1": "- 駐車およびマットの保管可能です。",
+                    "notice_2": "- ムーンデーおよび祝日は休講します。",
+                    "notice_3": "- 修練中の携帯電話の使用および飲料の摂取はご遠慮ください。",
+                    "notice_4": "- 期間停止は事前にご連絡ください。",
+                    "contact_text": "お問い合わせは ",
+                    "menu_1": "紹介", "menu_2": "クラス", "menu_3": "案内", "menu_4": "問合せ", "menu_5": "ムーンデー"
+                }
+            }
+        };
+
+        i18next.init({
+            lng: 'ko', // 기본 언어
+            resources: resources
+        }, function(err, t) {
+            updateContent();
+        });
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(function(element) {
+                const key = element.getAttribute('data-i18n');
+                element.innerHTML = i18next.t(key);
+            });
+        }
+
+        // 글로벌 함수로 선언하여 버튼 클릭 시 호출 가능하게 설정
+        window.changeLanguage = function(lng) {
+            i18next.changeLanguage(lng, function(err, t) {
+                updateContent();
+                document.documentElement.lang = lng; // html lang 속성 변경
+            });
+        }
+    });
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+    img { width:100%; max-width: 700px; }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-left: 15px;
+        font-family:"Song Myung",serif;
+        font-size:1rem;
+        line-height:1.4rem;
+        color: #616161; /* font-color를 color로 수정 */
+    }
+    table {
+        width: 365px;
+        border-collapse: collapse;
+        margin-left: 15px;
+        font-family:"Song Myung",serif;
+        font-size: 0.8rem;
+        text-align: center;
+        border: 1px solid #fff;
+    }
+
+    th, td {
+        border: 2px solid #fff;
+        padding: 7px;
+    }
+
+    th {
+        background-color: #E1F5FE;
+    }
+
+    tr:nth-child(even) {
+        background-color: #E1F5FE;
+    }
+
+    tr:hover {
+        background-color: yellow;
+    }
+
+    /* 언어 선택 버튼 스타일 */
+    .lang-switcher {
+        text-align: right;
+        padding-right: 20px;
+        font-family: sans-serif;
+        font-size: 0.8rem;
+    }
+    .lang-switcher span {
+        cursor: pointer;
+        margin: 0 5px;
+        color: #888;
+    }
+    .lang-switcher span:hover {
+        color: #000;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    
+    <!-- 언어 선택 상단 바 추가 -->
+    <div class="lang-switcher">
+        <span onclick="changeLanguage('ko')">KR</span>|
+        <span onclick="changeLanguage('en')">EN</span>|
+        <span onclick="changeLanguage('ja')">JP</span>
+    </div>
+
+    <p><img src="logo.jpg" class="logo-img"></p>
+
+    <p><span style="color: blue; font-size:0.7rem;" data-i18n="updated">2025.07.01 updated</span></p>
+
+    <p>
+        <span data-i18n="info_1">망원 아쉬탕가 요가 마이솔 클래스</span><br>
+        <span data-i18n="info_2">강사: 양승현</span><br>
+        <span data-i18n="info_3">매주 화요일 - 일요일 | 07:00 - 09:30 | 06:30 수련실 개방</span><br>
+        <span data-i18n="info_4">서울 마포구 동교로 43 4층 | </span><a href="https://naver.me/FlZkCAeu" target='_blank' data-i18n="view_map">지도 보기</a>
+    </p>     	
+
+    <table border="1">
+        <tr>
+            <th data-i18n="mon">월</th>
+            <th data-i18n="tue">화</th>
+            <th data-i18n="wed">수</th>
+            <th data-i18n="thu">목</th>
+            <th data-i18n="fri">금</th>
+            <th data-i18n="sat">토</th>
+            <th data-i18n="sun">일</th>
+        </tr>
+        <tr>
+            <td colspan="1" data-i18n="closed">휴 강</td>
+            <td colspan="1">Led</td>
+            <td colspan="5">Mysore</td>
+        </tr>
+    </table>
+    <br>
+    <table border="1">
+        <tr>
+            <td data-i18n="week_2">주 2회</td>
+            <td>160,000원</td>
+        </tr>
+        <tr>
+            <td data-i18n="week_3">주 3회</td>
+            <td>180,000원</td>
+        </tr>
+        <tr>
+            <td data-i18n="unlimited">무제한</td>
+            <td>200,000원</td>
+        </tr>
+        <tr>
+            <td data-i18n="once">1회</td>
+            <td>30,000원</td>
+        </tr>
+        <tr>
+            <td data-i18n="five_times">5회(유효기간: 1개월)</td>
+            <td>100,000원</td>
+        </tr>
+    </table>
+
+    <p class="mw" data-link="204-21-1570-557 국민" data-i18n="account">계좌 번호: 204-21-1570-557 국민 양승현</p>     
+
+    <ul>
+        <li data-i18n="notice_1">- 주차 및 매트 보관 가능합니다.</li>
+        <li data-i18n="notice_2">- 문데이 및 공휴일에는 휴강합니다.</li> 
+        <li data-i18n="notice_3">- 수련 중에는 휴대전화 사용 및 음료는 자제 부탁드립니다.</li> 
+        <li data-i18n="notice_4">- 기간 정지는 사전에 문의 부탁드립니다.</li>
+    </ul>
+
+    <p>&nbsp;</p>                                                      
+    <p>
+        <span data-i18n="contact_text">문의는 </span>
+        <a href="https://www.instagram.com/ashtanga_yang/" style="color: red; font-size: 16px;">instagram</a> | 
+        <a href="https://open.kakao.com/o/sCpd2RLf" style="color: red; font-size: 16px;">kakao&nbsp;</a>
+    </p>
+
+    <p>&nbsp;</p>
+    
+    <!-- 하단 고정 메뉴 -->
+    <div class="fixed-menu">
+        <a href="index.html" data-i18n="menu_1">소개</a>
+        <a href="class.html" data-i18n="menu_2">수업</a>
+        <a href="#" data-i18n="menu_3"><u>안내</u></a>
+        <a href="https://open.kakao.com/o/sCpd2RLf" data-i18n="menu_4">문의</a>
+        <a href="moonday.html" data-i18n="menu_5">문데이</a>
+    </div>
+</body>
+</html>
