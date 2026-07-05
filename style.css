@@ -51,8 +51,8 @@ html {
 /* code for the sun */
 #sun {
 	position:absolute;
-	top:210px;
-	left:220px;
+	top:240px;
+	left:240px;
 	margin:0;
 	width:10px;
 	height:10px;
