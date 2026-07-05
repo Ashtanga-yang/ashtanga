@@ -2,79 +2,38 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./style.css">
 <title>Ashtanga_Yang</title>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.body.addEventListener("click", function(e) {
-            const text = e.target.dataset.link;
-            if (!text) return;
-
-            navigator.clipboard.writeText(text)
-                .then(() => alert("계좌번호가 복사되었습니다.")) // 복사 성공 피드백 추가
-                .catch(() => console.error("복사 실패!"));
-        });
-    });
-</script>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
     
+    /* 기본 폰트 적용 및 여백 정돈 */
     body {
-        font-family: "Song Myung", serif;
-        line-height: 1.6;
+        font-family: 'Song Myung', serif;
+        line-height: 1.8;
         color: #333;
-        padding-bottom: 60px; /* 하단 고정 메뉴 공간 확보 */
+        margin: 0;
+        padding-bottom: 80px; /* 하단 메뉴 공간 */
     }
-
+    .container {
+        padding: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
     img.logo-img { width: 100%; max-width: 700px; display: block; margin: 0 auto; }
-
-    .update-date { color: blue; font-size: 0.7rem; margin-left: 15px; }
-    .info-section { margin-left: 15px; font-size: 1rem; color: #444; }
-
-    /* 테이블 공통 스타일 */
-    table {
-        width: calc(100% - 30px);
-        max-width: 365px;
-        border-collapse: collapse;
-        margin: 20px 15px;
-        font-size: 0.85rem;
-        text-align: center;
-        border: 1px solid #ccc;
-    }
-
-    th, td {
-        border: 1px solid #e0e0e0;
-        padding: 10px 7px;
-    }
-
-    th { background-color: #E1F5FE; font-weight: normal; }
-    tr:nth-child(even) { background-color: #F9FBFD; }
-    tr:hover { background-color: #FFFDE7; } /* 너무 튀는 노란색에서 부드러운 노란색으로 변경 */
-
-    /* 안내 문구 리스트 */
-    ul { list-style: none; padding: 0; margin: 20px 15px; }
-    li {
-        font-size: 0.9rem;
-        line-height: 1.6rem;
-        color: #616161;
-    }
-
-    /* 계좌 번호 스타일 */
-    .mw {
-        margin-left: 15px;
-        padding: 10px;
-        background-color: #f5f5f5;
-        display: inline-block;
-        cursor: pointer;
-        border-radius: 4px;
-        font-size: 0.9rem;
-    }
-    .mw:hover { background-color: #e0e0e0; }
-
-    .contact-links { margin-left: 15px; }
-
-    /* 하단 고정 메뉴 스타일 예시 (style.css에 없다면 사용) */
+    
+    /* 구식 font 태그 대신 스타일 클래스 활용 */
+    .sub1 { font-weight: bold; color: #222; }
+    .sub2 { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
+    .accent-red { color: #d32f2f; }
+    .accent-blue { color: #1976d2; text-decoration: none; font-weight: bold; }
+    
+    .mantra { line-height: 2; color: #666; font-size: 0.95rem; }
+    .philosophy { font-size: 1.1rem; letter-spacing: 2px; word-spacing: 5px; margin: 30px 0; }
+    
+    /* 하단 고정 메뉴 스타일 (style.css와 연동 체크) */
     .fixed-menu {
         position: fixed;
         bottom: 0;
@@ -84,8 +43,8 @@
         border-top: 1px solid #ddd;
         display: flex;
         justify-content: space-around;
-        padding: 12px 0;
-        font-size: 0.9rem;
+        padding: 15px 0;
+        font-size: 0.95rem;
         z-index: 1000;
     }
     .fixed-menu a { text-decoration: none; color: #333; }
@@ -93,97 +52,96 @@
 </head>
 <body>
 
-    <div>
-        <img src="logo.jpg" class="logo-img" alt="Ashtanga Yang Logo">
+<div class="container">
+	
+    <!-- 로고 영역 -->
+    <p><img src="logo.jpg" class="logo-img" alt="Ashtanga Yang Logo"></p>
+
+    <!-- 시작 만트라 -->
+	<p class="mantra">
+		 ॐ<br>
+		 वन्दे गुरूणां चरणारविन्दे सन्दर्शितस्वात्मसुखावबोधे ।<br>
+		 निःश्रेयसे जाङ्गलिकायमाने संसारहालाहलमोहशान्त्यै ॥<br>
+		 आबाहुपुरुषाकारं शङ्खचक्रासिधारिणम् ।<br>
+		 सहस्रशिरसं श्वेतं प्रणमामि पतञ्जलिम् ॥ <br>
+		 ॐ
+	</p>
+
+    <!-- 애니메이션/오브젝트 그래픽 영역 -->
+	<div id="sun">
+		<div id="rings">
+			<div></div><div></div><div></div><div></div>
+		</div>
+	</div>
+	<div class="moon">
+		<div class="disc"></div>
+	</div>
+
+    <!-- 비디오 영역 -->
+    <div class="bg-video">
+        <video width="100%" style="max-width:365px;" height="auto" poster="mainvp.jpg" autoplay muted loop playsinline>
+            <source src="mainv_1.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <p class="update-date">2025.07.01 updated</p>
+    <!-- 좌우명 / 슬로건 -->
+	<p class="philosophy">逍遙遊 | 無爲自然 | 照顧脚하</p>
 
-    <div class="info-section">
-        <strong>망원 아쉬탕가 마이솔 클래스</strong><br>
-        강사: 양승현<br>
-        매주 화요일 - 일요일 | 07:00 - 09:30 (06:30 수련실 개방)<br>
-        서울 마포구 동교로 43 4층 | <a href="https://naver.me/FlZkCAeu" target='_blank'>지도 보기</a>
-    </div>     	
-
-    <!-- 요일별 프로그램 테이블 (직관적으로 수정) -->
-    <table>
-        <thead>
-            <tr>
-                <th>월</th>
-                <th>화</th>
-                <th>수</th>
-                <th>목</th>
-                <th>금</th>
-                <th>토</th>
-                <th>일</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="color: #999;">휴강</td>
-                <td>Led</td>
-                <td>Mysore</td>
-                <td>Mysore</td>
-                <td>Mysore</td>
-                <td>Mysore</td>
-                <td>Mysore</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- 가격 테이블 -->
-    <table>
-        <tbody>
-            <tr>
-                <td>주 2회</td>
-                <td>160,000원</td>
-            </tr>
-            <tr>
-                <td>주 3회</td>
-                <td>180,000원</td>
-            </tr>
-            <tr>
-                <td>무제한</td>
-                <td>200,000원</td>
-            </tr>
-            <tr>
-                <td>1회</td>
-                <td>30,000원</td>
-            </tr>
-            <tr>
-                <td>5회 (유효기간: 1개월)</td>
-                <td>100,000원</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- 클릭 시 복사 기능 유지 -->
-    <p class="mw" data-link="204-21-1570-557 국민">
-        💰 <strong>계좌 번호:</strong> 204-21-1570-557 국민 (양승현) <span style="font-size:0.75rem; color:#888;">[클릭 시 복사]</span>
-    </p>     
-
-    <ul>
-        <li>• 주차 및 매트 보관 가능합니다.</li>
-        <li>• 문데이 및 공휴일에는 휴강합니다.</li> 
-        <li>• 수련실 내 휴대전화 사용 및 음료 섭취는 자제 부탁드립니다.</li> 
-        <li>• 기간 정지는 사전에 문의 부탁드립니다.</li>
-    </ul>
-
-    <p class="contact-links">
-        문의: 
-        <a href="https://www.instagram.com/ashtanga_yang/" target="_blank" style="color: red;">Instagram</a> | 
-        <a href="https://open.kakao.com/o/sCpd2RLf" target="_blank" style="color: red;">Kakao Talk</a>
+    <!-- 소개 글 생성 (구조화) -->
+	<h3><u>저는</u></h3>
+	<p>
+        <strong>양승현</strong> Seung-hyun, Yang<br>
+	    <span class="sub1">아쉬탕가 요가 수련자입니다.</span><br>
+	    I'm an Ashtanga yoga practitioner.
+	</p>
+    <p>
+        제가 수련한 것을 가르치고, 가르친 것을 수련하고 있습니다.<br>
+        <em>I teach what I practice, and I practice what I teach.</em>
     </p>
 
-    <!-- 하단 고정 메뉴 -->
-    <div class="fixed-menu">
-        <a href="index.html">소개</a>
-        <a href="class.html">수업</a>
-        <a href="#"><strong>안내</strong></a>
-        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
-        <a href="moonday.html">문데이</a>
-    </div>
+	<h3><u>수련은</u></h3>
+	<p class="sub2">
+		<span class="accent-red">2018.04 -</span><br>
+		김동진 Dong-jin, Kim &amp; 김하영 Ha-young, Kim<br>
+		Seoul, Korea
+	</p>
+	<p class="sub2">
+		2022.11 - 12<br>
+		Sharath Jois (SYC)<br>
+		Mysuru, India
+	</p>
+	<p class="sub2">
+		2019.12 - 2020.01 / 2018.12 - 2019.01<br>
+		Rolf Naujokat<br>
+		Goa, India
+	</p>
+
+	<h3><u>수업은</u></h3>
+	<p>
+		<a href="mw.html" class="accent-blue">망원 아쉬탕가 요가 마이솔 클래스</a><br>
+		매주 화요일 - 일요일 | 오전 7:00 - 9:30 (06:30 수련실 개방)<br>
+		위치: [ 몸춤 ] 서울 마포구 동교로 43 4층 (주차 가능)<br>
+		자세한 내용은 <a href="mw.html">여기</a>를 참고해 주세요.<br>
+		문의: <a href="https://www.instagram.com/ashtanga_yang/" target="_blank">Instagram</a> | <a href="https://open.kakao.com/o/sCpd2RLf" target="_blank">Kakao Talk</a>
+	</p>
+
+    <!-- 마무라 만트라 -->
+	<p class="mantra">
+		 ॐ<br>
+		 स्वस्तिप्रजाभ्यः परिपालयन्तां न्याئےन मार्गेण महीं महीशाः |<br>
+		 गोब्राह्मणेभ्यः शुभमस्तु नित्यं लोकाः समस्ताः सुखಿನो भवन्तु ‖<br>
+		 ॐ शान्तिः शान्तिः शान्तिः ‖
+	</p>
+
+</div> <!-- .container 끝 -->
+
+<!-- 하단 고정 메뉴 -->
+<div class="fixed-menu">
+    <a href="#"><u>소개</u></a>
+    <a href="mw.html">수업</a>
+    <a href="moonday.html">문데이</a>
+    <a href="https://open.kakao.com/o/sCpd2RLf" target="_blank">문의</a>
+</div>
 
 </body>
 </html>
