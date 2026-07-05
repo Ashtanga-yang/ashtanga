@@ -1,119 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>요가 시간표</title>
-  <style>
-    :root{--accent:#6b8e23;--muted:#666}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;margin:24px;background:#fbfbfb;color:#222}
-    .container{max-width:980px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(15,15,15,0.06)}
-    h1{font-size:1.6rem;margin:0 0 8px;color:var(--accent)}
-    p.lead{margin:0 0 18px;color:var(--muted)}
-    table{width:100%;border-collapse:collapse;table-layout:fixed}
-    th,td{border:1px solid #eee;padding:10px;font-size:0.95rem;vertical-align:middle;text-align:center}
-    th{background:#fafafa;color:#333}
-    .time{width:96px;background:#fcfcfc;font-weight:600}
-    .class{font-weight:700}
-    .meta{display:block;font-size:0.78rem;color:var(--muted);margin-top:6px}
-    .studio{font-size:0.78rem;background:#f5f7f2;border-radius:6px;padding:4px 6px;display:inline-block;margin-top:6px}
-    .legend{margin-top:14px;font-size:0.9rem}
-    .controls{display:flex;gap:8px;justify-content:flex-end;margin-bottom:10px}
-    button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
-    button.secondary{background:#eee;color:#333}
-    @media (max-width:720px){
-      table,thead,tbody,th,td,tr{display:block}
-      thead{display:none}
-      tr{margin-bottom:12px}
-      td{border:0;padding:6px;background:#fff}
-      .time{background:transparent;text-align:left;padding-left:0}
-      .cell-inner{display:flex;justify-content:space-between;align-items:center}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<title>Ashtanga_Yang</title>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.addEventListener("click", function(e) {
+            const text = e.target.dataset.link;
+            if (!text) return;
+
+            navigator.clipboard.writeText(text)
+                .then(() => alert("계좌번호가 복사되었습니다.")) // 복사 성공 피드백 추가
+                .catch(() => console.error("복사 실패!"));
+        });
+    });
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+    
+    body {
+        font-family: "Song Myung", serif;
+        line-height: 1.6;
+        color: #333;
+        padding-bottom: 60px; /* 하단 고정 메뉴 공간 확보 */
     }
-  </style>
+
+    img.logo-img { width: 100%; max-width: 700px; display: block; margin: 0 auto; }
+
+    .update-date { color: blue; font-size: 0.7rem; margin-left: 15px; }
+    .info-section { margin-left: 15px; font-size: 1rem; color: #444; }
+
+    /* 테이블 공통 스타일 */
+    table {
+        width: calc(100% - 30px);
+        max-width: 365px;
+        border-collapse: collapse;
+        margin: 20px 15px;
+        font-size: 0.85rem;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        border: 1px solid #e0e0e0;
+        padding: 10px 7px;
+    }
+
+    th { background-color: #E1F5FE; font-weight: normal; }
+    tr:nth-child(even) { background-color: #F9FBFD; }
+    tr:hover { background-color: #FFFDE7; } /* 너무 튀는 노란색에서 부드러운 노란색으로 변경 */
+
+    /* 안내 문구 리스트 */
+    ul { list-style: none; padding: 0; margin: 20px 15px; }
+    li {
+        font-size: 0.9rem;
+        line-height: 1.6rem;
+        color: #616161;
+    }
+
+    /* 계좌 번호 스타일 */
+    .mw {
+        margin-left: 15px;
+        padding: 10px;
+        background-color: #f5f5f5;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+    .mw:hover { background-color: #e0e0e0; }
+
+    .contact-links { margin-left: 15px; }
+
+    /* 하단 고정 메뉴 스타일 예시 (style.css에 없다면 사용) */
+    .fixed-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        display: flex;
+        justify-content: space-around;
+        padding: 12px 0;
+        font-size: 0.9rem;
+        z-index: 1000;
+    }
+    .fixed-menu a { text-decoration: none; color: #333; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="controls">
-      <button onclick="window.print()">인쇄</button>
-      <button class="secondary" onclick="downloadHTML()">HTML 다운로드</button>
-    </div>
-    <h1>요가 시간표</h1>
-    <p class="lead">아쉬탕가 마이솔 및 스튜디오별 정기 수업 (작성: 사용자가 제공한 일정)</p>
 
-    <table aria-label="주간 요가 시간표">
-      <thead>
-        <tr>
-          <th class="time">시간</th>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-          <th>목</th>
-          <th>금</th>
-          <th>토</th>
-          <th>일</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="time">07:00 - 09:30</td>
-          <td></td>
-          <td><div class="class">아쉬탕가 마이솔</div><span class="meta">양승현</span></td>
-          <td><div class="class">아쉬탕가 마이솔</div><span class="meta">양승현</span></td>
-          <td><div class="class">아쉬탕가 마이솔</div><span class="meta">양승현</span></td>
-          <td><div class="class">아쉬탕가 마이솔</div><span class="meta">양승현</span></td>
-          <td><div class="class">아쉬탕가 마이솔</div><span class="meta">양승현</span></td>
-          <td><div class="class">아쉬탕가 마이솔</div><span class="meta">양승현</span></td>
-        </tr>
-        <tr>
-          <td class="time">10:30</td>
-          <td></td><td></td><td></td><td></td><td></td><td></td>
-          <td><div class="class">요가다솔</div><span class="meta">정기 수업</span></td>
-        </tr>
-        <tr>
-          <td class="time">18:40</td>
-          <td><div class="class">요가다솔</div><span class="meta">월</span></td>
-          <td></td>
-          <td><div class="class">요가다솔</div><span class="meta">수</span></td>
-          <td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-          <td class="time">20:00</td>
-          <td></td>
-          <td><div class="class">빈야사 요가</div><span class="meta">문요가</span></td>
-          <td></td>
-          <td><div class="class">빈야사 요가</div><span class="meta">문요가</span></td>
-          <td></td><td></td><td></td>
-        </tr>
-        <tr>
-          <td class="time">20:30</td>
-          <td><div class="class">풀라잉 인요가 + 싱잉볼 테라피</div><span class="meta">문요가</span></td>
-          <td></td><td></td><td></td>
-          <td><div class="class">플라잉 하타요가</div><span class="meta">문요가</span></td>
-          <td></td><td></td>
-        </tr>
-      </tbody>
+    <div>
+        <img src="logo.jpg" class="logo-img" alt="Ashtanga Yang Logo">
+    </div>
+
+    <p class="update-date">2025.07.01 updated</p>
+
+    <div class="info-section">
+        <strong>망원 아쉬탕가 마이솔 클래스</strong><br>
+        강사: 양승현<br>
+        매주 화요일 - 일요일 | 07:00 - 09:30 (06:30 수련실 개방)<br>
+        서울 마포구 동교로 43 4층 | <a href="https://naver.me/FlZkCAeu" target='_blank'>지도 보기</a>
+    </div>     	
+
+    <!-- 요일별 프로그램 테이블 (직관적으로 수정) -->
+    <table>
+        <thead>
+            <tr>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+                <th>일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="color: #999;">휴강</td>
+                <td>Led</td>
+                <td>Mysore</td>
+                <td>Mysore</td>
+                <td>Mysore</td>
+                <td>Mysore</td>
+                <td>Mysore</td>
+            </tr>
+        </tbody>
     </table>
 
-    <div class="legend">
-      <strong>메모:</strong>
-      <ul>
-        <li>아쉬탕가 마이솔: 화~일 07:00 - 09:30 (양승현)</li>
-        <li>문요가 수업: 월(20:30), 화·목(20:00), 금(20:30)</li>
-        <li>요가다솔: 월·수 18:40, 일 10:30</li>
-      </ul>
+    <!-- 가격 테이블 -->
+    <table>
+        <tbody>
+            <tr>
+                <td>주 2회</td>
+                <td>160,000원</td>
+            </tr>
+            <tr>
+                <td>주 3회</td>
+                <td>180,000원</td>
+            </tr>
+            <tr>
+                <td>무제한</td>
+                <td>200,000원</td>
+            </tr>
+            <tr>
+                <td>1회</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5회 (유효기간: 1개월)</td>
+                <td>100,000원</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 클릭 시 복사 기능 유지 -->
+    <p class="mw" data-link="204-21-1570-557 국민">
+        💰 <strong>계좌 번호:</strong> 204-21-1570-557 국민 (양승현) <span style="font-size:0.75rem; color:#888;">[클릭 시 복사]</span>
+    </p>     
+
+    <ul>
+        <li>• 주차 및 매트 보관 가능합니다.</li>
+        <li>• 문데이 및 공휴일에는 휴강합니다.</li> 
+        <li>• 수련실 내 휴대전화 사용 및 음료 섭취는 자제 부탁드립니다.</li> 
+        <li>• 기간 정지는 사전에 문의 부탁드립니다.</li>
+    </ul>
+
+    <p class="contact-links">
+        문의: 
+        <a href="https://www.instagram.com/ashtanga_yang/" target="_blank" style="color: red;">Instagram</a> | 
+        <a href="https://open.kakao.com/o/sCpd2RLf" target="_blank" style="color: red;">Kakao Talk</a>
+    </p>
+
+    <!-- 하단 고정 메뉴 -->
+    <div class="fixed-menu">
+        <a href="index.html">소개</a>
+        <a href="class.html">수업</a>
+        <a href="#"><strong>안내</strong></a>
+        <a href="https://open.kakao.com/o/sCpd2RLf">문의</a>
+        <a href="moonday.html">문데이</a>
     </div>
-  </div>
-  <script>
-    function downloadHTML(){
-      const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a');
-      a.href=url;a.download='yoga_timetable.html';a.click();
-      URL.revokeObjectURL(url);
-    }
-  </script>
+
 </body>
 </html>
-
-
-요일 표기가 “월화수목금토일” 형태로 수정되었습니다. 이제 표의 상단에 간단한 요일 형식으로 표시됩니다.
